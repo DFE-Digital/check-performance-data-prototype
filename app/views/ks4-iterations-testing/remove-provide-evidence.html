@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-!-padding-top-0" id="main-content" role="main">
+          
+
+<h1 class="govuk-heading-xl">Provide evidence for merging duplicate records for Billy B</h1>
+
+<details class="govuk-details" >
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+  What evidence do I need?
+</span>
+</summary>
+<div class="govuk-details__text">
+
+<div class="content-block content-block--content" id="block-journey-f34d285b-8660-4d12-9c30-787328deaa0a-merge-evidence">
+<div class="govuk-body">
+  <p class="govuk-body">
+    You must provide evidence to support your request, such as a letter from the headteacher notifying the parent or guardian of the permanent exclusion, or your request will be rejected.
+          </p>
+          <a class="govuk-link" href="guidance-ks4#removal-evidence" target="_blank">
+            Read full guidance on removing a pupil (opens in new tab)</a>
+</div>
+</details>
+
+<form method="post" enctype="multipart/form-data" action="/Journey/f34d285b-8660-4d12-9c30-787328deaa0a/page/evidence" novalidate="">
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8EQXv0juoFlGptDCuoEJ_9Ete-xOdWZprN3xaQDH-YXqWqoXPG-aHGqXgJW2Kxezetoeh6aXdfyO5eT_gVcYi_Nv6id1asvO6H0qNBeqehIlz_qkQCay1mixvHEAiLgp62lVLikNOAbdDSsAKUBJLR2w1yaBlumKIAsF8e8Q-qTJr1PbVtPTdaUDn-s5vN7OlA">
+<input type="hidden" name="fromSummary" value="false">
+
+
+<h2 class="govuk-heading-m">Upload files (optional)</h2>
+
+<p class="govuk-body" id="fileUpload-hint">Evidence must be in a PDF format</p>
+
+<table class="govuk-table govuk-!-margin-bottom-6">
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+  <th scope="col" class="govuk-table__header">Filename</th>
+  <th scope="col" class="govuk-table__header">File size</th>
+  <th scope="col" class="govuk-table__header">Pages</th>
+  <th scope="col" class="govuk-table__header">Type</th>
+  <th scope="col" class="govuk-table__header">Action</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+</tbody>
+</table>
+
+
+<div class="govuk-form-group ">
+<label class="govuk-label" for="fileUpload">Upload a file</label>
+<input class="govuk-file-upload " id="fileUpload" name="fileUpload" type="file" accept=".pdf,application/pdf" aria-describedby="fileUpload-hint" data-existing-file-names="[]">
+</div>
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/Journey/f34d285b-8660-4d12-9c30-787328deaa0a/page/evidence/question/evidence/upload?fromSummary=False" formnovalidate="formnovalidate" data-govuk-button-init="">Upload file</button>
+<p class="govuk-body govuk-!-margin-top-2">
+0 files added.
+</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+
+<div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="1000" data-govuk-character-count-init="">
+<label class="govuk-label govuk-label--m" for="q_how_evidence_supports">If the records are not similar, please provide supporting explanation (Optional)</label>
+<textarea class="govuk-textarea govuk-js-character-count" id="q_how_evidence_supports" name="q_how_evidence_supports" rows="5" aria-describedby="q_how_evidence_supports-info"></textarea><div id="q_how_evidence_supports-info" class="govuk-hint govuk-character-count__message govuk-visually-hidden">
+  You can enter up to 1000 characters
+</div><div class="govuk-hint govuk-character-count__message govuk-character-count__status" aria-hidden="true">You have 1,000 characters remaining</div><div class="govuk-character-count__sr-status govuk-visually-hidden" aria-live="polite">You have 1,000 characters remaining</div>
+
+</div>
+
+
+
+
+
+<button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/Journey/f34d285b-8660-4d12-9c30-787328deaa0a/draft?pageId=evidence" data-govuk-button-init="">Save and continue later</button>
+</form>
+
+<script src="/govuk-frontend.min.js?v=6.2.0" type="module"></script>
+<script type="module">
+import { initAll } from '/govuk-frontend.min.js?v=6.2.0'
+initAll()
+</script>
+
+
+
+
+  </main>
+  
+</div>
+
+{% endblock %}

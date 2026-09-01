@@ -253,3 +253,19 @@
     color: var(--govuk-text-colour, #0b0c0c);
     
 }
+
+
+.gem-c-single-page-notification-button__submit {
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #484949;
+    color: var(--govuk-link-colour, #1a65a6);
+    cursor: pointer;
+    background: none;
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+}

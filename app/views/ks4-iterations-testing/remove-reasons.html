@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+{% block beforeContent %}
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+<style>
+  /* Visually identical to a normal radio, but not interactive */
+  .govuk-radios__item--locked {
+    pointer-events: none;
+  }
+</style>
+
+<form method="post" action="/WhatToChange/f34d285b-8660-4d12-9c30-787328deaa0a" novalidate="" id="whatToChangeForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+    <fieldset class="govuk-fieldset" aria-describedby="SelectedWhatToChange-hint"><legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+           <h1 class="govuk-fieldset__heading">Why are you asking to remove Billy B from the performance data?</h1></legend>
+          <div id="SelectedWhatToChange-hint" class="govuk-hint">
+              Select one option.
+          </div>
+          
+          <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange" name="SelectedWhatToChange" type="radio" value="PermanentExclusion" checked>
+              <label for="SelectedWhatToChange" class="govuk-label govuk-radios__label">Admitted following permanent exclusion</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-2" name="SelectedWhatToChange" type="radio" value="AdmittedAbroad" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-2" class="govuk-label govuk-radios__label">Admitted from abroad with English not first language</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-3" name="SelectedWhatToChange" type="radio" value="MissingEducation" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-3" class="govuk-label govuk-radios__label">Child missing education</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-4" name="SelectedWhatToChange" type="radio" value="PupilDied" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-4" class="govuk-label govuk-radios__label">Pupil has died</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-5" name="SelectedWhatToChange" type="radio" value="DualRegisteredOrMoved" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-5" class="govuk-label govuk-radios__label">Duel registered or moved school</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-6" name="SelectedWhatToChange" type="radio" value="ElectiveHomeEducation" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-6" class="govuk-label govuk-radios__label">Elective home education</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-7" name="SelectedWhatToChange" type="radio" value="NotOnRoll" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-7" class="govuk-label govuk-radios__label">Not on roll</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-8" name="SelectedWhatToChange" type="radio" value="PermanentlyExcludedCurrentSchool" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-8" class="govuk-label govuk-radios__label">Permanently excluded from current school</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-9" name="SelectedWhatToChange" type="radio" value="PermanentlyLeftEngland" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-9" class="govuk-label govuk-radios__label">Permanently left England</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-10" name="SelectedWhatToChange" type="radio" value="SocialCareInvolvement" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-10" class="govuk-label govuk-radios__label">Social care involvement - including police or prison</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-11" name="SelectedWhatToChange" type="radio" value="LifeLimitingIllness" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-11" class="govuk-label govuk-radios__label">Life-limiting or critical illness</label>
+            </div>
+
+            <div class="govuk-radios__item govuk-radios__item--locked">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-12" name="SelectedWhatToChange" type="radio" value="YearGroupChange" tabindex="-1" aria-disabled="true">
+              <label for="SelectedWhatToChange-12" class="govuk-label govuk-radios__label">Year group change</label>
+            </div>
+
+        </div>
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+      </fieldset>
+    </div>
+</form>
+
+<script>
+(function () {
+var form = document.getElementById('whatToChangeForm');
+
+var pageMap = {
+  PermanentExclusion: 'remove-pupil-perm-exclusion.html'
+};
+
+// Belt-and-braces: even if pointer-events CSS is overridden or the
+// input is reached via keyboard, block it from becoming checked.
+var lockedInputs = form.querySelectorAll('.govuk-radios__item--locked .govuk-radios__input');
+lockedInputs.forEach(function (input) {
+  input.addEventListener('click', function (e) {
+    e.preventDefault();
+  });
+  input.addEventListener('keydown', function (e) {
+    e.preventDefault();
+  });
+});
+
+form.addEventListener('submit', function (e) {
+  var selected = form.querySelector('input[name="SelectedWhatToChange"]:checked');
+
+  if (!selected) {
+    return;
+  }
+
+  var target = pageMap[selected.value];
+
+  if (target) {
+    e.preventDefault();
+    window.location.href = target;
+  }
+});
+})();
+</script>
+
+{% endblock %}

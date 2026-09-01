@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+{% block beforeContent %}
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="remove-provide-evidence" novalidate="" id="removalReasonDetailsForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+
+  <h1 class="govuk-heading-l">What is the DfE number of the school which permanently excluded Billy B?</h1>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="DfeNumber">
+      For example, 5021353
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="DfeNumber" name="DfeNumber" type="text" inputmode="numeric">
+  </div>
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        How can I find a DfE number?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      To find the DfE number, search the school or college name on
+      <a class="govuk-link" href="https://get-information-schools.service.gov.uk/" target="_blank" rel="noopener noreferrer">Get Information about Schools (opens in new tab)</a>.
+    
+    </div>
+  </details>
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="excluded-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="excluded-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          When was Billy B was excluded?
+        </h2>
+      </legend>
+      <div id="excluded-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="excluded-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="excluded-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="excluded-date-day" name="ExcludedDate-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="excluded-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="excluded-date-month" name="ExcludedDate-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="excluded-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="excluded-date-year" name="ExcludedDate-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+{% endblock %}
