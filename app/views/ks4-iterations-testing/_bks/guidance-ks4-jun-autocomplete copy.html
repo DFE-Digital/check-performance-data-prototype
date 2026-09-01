@@ -1,0 +1,279 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Check your KS4 June performance measures data" %}
+{% set currentPage = "guidance" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+  
+    
+ <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+<ol class="govuk-breadcrumbs__list">
+<li class="govuk-breadcrumbs__list-item">
+  <a class="govuk-breadcrumbs__link" href="/">Home</a>
+</li>
+<li class="govuk-breadcrumbs__list-item">
+  <a class="govuk-breadcrumbs__link" href="/ks4-iterations/guidance-autocomplete">CYPMD help and support</a>
+</li>
+<li class="govuk-breadcrumbs__list-item" aria-current="page">Check your KS4 June performance measures data</li>
+</ol>
+</nav> 
+
+<div id="cypmd-guidance-intro">
+  <div class="govuk-body">
+    <p class="govuk-visually-hidden govuk-caption-l "> KS4 June 2026 guidance</p>
+  </div>
+
+  <h1 id="check-your-ks4-june-performance-measures-data" class="govuk-heading-xl govuk-!-margin-bottom-2">KS4 June 2026 guidance</h1>
+
+  <div class="govuk-body">
+<!--     <p class="govuk-body">Guidance for schools and colleges on how to use the check your performance measures data (CYPMD) service.</p> -->
+    <p class="govuk-body">This guidance will help you check your key stage 4 (KS4) data and request any changes during the June checking exercise.</p>
+    
+    <hr class="govuk-section-break--visible govuk-section-break">
+    
+    <!-- published etc. info-->
+    <div class="govuk-grid-row">
+      <div class="metadata-wrapper gem-print-columns-none ">
+        <div class="govuk-grid-full metadata-column">
+          <div data-module="metadata" class="gem-c-metadata" data-metadata-module-started="true">
+            <dl class="govuk-summary-list govuk-summary-list--no-border ">
+              <div class="govuk-summary-list__row govuk-body-s ">
+                <dt class="govuk-summary-list__value">
+                  Published
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  22 May 2026 - this guidance will be reviewed and updated before the KS4 June checking exercise 2027.
+                </dd>
+              </div>
+  
+              <div class="govuk-summary-list__row govuk-body-s">
+                <dt class="govuk-summary-list__value">
+                  Last updated
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  7 July 2026
+                </dd>
+              </div>
+  
+              <div class="govuk-summary-list__row govuk-body-s">
+                <dt class="govuk-summary-list__value">
+                  <p class="govuk-body-s"><a class="govuk-link" href="#">Download KS4 June 2026 guidance as a PDF</a></p>
+  
+                </dt>
+               
+              </div>
+  
+       
+            </dl>
+    </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+        </div>
+      </div>
+    </div>
+
+
+    
+    
+    <div class="cypmd-search-container govuk-grid-full">
+    <form class="cypmd-search" data-module="cypmd-topic-autocomplete" role="search" method="get" action="#cypmd-guidance-sections" novalidate>
+      <div class="govuk-form-group">
+        <label id="cypmd-search-label" class="govuk-label govuk-label--s" for="search">Search the KS4 June 2026 guidance</label>
+        <div id="cypmd-search-hint" class="govuk-hint">Enter 3 or more characters to see guidance topics.</div>
+        <div class="cypmd-search__row">
+          <div class="cypmd-autocomplete">
+            <input class="govuk-input cypmd-search__input" id="search" name="q" type="search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="cypmd-topic-suggestions" aria-describedby="cypmd-search-hint cypmd-search-results-status">
+            <ul id="cypmd-topic-suggestions" class="cypmd-autocomplete__suggestions" role="listbox" aria-labelledby="cypmd-search-label" hidden></ul>
+          </div>
+          <button class="govuk-button cypmd-search__button" data-module="govuk-button" type="submit">
+            Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+   
+  </div>
+
+
+
+
+  
+
+
+<!--   <div class="govuk-body">
+    <div class="cypmd-published">
+      <p class="cypmd-published__heading">Published: May 2026</p>
+      <p class="govuk-body">This guidance will be reviewed and updated before the KS4 June checking exercise 2027.</p>
+    </div>
+  </div> -->
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <nav class="moj-side-navigation" aria-label="Page contents">
+      <ul class="moj-side-navigation__list" id="cypmd-guidance-nav">
+        <li class="moj-side-navigation__item moj-side-navigation__item--active cypmd-guidance-nav-item">
+          <a href="#" aria-current="page">Check your KS4 June performance measures data</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">What data to check in June and Autumn</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">How to check your data</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">What if your school has closed and reopened</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">Remove a pupil that has been added back to the data</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">How to check your pupil data</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">How pupil mobility is calculated</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">Merge pupil records</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">Request to include a pupil</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">Adding an unlisted pupil</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">How to remove a pupil from your data</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">Evidence required for removing a pupil</a>
+        </li>
+        <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+          <a href="#">Get support with the CYPMD service</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="filterable" class="govuk-grid-column-two-thirds">
+
+  
+
+    <p id="cypmd-search-results-status" class="govuk-visually-hidden" aria-live="polite" aria-atomic="true"></p>
+
+
+
+    <div id="cypmd-guidance-sections">
+
+      <section class="cypmd-guidance-section" aria-labelledby="changes-since-2025">
+        <div class="cypmd-guidance-section__meta">
+          <h2 id="changes-since-2025" class="govuk-heading-l">Changes since 2025</h2>
+          <div class="govuk-body">
+            <p class="govuk-body">We've made the following updates to the CYPMD service since last year:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>you can now <a class="govuk-link" href="#">request to add an unlisted pupil</a> in the service, instead of using an online form</li>
+              <li>we've improved the <a class="govuk-link" href="#">merge duplicate pupil records option</a></li>
+              <li>we've updated the <a class="govuk-link" href="#">child missing education option</a> to reflect current legislation</li>
+              <li>we've enhanced the <a class="govuk-link" href="#">add back removal options</a></li>
+              <li>the service now includes information to help you understand when and how to submit amendment requests</li>
+              <li>CSV files are now sorted alphabetically by surname</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cypmd-guidance-section" aria-labelledby="key-dates">
+        <div class="cypmd-guidance-section__meta">
+          <h2 id="key-dates" class="govuk-heading-l">Key dates</h2>
+          <div class="govuk-body">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">15 June 2026</dt>
+                <dd class="govuk-summary-list__value">KS4 June checking exercise opens in the CYPMD service.</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">26 June 2026</dt>
+                <dd class="govuk-summary-list__value">Checking exercise closes at 5pm. You must submit all requests and supporting evidence before this deadline.</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">October 2026</dt>
+                <dd class="govuk-summary-list__value">Autumn checking exercise opens.</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">October 2026</dt>
+                <dd class="govuk-summary-list__value">Provisional 2025 to 2026 secondary school performance measures are published. A national statistics release will be published on the same day, showing headline measures for England and key pupil groups.</dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Early 2027</dt>
+                <dd class="govuk-summary-list__value">Revised 2025 to 2026 secondary school performance measures are published.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="cypmd-guidance-section" aria-labelledby="about-this-guidance">
+        <div class="cypmd-guidance-section__meta">
+          <h2 id="about-this-guidance" class="govuk-heading-l">About this guidance</h2>
+          <div class="govuk-body">
+            <p class="govuk-body">This is non-statutory guidance from the Department for Education (DfE). It helps state-funded secondary schools, special schools, independent schools, and FE colleges with 14 to 16 provision understand their responsibilities for checking their performance data.</p>
+            <h3 class="govuk-heading-s govuk-heading-m">What we mean in this guidance</h3>
+            <p><strong>School:</strong> any organisation eligible to take part in the KS4 June checking exercise</p>
+            <p><strong>Pupil:</strong> includes students in FE colleges with 14 to 16 provision</p>
+            <p><strong>Exam period:</strong> 7 May to 23 June 2026 – see <a class="govuk-link" href="#">Ofqual guidance for further information</a></p>
+            <p><strong>Spring census day 2026:</strong> 15 January 2026 – see <a class="govuk-link" href="#">census dates guidance for further information</a></p>
+            <p><strong>Checking exercise:</strong> the KS4 June checking exercise</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cypmd-guidance-section" aria-labelledby="who-this-guidance-is-for">
+        <div class="cypmd-guidance-section__meta">
+          <h2 id="who-this-guidance-is-for" class="govuk-heading-l">Who this guidance is for</h2>
+          <div class="govuk-body">
+            <ul class="govuk-list govuk-list--bullet">
+              <li>school leaders, school staff and governing bodies in all state funded secondary schools (maintained schools, academies, free schools, studio schools and university technical colleges)</li>
+              <li>special schools (maintained schools, academies and free schools)</li>
+              <li>registered independent schools</li>
+              <li>further education colleges with 14 to 16 provision</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cypmd-guidance-section" aria-labelledby="what-the-ks4-performance-measures-cover-in-the-2025-to-2026-academic-year">
+        <div class="cypmd-guidance-section__meta">
+          <h2 id="what-the-ks4-performance-measures-cover-in-the-2025-to-2026-academic-year" class="govuk-heading-l">What the KS4 performance measures cover in the 2025 to 2026 academic year</h2>
+          <div class="govuk-body">
+            <p class="govuk-body">The DfE publishes school performance measures every year. These measures help compare how well schools support pupils' attainment and progress.</p>
+            <p class="govuk-body">The 2025 to 2026 KS4 performance measures will cover pupils who completed their KS4 studies in that academic year. This may include some qualifications achieved in earlier years, such as 2024 to 2025.</p>
+            <p class="govuk-body">Progress 8 will not be included for 2025 to 2026. This is because there is no Key Stage 2 (KS2) prior attainment data available from COVID-affected years, which is needed to calculate Progress 8. There will be no replacement measure.</p>
+            <p class="govuk-body">English Baccalaureate (EBacc) headline and additional measures will also be removed from 2025 to 2026, following <a class="govuk-link" href="#">our response to the Curriculum and Assessment Review</a>.</p>
+            <p class="govuk-body">You can find more information about how KS4 performance measures are calculated in the <a class="govuk-link" href="#">secondary accountability measures guidance</a>.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+
+  </div>
+</div>
+
+<div class="app-back-to-top">
+  <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+    <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+      <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+    </svg>Back to top
+  </a>
+</div>
+
+  </main>
+</div>
+
+{% endblock %}

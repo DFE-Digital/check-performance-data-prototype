@@ -1,0 +1,56 @@
+.column-card {
+
+  .column-card__item {
+    border-bottom: 1px solid $govuk-border-colour;
+    padding-top: govuk-spacing(3);
+    padding-bottom: govuk-spacing(3);
+    margin-bottom: govuk-spacing(6);
+    position: relative;
+  }
+
+  h2 {
+    margin-bottom: govuk-spacing(1);
+    @include govuk-font(24);
+    font-weight: bold;
+  }
+
+  .flexContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+  }
+
+  .govuk-tag {
+    position: absolute;
+    top: govuk-spacing(4);
+    right: 0;
+    font-size: 1.2em;
+  }
+
+  .column-card__body-text-bold{
+    padding-top: govuk-spacing(0);
+    padding-bottom: govuk-spacing(0);
+    margin-top: govuk-spacing(0);
+    margin-bottom: govuk-spacing(0);
+  }
+
+  .column-card__body-text{
+    padding-top: govuk-spacing(1);
+    padding-bottom: govuk-spacing(4);
+    margin-top: govuk-spacing(0);
+    margin-bottom: govuk-spacing(0);
+  }
+
+  // .govuk-summary-list {
+  //   margin-bottom: 0;
+  //   @include govuk-font(16);
+  // }
+
+  // .govuk-summary-list__key,
+  // .govuk-summary-list__value {
+  //   padding-bottom: 0;
+  // }
+
+}

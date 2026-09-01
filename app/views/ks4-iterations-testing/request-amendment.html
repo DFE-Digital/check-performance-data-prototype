@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+{% block beforeContent %}
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<form method="post" action="/WhatToChange/f34d285b-8660-4d12-9c30-787328deaa0a" novalidate="" id="whatToChangeForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+    <fieldset class="govuk-fieldset" aria-describedby="SelectedWhatToChange-hint"><legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+           <h1 class="govuk-fieldset__heading">What pupil data would you like to change?</h1></legend>
+          <div id="SelectedWhatToChange-hint" class="govuk-hint">
+              Select one option.
+          </div>
+          
+          <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange" name="SelectedWhatToChange" type="radio" value="Merge">
+              <label for="SelectedWhatToChange" class="govuk-label govuk-radios__label">Merge duplicate pupil records</label>
+            </div>
+            
+            <div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedWhatToChange-2" name="SelectedWhatToChange" type="radio" value="Include">
+            <label for="SelectedWhatToChange-2" class="govuk-label govuk-radios__label">Include a pupil in data</label>
+            </div>
+
+            <div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedWhatToChange-3" name="SelectedWhatToChange" type="radio" value="Remove">
+            <label for="SelectedWhatToChange-3" class="govuk-label govuk-radios__label">Remove a pupil from data</label>
+            </div>
+
+        </div>
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+      </fieldset>
+    </div>
+
+</form>
+
+<script>
+(function () {
+var form = document.getElementById('whatToChangeForm');
+
+var pageMap = {
+  Merge: 'merge-pupil.html',
+  Include: 'include-pupil.html',
+  Remove: 'remove-pupil.html'
+};
+
+form.addEventListener('submit', function (e) {
+  var selected = form.querySelector('input[name="SelectedWhatToChange"]:checked');
+
+  if (!selected) {
+    // No option chosen - let the normal form submission happen
+    // so any server-side / GOV.UK error summary validation kicks in.
+    return;
+  }
+
+  var target = pageMap[selected.value];
+
+  if (target) {
+    e.preventDefault();
+    window.location.href = target;
+  }
+});
+})();
+</script>
+
+     
+  
+{% endblock %}

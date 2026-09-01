@@ -4,3 +4,252 @@
 // 
 
 // Add extra styles here
+
+
+
+.cypmd-published {
+    background: #e8f1f8;
+    border-left: 5px solid #1d70b8;
+    padding: 20px 20px 5px;
+    margin-bottom: 30px;
+}
+
+
+.cypmd-published__heading {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+
+/* Information callout (no border) — a darker blue than the published callout,
+   per the design — e.g. "the next exercise opens…". */
+   .cypmd-notice {
+    background: #d2e2f1;
+    padding: 20px 20px 5px;
+    margin-bottom: 30px;
+  }
+
+
+  .dfe-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px
+}
+
+@media (min-width: 40.0625em) {
+    .dfe-grid-container {
+        display:grid;
+        grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+        gap: 30px
+    }
+}
+
+.dfe-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #b1b4b6;
+    //max-width: 400px
+}
+
+@media (max-width: 40.0525em) {
+    .dfe-card {
+        max-width:100%
+    }
+}
+
+.dfe-card>picture,.dfe-card>picture>img {
+    max-width: 100%
+}
+
+.dfe-card-container {
+    padding: 24px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column
+}
+
+.dfe-card-container :last-child {
+    margin-top: auto
+}
+
+.dfe-card-container h2+p:last-child,.dfe-card-container h3+p:last-child {
+    margin-top: 0
+}
+
+.dfe-card:focus-within,.dfe-card:hover {
+    background-color: #003a69
+}
+
+.dfe-card:focus-within .govuk-heading-m,.dfe-card:focus-within a,.dfe-card:focus-within p,.dfe-card:hover .govuk-heading-m,.dfe-card:hover a,.dfe-card:hover p {
+    color: #fff
+}
+
+.dfe-card:focus-within {
+    outline: 3px solid #fd0
+}
+
+.dfe-card-container .dfe-card-link--header:focus,.dfe-card-container .dfe-card-link--retake:focus {
+    color: #0b0c0c
+}
+
+.dfe-card-link--retake {
+    position: relative;
+    z-index: 2
+}
+
+.dfe-card-link--header {
+    text-decoration: none;
+    color: #347ca9
+}
+
+.dfe-card-link--header:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0
+}
+
+
+.cypmd-search-container
+{
+    background: #f3f2f1;
+    padding: 20px;
+    margin-bottom:20px;
+}
+
+.cypmd-search__row {
+    align-items: flex-start;
+    display: flex;
+    gap: 10px;
+}
+
+.cypmd-autocomplete {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.cypmd-search__button {
+    margin-bottom: 0;
+}
+
+.cypmd-autocomplete__suggestions {
+    background: #fff;
+    border: 2px solid #0b0c0c;
+    border-top: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cypmd-autocomplete__suggestion {
+    border-bottom: 1px solid #b1b4b6;
+    cursor: pointer;
+    padding: 12px 15px;
+}
+
+.cypmd-autocomplete__suggestion:last-child {
+    border-bottom: 0;
+}
+
+.cypmd-autocomplete__suggestion:hover,
+.cypmd-autocomplete__suggestion--active {
+    background: #f3f2f1;
+    text-decoration: underline;
+}
+
+.cypmd-autocomplete__suggestion-title,
+.cypmd-autocomplete__suggestion-topic {
+    display: block;
+}
+
+.cypmd-autocomplete__suggestion-topic {
+    color: #505a5f;
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.cypmd-guidance-layout .cypmd-guidance-section {
+    border-left: 5px solid transparent;
+    margin-left: -20px;
+    padding: 20px;
+    scroll-margin-top: 20px;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+
+ .cypmd-guidance-section {
+    margin-top: -20px;
+}
+ 
+
+/* .cypmd-guidance-layout .cypmd-guidance-section--active {
+    background: #e8f1f8;
+    border-left-color: #1d70b8;
+} */
+
+.cypmd-guidance-layout .cypmd-guidance-section + .cypmd-guidance-section {
+    margin-top: 20px;
+}
+
+@media (min-width: 40.0625em) {
+    .cypmd-guidance-layout {
+        align-items: stretch;
+        display: flex;
+    }
+
+    .cypmd-guidance-layout > .govuk-grid-column-one-third,
+    .cypmd-guidance-layout > .govuk-grid-column-two-thirds {
+        float: none;
+    }
+
+    .cypmd-guidance-navigation {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 40.0525em) {
+    .cypmd-search__row {
+        display: block;
+    }
+
+    .cypmd-search__button {
+        margin-top: 15px;
+    }
+}
+
+
+.cypmd-guidance-nav-item {
+    font-size: 19px;
+}
+
+
+.app-back-to-top {
+    position: sticky;
+    height:40px;
+    bottom: 40px;
+    margin: 30px 0 0 30px;
+    z-index: 20;
+    pointer-events: auto;
+    background-color: #fff;
+    
+}
+
+
+
+
+
+.related-content-navigation {
+    border-top: 2px solid #1d70b8;
+    margin-bottom: 60px;
+    color: var(--govuk-text-colour, #0b0c0c);
+    
+}

@@ -1,0 +1,134 @@
+////
+/// @group components/status-card
+////
+
+@use "sass:map";
+
+.status-card {
+  padding: govuk-spacing(2);
+  background-color: $govuk-brand-colour;
+  text-decoration: none;
+
+  @include govuk-font($size: 19);
+
+  @include govuk-media-query($from: desktop) {
+    padding: govuk-spacing(4);
+  }
+
+  &:link {
+    color: govuk-colour("white");
+  }
+
+  &:focus, &:link:focus, &:visited:focus {
+    color:  $govuk-text-colour;
+    background:  $govuk-focus-colour;
+  }
+
+}
+
+.status-card, .status-card:visited {
+  color: govuk-colour("white");
+}
+
+// Colours sourced from here: https://github.com/alphagov/govuk-frontend/blob/61aabca3d440edee6bdecdd20ea54a241c7bbdd5/src/govuk/components/tag/_index.scss#L42
+
+$statuses: (
+  "draft": (
+    "colour":            govuk-shade(govuk-colour("dark-grey", $legacy: "grey-1"), 30),
+    "background-colour": govuk-tint(govuk-colour("dark-grey", $legacy: "grey-1"), 90),
+    "hover":             govuk-tint(govuk-colour("dark-grey", $legacy: "grey-1"), 80)
+  ),
+  "pending-trn": (
+    "colour":            govuk-shade(govuk-colour("turquoise"), 60),
+    "background-colour": govuk-tint(govuk-colour("turquoise"), 70),
+    "hover":             govuk-tint(govuk-colour("turquoise"), 57),
+  ),
+  "trn-received": (
+    "colour":            govuk-shade(govuk-colour("blue"), 30),
+    "background-colour": govuk-tint(govuk-colour("blue"), 80),
+    "hover":             govuk-tint(govuk-colour("blue"), 70)
+  ),
+  "eyts-recommended": (
+    "colour":            govuk-shade(govuk-colour("purple"), 20),
+    "background-colour": govuk-tint(govuk-colour("purple"), 80),
+    "hover":             govuk-tint(govuk-colour("purple"), 70)
+  ),
+  "eyts-awarded": (
+    "colour":            govuk-colour("white"),
+    "background-colour": $govuk-brand-colour,
+    "hover":             govuk-shade($govuk-brand-colour, 15%)
+  ),
+  "qts-recommended": (
+    "colour":            govuk-shade(govuk-colour("purple"), 20),
+    "background-colour": govuk-tint(govuk-colour("purple"), 80),
+    "hover":             govuk-tint(govuk-colour("purple"), 70)
+  ),
+  "qts-awarded": (
+    "colour":            govuk-colour("white"),
+    "background-colour": $govuk-brand-colour,
+    "hover":             govuk-shade($govuk-brand-colour, 15%)
+  ),
+  "recommended": (
+    "colour":            govuk-shade(govuk-colour("purple"), 20),
+    "background-colour": govuk-tint(govuk-colour("purple"), 80),
+    "hover":             govuk-tint(govuk-colour("purple"), 70)
+  ),
+  "awarded": (
+    "colour":            govuk-colour("white"),
+    "background-colour": $govuk-brand-colour,
+    "hover":             govuk-shade($govuk-brand-colour, 15%)
+  ),
+  "deferred": (
+    "colour":            govuk-shade(govuk-colour("yellow"), 65),
+    "background-colour": govuk-tint(govuk-colour("yellow"), 75),
+    "hover":             govuk-tint(govuk-colour("yellow"), 60)
+  ),
+  "withdrawn": (
+    "colour":            govuk-shade(govuk-colour("red"), 30),
+    "background-colour": govuk-tint(govuk-colour("red"), 80),
+    "hover":             govuk-tint(govuk-colour("red"), 70)
+  ),
+  "problem": (
+    "colour":            govuk-shade(govuk-colour("red"), 30),
+    "background-colour": govuk-tint(govuk-colour("red"), 80),
+    "hover":             govuk-tint(govuk-colour("red"), 70)
+  ),
+  "in-training": (
+    "colour":            govuk-colour("white"),
+    "background-colour": $govuk-brand-colour,
+    "hover":             govuk-shade($govuk-brand-colour, 15%)
+  ),
+  "incomplete": (
+    "colour":            govuk-shade(govuk-colour("dark-grey", $legacy: "grey-1"), 30),
+    "background-colour": govuk-tint(govuk-colour("dark-grey", $legacy: "grey-1"), 90),
+    "hover":             govuk-tint(govuk-colour("dark-grey", $legacy: "grey-1"), 80)
+  )
+);
+
+@each $status, $data in $statuses
+{
+  .status-card--#{$status} {
+    &, &:link, &:visited {
+      color: map.get($data, "colour");
+      background: map.get($data, "background-colour");
+    }
+
+    &:hover {
+      background: map.get($data, "hover");
+    }
+  }
+}
+
+.status-card__count {
+  &, &:link, &:visited {
+    @include govuk-font($size: 36, $weight: bold, $tabular: true);
+  }
+  display: block;
+}
+
+.status-card__status {
+  text-decoration: underline;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: none;
+}

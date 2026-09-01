@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+{% block beforeContent %}
+
+<!-- Breadcrumb nav -->
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-testing/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">CYPMD help and support</li>
+        </ol>
+        </nav> 
+      </div>
+  </div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div id="filterable" class="">
+      <p class="govuk-caption-l cpb-subtitle">Check your performance measures data</p>
+      <h1 class="govuk-heading-xl cpb-page-h1 govuk-!-margin-bottom-4">CYPMD help and support</h1>
+
+      <div class="govuk-body" id="cypmd-guidance-intro">
+      <p class="govuk-body">Guidance and support for schools and colleges on how to use the check your performance measures data (CYPMD) service.</p>
+      <p class="govuk-body ">This guidance will help you check your data and request any amendments during the key stage 2, key stage 4 and 16 to 19 data checking exercises.</p>
+      </div>
+
+      <div id="cypmd-guidance-sections">
+
+        <section id="ks2" class="cypmd-guidance-section" aria-labelledby="key-stage-4-data-checks">
+          <div class="cypmd-guidance-section__meta">
+          <h2 id="key-stage-4-data-checks" class="govuk-heading-m"> <a class="govuk-link" href="#">Key stage 2</a></h2>
+          <div class="govuk-body">
+            <p class="govuk-hint govuk-!-margin-top-0 govuk-!-margin-bottom-1">Updated: 14 September 2026</p>
+            <p class="govuk-body">Guidance for checking and understanding your key stage 2 performance measures data.</p>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+          </div>
+          </div>
+        </section>
+        
+        <section  id="ks4" class="cypmd-guidance-section" aria-labelledby="key-stage-4-data-checks">
+        <div class="cypmd-guidance-section__meta">
+        <h2 id="key-stage-4-data-checks" class="govuk-heading-m">
+        <a class="govuk-link" href="guidance-ks4.html">Key stage 4</a></h2>
+        <div class="govuk-body">
+          <p class="govuk-hint govuk-!-margin-bottom-1">Updated: 14 September 2026</p>
+        <p class="govuk-body">Guidance for checking your key stage 4 performance measures data and making requests where needed.</p>
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+        </div>
+        </div>
+        </section>
+
+        <section  id="16-19" class="cypmd-guidance-section" aria-labelledby="key-stage-4-data-checks">
+          <div class="cypmd-guidance-section__meta">
+          <h2 id="key-stage-4-data-checks" class="govuk-heading-m">
+            <a class="govuk-link" href="#">16 to 19</a></h2>
+          <div class="govuk-body">
+            <p class="govuk-hint govuk-!-margin-bottom-1">Updated: 14 September 2026</p>
+            <p class="govuk-body">Guidance for reviewing your 16 to 19 performance measures data.</p>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+          </div>
+          </div>
+        </section>
+
+        <section  id="results-enq" class="cypmd-guidance-section" aria-labelledby="key-stage-4-data-checks">
+          <div class="cypmd-guidance-section__meta">
+          <h2 id="key-stage-4-data-checks" class="govuk-heading-m"> <a class="govuk-link" href="#">Results enquiries</a></h2>
+          <div class="govuk-body">
+            <p class="govuk-hint govuk-!-margin-bottom-1">Updated: 14 September 2026</p>
+            <p class="govuk-body">How to raise results enquiries using the CYPMD service for the KS4 and 16 to 19 Autumn checking exercises.</p>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+          </div>
+          </div>
+        </section>
+
+        <section  id="sign-in" class="cypmd-guidance-section" aria-labelledby="key-stage-4-data-checks">
+          <div class="cypmd-guidance-section__meta">
+          <h2 id="key-stage-4-data-checks" class="govuk-heading-m"> <a class="govuk-link" href="#">Sign in to the CYPMD service using your DfE Sign-in account</a></h2>
+          <div class="govuk-body">
+            <p class="govuk-hint">Updated: 14 September 2026</p>
+            <p class="govuk-visually-hidden govuk-body">[placeholder]</p>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+          </div>
+          </div>
+        </section>
+
+      </div>
+
+</div>
+</div>
+  
+
+
+
+
+<!--  <div class="cypmd-search-container govuk-grid-full">
+<form class="cypmd-search" data-module="cypmd-topic-autocomplete" role="search" method="get" action="#cypmd-guidance-sections" novalidate>
+  <div class="govuk-form-group">
+      <label id="cypmd-search-label" class="govuk-label govuk-label--s" for="search">Search CYPMD help and support</label>
+      <div id="cypmd-search-hint" class="govuk-hint">Enter 3 or more characters to see guidance topics.</div>
+      <div class="cypmd-search__row">
+          <div class="cypmd-autocomplete">
+            <input class="govuk-input cypmd-search__input" id="search" name="q" type="search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="cypmd-topic-suggestions" aria-describedby="cypmd-search-hint cypmd-search-results-status">
+            <ul id="cypmd-topic-suggestions" class="cypmd-autocomplete__suggestions" role="listbox" aria-labelledby="cypmd-search-label" hidden></ul>
+          </div>
+          <button class="govuk-button cypmd-search__button" data-module="govuk-button" type="submit">
+              Search
+          </button>
+      </div>
+  </div>
+</form>
+</div> -->
+
+
+{% endblock %}

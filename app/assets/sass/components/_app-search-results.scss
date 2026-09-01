@@ -1,0 +1,344 @@
+.app-search-results {
+  padding-top: 15px;
+  margin: 0;
+  padding-left: 0;
+  border-top: 1px solid #b1b4b6;
+}
+
+@media(min-width: 40.0625em) {
+  .app-search-results {
+    padding-top:20px
+  }
+}
+
+.app-description-list {
+  margin-top: 0;
+
+}
+
+.app-description-list:after {
+  content: "";
+  display:block;
+  clear: both;
+
+}
+
+.app-description-list > dt {
+  font-family:GDS Transport, arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-weight: 700;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  vertical-align: top;
+
+}
+
+@media print
+
+{
+.app-description-list > dt {
+  font-family: sans-serif;
+
+}
+}
+
+@media(min-width: 40.0625em)
+
+{
+.app-description-list > dt {
+
+  font-size:19px;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+
+}
+}
+
+@media print
+
+{
+.app-description-list > dt {
+  font-size: 14pt;
+  line-height: 1.15;
+
+}
+}
+
+@media(min-width: 48.0625em)
+
+{
+.app-description-list > dt {
+
+  clear:left;
+  float:left;
+  margin-bottom: 5px;
+  width: 35%;
+  //width: 30%;
+
+}
+}
+
+.app-description-list--search-result {
+  padding-bottom: 1em;
+}
+
+.app-description-list--search-result > dt {
+  font-family:GDS Transport, arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-weight: 600;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: 	#0b0c0c;
+
+}
+
+@media print
+
+{
+.app-description-list--search-result > dt {
+  font-family: sans-serif
+
+}
+}
+
+@media(min-width: 40.0625em)
+
+{
+.app-description-list--search-result > dt {
+
+  font-size:19px;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737
+
+}
+}
+
+@media print
+
+{
+.app-description-list--search-result > dt {
+  font-size: 14pt;
+  line-height: 1.15
+
+}
+}
+
+.app-description-list > dd {
+  font-family:GDS Transport, arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  vertical-align: top
+
+}
+
+@media print
+
+{
+.app-description-list > dd {
+  font-family: sans-serif
+
+}
+}
+
+@media(min-width: 40.0625em)
+
+{
+.app-description-list > dd {
+
+  font-size:19px;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737
+
+}
+}
+
+@media print
+
+{
+.app-description-list > dd {
+  font-size: 14pt;
+  line-height: 1.15
+
+}
+}
+
+@media(min-width: 48.0625em)
+
+{
+.app-description-list > dd {
+
+  float:left;
+  margin-bottom: 5px;
+  width: 65%
+  //width: 70%
+
+}
+}
+
+.app-description-list > dd .govuk-details, .app-description-list > dd .govuk-details__summary {
+  margin-bottom: 0
+
+}
+
+.app-description-list > dd .govuk-body {
+  margin-bottom: 5px;
+
+}
+
+.app-description-list > dd .govuk-hint {
+  font-family:GDS Transport, arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1.1428571429;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+
+@media print
+
+{
+.app-description-list > dd .govuk-hint {
+  font-family: sans-serif;
+
+}
+}
+
+@media(min-width: 40.0625em)
+
+{
+.app-description-list > dd .govuk-hint {
+
+  font-size:16px;
+  font-size: 1rem;
+  line-height: 1.25;
+
+}
+}
+
+@media print
+
+{
+.app-description-list > dd .govuk-hint {
+  font-size: 14pt;
+  line-height: 1.2;
+
+}
+}
+
+.app-description-list > dd .govuk-details__text {
+  margin-bottom: 10px;
+
+}
+
+.app-description-list__label:after {
+  display: inline-block;
+
+}
+
+.app-description-list__hint {
+  font-family:GDS Transport, arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1.1428571429;
+  color: #505a5f;
+  display:block;
+  //margin-bottom: govuk-space(1)
+
+}
+
+@media print
+{
+.app-description-list__hint {
+  font-family: sans-serif
+}
+}
+
+@media(min-width: 40.0625em)
+
+{
+.app-description-list__hint {
+
+  font-size:16px;
+  font-size: 1rem;
+  line-height: 1.25
+
+}
+}
+
+@media print
+
+{
+.app-description-list__hint {
+  font-size: 14pt;
+  line-height: 1.2;
+
+}
+}
+
+.app-search-results__item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #b1b4b6;
+  display: block;
+}
+
+@media(min-width: 40.0625em) {
+  .app-search-results__item {
+    margin-bottom:20px
+  }
+}
+
+.app-search-result__item-title {
+  font-family: GDS Transport,arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.1111111111;
+  margin-bottom: 15px;
+  margin-top: 0
+}
+
+@media print {
+  .app-search-result__item-title {
+    font-family: sans-serif
+  }
+}
+
+@media(min-width: 40.0625em) {
+  .app-search-result__item-title {
+    font-size:24px;
+    font-size: 1.5rem;
+    line-height: 1.25
+  }
+}
+
+@media print {
+  .app-search-result__item-title {
+    font-size: 18pt;
+    line-height: 1.15
+  }
+}
+
+@media(min-width: 40.0625em) {
+  .app-search-result__item-title {
+    margin-bottom:20px
+  }
+}
+
+.app-search-result__item-title a {
+  text-decoration: none
+}

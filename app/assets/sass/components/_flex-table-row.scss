@@ -1,0 +1,40 @@
+.flexContainer {
+  display: flex;
+  align-items:center;
+  align-content:center;
+  border-bottom: 1px solid grey;
+
+  
+  .govuk-form-group {
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .govuk-checkboxes__label{
+      font-weight: bold;  
+    }
+  }
+  
+  .govuk-checkboxes__item {
+    flex-grow: 4;
+    width: 200px;
+    margin-bottom: 0;
+    padding: 7px 15px 7px 0px;
+    cursor: pointer;
+    touch-action: manipulation;
+    font-weight: bold;
+  }
+
+  .govuk-label .govuk-checkboxes__label{
+    font-weight: bold;
+  }
+
+  .govuk-checkboxes--small .govuk-checkboxes {
+    margin-left: 0px;
+  }
+
+  .govuk-body, .govuk-body-m {
+    margin-bottom: 0px;
+  }
+
+}

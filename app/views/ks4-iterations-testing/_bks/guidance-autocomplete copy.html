@@ -1,0 +1,262 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div id="filterable" class="">
+  <main class="govuk-main-wrapper govuk-!-margin-0 govuk-!-padding-0" id="main-content" role="main">
+
+
+<nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+<ol class="govuk-breadcrumbs__list">
+<li class="govuk-breadcrumbs__list-item">
+  <a class="govuk-breadcrumbs__link" href="/">Home</a>
+</li>
+<li class="govuk-breadcrumbs__list-item" aria-current="page">CYPMD help and support</li>
+</ol>
+</nav> 
+
+<p class="govuk-caption-l cpb-subtitle">Check your performance measures data</p>
+<h1 class="govuk-heading-xl cpb-page-h1">CYPMD help and support</h1>
+
+<div class="govuk-body" id="cypmd-guidance-intro">
+<p class="govuk-body">Guidance and support for schools and colleges on how to use the check your performance measures data (CYPMD) service.</p>
+<p class="govuk-body">This guidance will help you check your data and request any amendments during the key stage 2, key stage 4 and 16 to 19 data checking exercises.</p>
+</div>
+<hr class="govuk-visually-hidden govuk-section-break--visible govuk-section-break--l">
+
+
+<div class="cypmd-search-container govuk-grid-full">
+<form class="cypmd-search" data-module="cypmd-topic-autocomplete" role="search" method="get" action="#cypmd-guidance-sections" novalidate>
+  <div class="govuk-form-group">
+      <label id="cypmd-search-label" class="govuk-label govuk-label--s" for="search">Search CYPMD help and support</label>
+      <div id="cypmd-search-hint" class="govuk-hint">Enter 3 or more characters to see guidance topics.</div>
+      <div class="cypmd-search__row">
+          <div class="cypmd-autocomplete">
+            <input class="govuk-input cypmd-search__input" id="search" name="q" type="search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="cypmd-topic-suggestions" aria-describedby="cypmd-search-hint cypmd-search-results-status">
+            <ul id="cypmd-topic-suggestions" class="cypmd-autocomplete__suggestions" role="listbox" aria-labelledby="cypmd-search-label" hidden></ul>
+          </div>
+          <button class="govuk-button cypmd-search__button" data-module="govuk-button" type="submit">
+              Search
+          </button>
+      </div>
+  </div>
+</form>
+</div>
+
+
+<p id="cypmd-search-results-status" class="govuk-visually-hidden" aria-live="polite" aria-atomic="true"></p>
+
+<div id="cypmd-guidance-sections">
+
+<section class="cypmd-guidance-section" aria-labelledby="key-stage-4-data-checks">
+<div class="cypmd-guidance-section__meta">
+<h2 id="key-stage-4-data-checks" class="govuk-heading-l">Key stage 4 data checks</h2>
+<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+<div class="govuk-body">
+<p class="govuk-body">Read our guidance before you request any amendments to pupil data.</p>
+<div class="cypmd-published">
+<p class="cypmd-published__heading">Published: May 2026</p>
+<p class="govuk-body">This guidance will be reviewed and updated before the KS4 June checking exercise 2027.</p>
+</div>
+<div class="cypmd-notice">
+<p class="govuk-body">The next KS4 June checking exercise opens on Monday 15 June and <strong>closes at 5pm on Friday 26 June 2026</strong>. <a class="govuk-link" href="#">Sign up to receive email updates</a>.</p>
+</div>
+</div>
+</div>
+<div class="govuk-body">
+<!-- <div class="govuk-grid-row">
+  <div class="cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="guidance-ks4-june">Check KS4 June data</a></h3>
+    <p class="govuk-body">How to check your KS4 data and request any amendments.</p>
+    </div>
+    </div>
+  </div>
+  <div class="cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">Key dates</a></h3>
+    <p class="govuk-body">When the June 2026 checking exercise opens and the deadline for requests.</p>
+    </div>
+    </div>
+  </div>
+  <div class="cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">What the measures cover</a></h3>
+    <p class="govuk-body">What the KS4 performance measures include for the 2025 to 2026 academic year.</p>
+    </div>
+    </div>
+  </div>
+  <div class="cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">How to check your data</a></h3>
+    <p class="govuk-body">Step-by-step guidance for the June and Autumn checking exercises.</p>
+    </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="guidance-ks4-june">Check KS4 June data</a></h3>
+    <p class="govuk-body">How to check your KS4 data and request any amendments.</p>
+    </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">Key dates</a></h3>
+    <p class="govuk-body">When the June 2026 checking exercise opens and the deadline for requests.</p>
+    </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">What the measures cover</a></h3>
+    <p class="govuk-body">What the KS4 performance measures include for the 2025 to 2026 academic year.</p>
+    </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third cypmd-guidance-card">
+    <div class="dfe-card govuk-!-margin-bottom-6">
+    <div class="dfe-card-container">
+    <h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">How to check your data</a></h3>
+    <p class="govuk-body">Step-by-step guidance for the June and Autumn checking exercises.</p>
+    </div>
+    </div>
+  </div>
+</div> 
+
+
+</div>
+</section>
+
+<section class="cypmd-guidance-section" aria-labelledby="check-your-pupil-data">
+<div class="cypmd-guidance-section__meta">
+<h2 id="check-your-pupil-data" class="govuk-heading-l">Check your pupil data</h2>
+<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+<div class="govuk-body">
+<p class="govuk-body">Find out which pupils are included in your KS4 performance data and how to check it.</p>
+</div>
+</div>
+<div class="govuk-body">
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-third cypmd-guidance-card">
+<div class="dfe-card govuk-!-margin-bottom-6">
+<div class="dfe-card-container">
+<h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">Pupils included in KS4 data</a></h3>
+<p class="govuk-body">Which pupils count towards your KS4 performance measures this year.</p>
+</div>
+</div>
+</div>
+<div class="govuk-grid-column-one-third cypmd-guidance-card">
+<div class="dfe-card govuk-!-margin-bottom-6">
+<div class="dfe-card-container">
+<h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">How to check your pupil data</a></h3>
+<p class="govuk-body">Review your pupil-level data and identify anything that needs changing.</p>
+</div>
+</div>
+</div>
+<div class="govuk-grid-column-one-third cypmd-guidance-card">
+<div class="dfe-card govuk-!-margin-bottom-6">
+<div class="dfe-card-container">
+<h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">How pupil mobility is calculated</a></h3>
+<p class="govuk-body">How a pupil moving school affects whether they count in your data.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cypmd-guidance-section" aria-labelledby="merge-include-or-remove-a-pupil">
+<div class="cypmd-guidance-section__meta">
+<h2 id="merge-include-or-remove-a-pupil" class="govuk-heading-l">Merge, include or remove a pupil</h2>
+<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+<div class="govuk-body">
+<p class="govuk-body">Request amendments to the pupils included in your KS4 performance data.</p>
+</div>
+</div>
+<div class="govuk-body">
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-third cypmd-guidance-card">
+<div class="dfe-card govuk-!-margin-bottom-6">
+<div class="dfe-card-container">
+<h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">Merge pupil records</a></h3>
+<p class="govuk-body">Ask to merge duplicate pupil records into one record.</p>
+</div>
+</div>
+</div>
+<div class="govuk-grid-column-one-third cypmd-guidance-card">
+<div class="dfe-card govuk-!-margin-bottom-6">
+<div class="dfe-card-container">
+<h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">Include a pupil</a></h3>
+<p class="govuk-body">Ask for a pupil to be added to your KS4 performance data.</p>
+</div>
+</div>
+</div>
+<div class="govuk-grid-column-one-third cypmd-guidance-card">
+<div class="dfe-card govuk-!-margin-bottom-6">
+<div class="dfe-card-container">
+<h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">Remove a pupil</a></h3>
+<p class="govuk-body">Submit a request to remove a pupil from your school's performance data.</p>
+</div>
+</div>
+</div>
+<div class="govuk-grid-column-one-third cypmd-guidance-card">
+<div class="dfe-card govuk-!-margin-bottom-6">
+<div class="dfe-card-container">
+<h3 class="govuk-heading-m"><a class="dfe-card-link--header" href="#">Evidence for removing a pupil</a></h3>
+<p class="govuk-body">The reasons we accept for removing a pupil, and the evidence required.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cypmd-guidance-section" aria-labelledby="how-to-sign-in-to-the-cypmd-service">
+<div class="cypmd-guidance-section__meta">
+<h2 id="how-to-sign-in-to-the-cypmd-service" class="govuk-heading-l">How to sign in to the CYPMD service</h2>
+<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+<div class="govuk-body">
+<p class="govuk-body">You need a <a class="govuk-link" href="#">DfE Sign-in</a> account to use the CYPMD service.</p>
+<p class="govuk-body">If you do not have an account, or need to reset your sign in details, read the <a class="govuk-link" href="#">DfE Sign-in guidance</a>.</p>
+</div>
+<h3 id="get-email-alerts" class="govuk-heading-m">Get email alerts</h3>
+<div class="govuk-body">
+<p class="govuk-body">Make sure your headteacher or principal details are correct in <a class="govuk-link" href="#">Get Information about Schools</a>.</p>
+<p class="govuk-body"><a class="govuk-link" href="#">Sign up to receive email updates</a> about the service, including key dates and reminders, if you haven't done so already.</p>
+</div>
+</div>
+</section>
+
+</div>
+
+<div class="app-back-to-top is-visible">
+<a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+<svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+  <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+</svg>Back to top
+</a>
+</div>
+
+  </main>
+</div>
+</div>
+</div>
+
+{% endblock %}

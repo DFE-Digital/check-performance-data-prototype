@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+
+<form method="post" action="#" novalidate="">
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8EQXv0juoFlGptDCuoEJ_9HNOJCar9YsWLWU4sUTXJt3VTs54fu53ZBnUmRtPRaq_JSzse9ufdTnT4h32aw_fZ5rCNsvDmmMxnvq0DCSlZeMI3rqwuYOcBzesAktkk3UTnBRRocGrLLR-PcvSe_QaS89LmRjcBd1kr0bIvofp7VIYQYnmhK-kkoKGvnWsaY0IQ">
+<input type="hidden" name="selectedPupilId" id="selectedPupilId" value="e39289c9-e5f1-4960-949f-965a0783d74f">
+
+<div class="govuk-form-group ">
+<h1 class="govuk-label-wrapper">
+  <label class="govuk-label govuk-label--l" for="pupil-search">What is the name of the pupil to be included?</label>
+</h1>
+<div class="govuk-hint" id="pupil-search-hint">Start typing to see a list of names</div>
+<div id="pupil-search-container"><div class="autocomplete__wrapper"><div class="autocomplete__status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"><div id="pupil-search__status--A" role="status" aria-atomic="true" aria-live="polite"></div><div id="pupil-search__status--B" role="status" aria-atomic="true" aria-live="polite"></div></div><input aria-describedby="pupil-search__assistiveHint" aria-expanded="false" aria-owns="pupil-search__listbox" aria-autocomplete="list" autocomplete="off" class="autocomplete__input autocomplete__input--default govuk-input" id="pupil-search" name="selectedPupilLabel" placeholder="" type="text" role="combobox"><span id="pupil-search__assistiveHint" style="display: none;">Start typing ID to search records. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span></div></div>
+</div>
+
+<button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+</form>
+
+
+
+
+
+  </main>
+  
+</div>
+{% endblock %}

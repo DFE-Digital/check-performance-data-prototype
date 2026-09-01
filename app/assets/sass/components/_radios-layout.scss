@@ -1,0 +1,27 @@
+.flex-radios{
+  .govuk-radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(50% - var(--label-width));
+  
+    &--inline {
+      width: 100%; // Ensure the radios take up the full width of the container
+  
+      .govuk-radios__item {
+        display: flex;
+        flex: 1;
+        align-items: center; // Align the input and label vertically
+        position: relative; // Enable positioning for alignment adjustments
+      }
+  
+      .govuk-radios__label {
+        flex: 1; // Allow the label to take up the remaining space
+        text-align: left; // Align text to the left
+      }
+  
+      .govuk-radios__input {
+        margin-right: 0.5rem; // Add spacing between the radio input and the label
+      }
+    }
+  }
+}

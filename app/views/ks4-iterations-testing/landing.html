@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "guidance" %}
+
+
+{% block beforeContent %}
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+
+{% block content %}
+    
+    <h1 class="govuk-heading-xl">Kingsmead School</h1>
+    
+    <div class="school-details">
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Address</dt>
+                <dd class="govuk-summary-list__value">Kings Avenue, Hednesford, Cannock, Staffordshire, WS12 1DH</dd>
+            </div>
+    
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Establishment LAESTAB</dt>
+                <dd class="govuk-summary-list__value">860/4070</dd>
+            </div>
+    
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Establishment URN</dt>
+                <dd class="govuk-summary-list__value">142313</dd>
+            </div>
+        </dl>
+    </div>
+    
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <h2 class="govuk-heading-m">Check data</h2>
+    <div class="dfe-grid-container">
+                <div class="dfe-card">
+                    <div class="dfe-card-container">
+                        <h3 class="govuk-heading-m">Key Stage 4 June</h3>
+    
+                        <p><strong>You have until 5pm on Monday 2 August 2027 to review your data.</strong></p>
+    
+                        <div>
+                            <a draggable="false" data-module="govuk-button" role="button" class="govuk-button" href="check-data" data-govuk-button-init="">
+                                Continue
+                            </a>
+                        </div>
+             
+      </main>
+</div>
+</div>
+    </div>
+
+{% endblock %}
