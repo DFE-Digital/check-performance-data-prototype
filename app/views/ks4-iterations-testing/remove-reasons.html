@@ -12,6 +12,8 @@
 
 {% block content %}
 
+
+<!-- Style to make the locked radios visually identical to a normal radio, but not interactive -->
 <style>
   /* Visually identical to a normal radio, but not interactive */
   .govuk-radios__item--locked {
@@ -19,7 +21,7 @@
   }
 </style>
 
-<form method="post" action="/WhatToChange/f34d285b-8660-4d12-9c30-787328deaa0a" novalidate="" id="whatToChangeForm">
+<form method="post" action="" novalidate="" id="whatToChangeForm">
   <input name="__RequestVerificationToken" type="hidden" value="">
     <fieldset class="govuk-fieldset" aria-describedby="SelectedWhatToChange-hint"><legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
            <h1 class="govuk-fieldset__heading">Why are you asking to remove Billy B from the performance data?</h1></legend>
@@ -73,12 +75,12 @@
               <label for="SelectedWhatToChange-9" class="govuk-label govuk-radios__label">Permanently left England</label>
             </div>
 
-            <div class="govuk-radios__item govuk-radios__item--locked">
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="SelectedWhatToChange-10" name="SelectedWhatToChange" type="radio" value="SocialCareInvolvement" tabindex="-1" aria-disabled="true">
               <label for="SelectedWhatToChange-10" class="govuk-label govuk-radios__label">Social care involvement - including police or prison</label>
             </div>
 
-            <div class="govuk-radios__item govuk-radios__item--locked">
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="SelectedWhatToChange-11" name="SelectedWhatToChange" type="radio" value="LifeLimitingIllness" tabindex="-1" aria-disabled="true">
               <label for="SelectedWhatToChange-11" class="govuk-label govuk-radios__label">Life-limiting or critical illness</label>
             </div>
@@ -101,7 +103,10 @@
 var form = document.getElementById('whatToChangeForm');
 
 var pageMap = {
-  PermanentExclusion: 'remove-pupil-perm-exclusion.html'
+  PermanentExclusion: 'remove-pupil-perm-exclusion.html', 
+  SocialCareInvolvement: 'remove-pupil-social-care.html',
+  LifeLimitingIllness: 'remove-pupil-life-limiting.html',
+
 };
 
 // Belt-and-braces: even if pointer-events CSS is overridden or the

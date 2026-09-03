@@ -14,6 +14,15 @@
 
 {% block content %}
 
+<!-- Style to make the locked radios visually identical to a normal radio, but not interactive -->
+<style>
+        /* Visually identical to a normal radio, but not interactive */
+        .govuk-radios__item--locked {
+          pointer-events: none;
+        }
+      </style>
+
+
 <h1 class="govuk-heading-xl">Check your pupil data</h1>
 
 <p class="govuk-body">
@@ -26,13 +35,21 @@
         CSV files as a ZIP file</a>
 </p>
 
-<div class="govuk-tabs" data-module="govuk-tabs" data-govuk-tabs-init=""><h2 class="govuk-tabs__title">Contents</h2><ul class="govuk-tabs__list" role="tablist"><li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation"><a class="govuk-tabs__tab" href="#included" id="tab_included" role="tab" aria-controls="included" aria-selected="true" tabindex="0">Included pupils</a></li><li class="govuk-tabs__list-item" role="presentation"><a class="govuk-tabs__tab" href="#nonIncluded" id="tab_nonIncluded" role="tab" aria-controls="nonIncluded" aria-selected="false" tabindex="-1">Non-included pupils</a></li></ul><div class="govuk-tabs__panel" id="included" role="tabpanel" aria-labelledby="tab_included">    
+<div class="govuk-tabs" data-module="govuk-tabs" data-govuk-tabs-init=""><h2 class="govuk-tabs__title">Contents</h2>
+        <ul class="govuk-tabs__list" role="tablist">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+        <a class="govuk-tabs__tab" href="#included" id="tab_included" role="tab" aria-controls="included" aria-selected="true" tabindex="0">Included pupils</a>
+        </li>
+        <li class="govuk-tabs__list-item" role="presentation">
+        <a class="govuk-tabs__tab" href="#" id="tab_nonIncluded" role="tab" aria-controls="nonIncluded" aria-selected="false" tabindex="-1">Non-included pupils</a>
+        </li>
+        </ul>
+
+<div class="govuk-tabs__panel" id="included" role="tabpanel" aria-labelledby="tab_included">    
     <h2 class="govuk-heading-l">Pupil included</h2>
     <p class="govuk-body">Download <a href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a/download/included">pupil included</a> as a CSV file.</p>
-
-
-    <div class="pupil-search cypmd-search-container">
-        <form method="get" action="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a" novalidate="">
+    <div class="pupil-search">
+        <form method="get" action="" novalidate="" id="">
                 <input type="hidden" name="nonIncludedPage" value="0">
                 <input type="hidden" name="nonIncludedSearch">
                 <input type="hidden" name="activeTab" value="included">
@@ -41,9 +58,9 @@
                     Search for a pupil by first or last name
                 </label>
                 <div class="pupil-search__row">
-                <input class="govuk-input" id="includedSearch" name="includedSearch" type="text">
-                <button class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Search</button>
-            </div>
+                    <input class="govuk-input" id="includedSearch" name="includedSearch" type="text">
+                    <button class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Search</button>
+                </div>
             </div>
         </form>
     </div>
@@ -57,94 +74,94 @@
                         <th class="govuk-table__header" scope="col">Sex</th>
                         <th class="govuk-table__header" scope="col">Date of birth</th>
                         <th class="govuk-table__header" scope="col">Age</th>
-                        <th class="govuk-table__header" scope="col">CYPMD ID</th>
+                        <th class="govuk-table__header" scope="col">UPN</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Brown</td>
-                            <td class="govuk-table__cell">Edward</td>
-                            <td class="govuk-table__cell">M</td>
-                            <td class="govuk-table__cell">05/05/2010</td>
-                            <td class="govuk-table__cell">16</td>
-                            <td class="govuk-table__cell">000005</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Davies</td>
-                            <td class="govuk-table__cell">Fiona</td>
-                            <td class="govuk-table__cell">F</td>
-                            <td class="govuk-table__cell">06/06/2010</td>
-                            <td class="govuk-table__cell">16</td>
-                            <td class="govuk-table__cell">000006</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Evans</td>
-                            <td class="govuk-table__cell">George</td>
-                            <td class="govuk-table__cell">M</td>
-                            <td class="govuk-table__cell">07/07/2010</td>
-                            <td class="govuk-table__cell">16</td>
-                            <td class="govuk-table__cell">000007</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Johnson</td>
-                            <td class="govuk-table__cell">Kevin</td>
-                            <td class="govuk-table__cell">M</td>
-                            <td class="govuk-table__cell">11/11/2010</td>
-                            <td class="govuk-table__cell">15</td>
-                            <td class="govuk-table__cell">000011</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Jones</td>
-                            <td class="govuk-table__cell">Bob</td>
-                            <td class="govuk-table__cell">F</td>
-                            <td class="govuk-table__cell">02/02/2010</td>
-                            <td class="govuk-table__cell">16</td>
-                            <td class="govuk-table__cell">000002</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Lewis</td>
-                            <td class="govuk-table__cell">Laura</td>
-                            <td class="govuk-table__cell">F</td>
-                            <td class="govuk-table__cell">12/12/2010</td>
-                            <td class="govuk-table__cell">15</td>
-                            <td class="govuk-table__cell">000012</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Roberts</td>
-                            <td class="govuk-table__cell">Julia</td>
-                            <td class="govuk-table__cell">F</td>
-                            <td class="govuk-table__cell">10/10/2010</td>
-                            <td class="govuk-table__cell">15</td>
-                            <td class="govuk-table__cell">000010</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Robinson</td>
-                            <td class="govuk-table__cell">Nina</td>
-                            <td class="govuk-table__cell">F</td>
-                            <td class="govuk-table__cell">14/02/2010</td>
-                            <td class="govuk-table__cell">16</td>
-                            <td class="govuk-table__cell">000014</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Smith</td>
-                            <td class="govuk-table__cell">Alice</td>
-                            <td class="govuk-table__cell">M</td>
-                            <td class="govuk-table__cell">01/01/2010</td>
-                            <td class="govuk-table__cell">16</td>
-                            <td class="govuk-table__cell">000001</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Taylor</td>
-                            <td class="govuk-table__cell">Diana</td>
-                            <td class="govuk-table__cell">F</td>
-                            <td class="govuk-table__cell">04/04/2010</td>
-                            <td class="govuk-table__cell">16</td>
-                            <td class="govuk-table__cell">000004</td>
-                    </tr>
-            </tbody>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Davies</td>
+                        <td class="govuk-table__cell">Kevin</td>
+                        <td class="govuk-table__cell">M</td>
+                        <td class="govuk-table__cell">01/01/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">H826490123451</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Evans</td>
+                        <td class="govuk-table__cell">Laura</td>
+                        <td class="govuk-table__cell">F</td>
+                        <td class="govuk-table__cell">02/02/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">A123456789012</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Harris</td>
+                        <td class="govuk-table__cell">Edward</td>
+                        <td class="govuk-table__cell">M</td>
+                        <td class="govuk-table__cell">15/03/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">H826490123451</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Jackson</td>
+                        <td class="govuk-table__cell">Diana</td>
+                        <td class="govuk-table__cell">F</td>
+                        <td class="govuk-table__cell">14/02/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">A123456789012</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Johnson</td>
+                        <td class="govuk-table__cell">Paula</td>
+                        <td class="govuk-table__cell">F</td>
+                        <td class="govuk-table__cell">06/06/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">F722490124451</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Lewis</td>
+                        <td class="govuk-table__cell">Quinn</td>
+                        <td class="govuk-table__cell">M</td>
+                        <td class="govuk-table__cell">07/07/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">A123456789012</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Roberts</td>
+                        <td class="govuk-table__cell">Oscar</td>
+                        <td class="govuk-table__cell">M</td>
+                        <td class="govuk-table__cell">05/05/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">X622490124451</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Robinson</td>
+                        <td class="govuk-table__cell">Steven</td>
+                        <td class="govuk-table__cell">M</td>
+                        <td class="govuk-table__cell">09/09/2010</td>
+                        <td class="govuk-table__cell">15</td>
+                        <td class="govuk-table__cell">A123456789012</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Thomas</td>
+                        <td class="govuk-table__cell">Nina</td>
+                        <td class="govuk-table__cell">F</td>
+                        <td class="govuk-table__cell">04/04/2010</td>
+                        <td class="govuk-table__cell">16</td>
+                        <td class="govuk-table__cell">B987456789012</td>
+                </tr>
+                <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Thompson</td>
+                        <td class="govuk-table__cell">Alice</td>
+                        <td class="govuk-table__cell">M</td>
+                        <td class="govuk-table__cell">11/11/2010</td>
+                        <td class="govuk-table__cell">15</td>
+                        <td class="govuk-table__cell">X622490124451</td>
+                </tr>
+        </tbody>
+        
         </table>
     </div>
-
 
     <nav class="govuk-pagination"><ul class="govuk-pagination__list"><li class="govuk-pagination__item govuk-pagination__item--current"><a class="govuk-link govuk-pagination__link" href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=0&amp;nonIncludedPage=0&amp;activeTab=included#included" aria-current="page">1</a></li><li class="govuk-pagination__item"><a class="govuk-link govuk-pagination__link" href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=1&amp;nonIncludedPage=0&amp;activeTab=included#included">2</a></li></ul><div class="govuk-pagination__next"><a class="govuk-link govuk-pagination__link" href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=1&amp;nonIncludedPage=0&amp;activeTab=included#included" rel="next"><span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> page</span></span><svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path></svg></a></div></nav>
 
@@ -153,29 +170,15 @@
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="nonIncluded" role="tabpanel" aria-labelledby="tab_nonIncluded">
                 
     <h2 class="govuk-heading-l">Pupil non-included</h2>
-    <p class="govuk-body">Download <a href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a/download/non-included">pupil non-included</a> as a CSV file.</p>
+    <p class="govuk-body">Download <a href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a/download/non-included">pupil non-included</a> as a CSV file.
+    </p>
 
 
-<div class="pupil-search">
-    <form method="get" action="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a" novalidate="">
-            <input type="hidden" name="includedPage" value="0">
-            <input type="hidden" name="includedSearch">
-            <input type="hidden" name="activeTab" value="nonIncluded">
-        <div class="govuk-form-group">
-            <label class="govuk-label" for="nonIncludedSearch">
-                Search for a pupil by first or last name
-            </label>
-            <div class="pupil-search__row">
-                <input class="govuk-input" id="nonIncludedSearch" name="nonIncludedSearch" type="text">
-                <button class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Search</button>
-            </div>
-        </div>
-    </form>
-</div>
-        <div class="moj-scrollable-pane" role="region" tabindex="0" aria-label="Pupil non-included">
+
+<div class="moj-scrollable-pane" role="region" tabindex="0" aria-label="Pupil non-included">
             
 <table class="govuk-table">
-    <thead class="govuk-table__head">
+<thead class="govuk-table__head">
         <tr class="govuk-table__row">
                 <th class="govuk-table__header" scope="col">Last name</th>
                 <th class="govuk-table__header" scope="col">First name</th>
@@ -184,110 +187,172 @@
                 <th class="govuk-table__header" scope="col">Age</th>
                 <th class="govuk-table__header" scope="col">CYPMD ID</th>
         </tr>
-    </thead>
-    <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Davies</td>
-                    <td class="govuk-table__cell">Kevin</td>
-                    <td class="govuk-table__cell">M</td>
-                    <td class="govuk-table__cell">01/01/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000011</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Evans</td>
-                    <td class="govuk-table__cell">Laura</td>
-                    <td class="govuk-table__cell">F</td>
-                    <td class="govuk-table__cell">02/02/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000012</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Harris</td>
-                    <td class="govuk-table__cell">Edward</td>
-                    <td class="govuk-table__cell">M</td>
-                    <td class="govuk-table__cell">15/03/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000025</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Jackson</td>
-                    <td class="govuk-table__cell">Diana</td>
-                    <td class="govuk-table__cell">F</td>
-                    <td class="govuk-table__cell">14/02/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000024</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Johnson</td>
-                    <td class="govuk-table__cell">Paula</td>
-                    <td class="govuk-table__cell">F</td>
-                    <td class="govuk-table__cell">06/06/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000016</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Lewis</td>
-                    <td class="govuk-table__cell">Quinn</td>
-                    <td class="govuk-table__cell">M</td>
-                    <td class="govuk-table__cell">07/07/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000017</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Roberts</td>
-                    <td class="govuk-table__cell">Oscar</td>
-                    <td class="govuk-table__cell">M</td>
-                    <td class="govuk-table__cell">05/05/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000015</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Robinson</td>
-                    <td class="govuk-table__cell">Steven</td>
-                    <td class="govuk-table__cell">M</td>
-                    <td class="govuk-table__cell">09/09/2010</td>
-                    <td class="govuk-table__cell">15</td>
-                    <td class="govuk-table__cell">000019</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Thomas</td>
-                    <td class="govuk-table__cell">Nina</td>
-                    <td class="govuk-table__cell">F</td>
-                    <td class="govuk-table__cell">04/04/2010</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">000014</td>
-            </tr>
-            <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Thompson</td>
-                    <td class="govuk-table__cell">Alice</td>
-                    <td class="govuk-table__cell">M</td>
-                    <td class="govuk-table__cell">11/11/2010</td>
-                    <td class="govuk-table__cell">15</td>
-                    <td class="govuk-table__cell">000021</td>
-            </tr>
-    </tbody>
+</thead>
+<tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Davies</td>
+                <td class="govuk-table__cell">Kevin</td>
+                <td class="govuk-table__cell">M</td>
+                <td class="govuk-table__cell">01/01/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">H826490123451</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Evans</td>
+                <td class="govuk-table__cell">Laura</td>
+                <td class="govuk-table__cell">F</td>
+                <td class="govuk-table__cell">02/02/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">A123456789012</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Harris</td>
+                <td class="govuk-table__cell">Edward</td>
+                <td class="govuk-table__cell">M</td>
+                <td class="govuk-table__cell">15/03/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">H826490123451</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Jackson</td>
+                <td class="govuk-table__cell">Diana</td>
+                <td class="govuk-table__cell">F</td>
+                <td class="govuk-table__cell">14/02/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">A123456789012</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Johnson</td>
+                <td class="govuk-table__cell">Paula</td>
+                <td class="govuk-table__cell">F</td>
+                <td class="govuk-table__cell">06/06/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">F722490124451</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Lewis</td>
+                <td class="govuk-table__cell">Quinn</td>
+                <td class="govuk-table__cell">M</td>
+                <td class="govuk-table__cell">07/07/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">A123456789012</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Roberts</td>
+                <td class="govuk-table__cell">Oscar</td>
+                <td class="govuk-table__cell">M</td>
+                <td class="govuk-table__cell">05/05/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">X622490124451</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Robinson</td>
+                <td class="govuk-table__cell">Steven</td>
+                <td class="govuk-table__cell">M</td>
+                <td class="govuk-table__cell">09/09/2010</td>
+                <td class="govuk-table__cell">15</td>
+                <td class="govuk-table__cell">A123456789012</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Thomas</td>
+                <td class="govuk-table__cell">Nina</td>
+                <td class="govuk-table__cell">F</td>
+                <td class="govuk-table__cell">04/04/2010</td>
+                <td class="govuk-table__cell">16</td>
+                <td class="govuk-table__cell">B987456789012</td>
+        </tr>
+        <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Thompson</td>
+                <td class="govuk-table__cell">Alice</td>
+                <td class="govuk-table__cell">M</td>
+                <td class="govuk-table__cell">11/11/2010</td>
+                <td class="govuk-table__cell">15</td>
+                <td class="govuk-table__cell">X622490124451</td>
+        </tr>
+</tbody>
 </table>
 
      </div>
 
 
-    <nav class="govuk-pagination"><ul class="govuk-pagination__list"><li class="govuk-pagination__item govuk-pagination__item--current"><a class="govuk-link govuk-pagination__link" href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=0&amp;nonIncludedPage=0&amp;activeTab=nonIncluded#nonIncluded" aria-current="page">1</a></li><li class="govuk-pagination__item"><a class="govuk-link govuk-pagination__link" href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=0&amp;nonIncludedPage=1&amp;activeTab=nonIncluded#nonIncluded">2</a></li></ul><div class="govuk-pagination__next"><a class="govuk-link govuk-pagination__link" href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=0&amp;nonIncludedPage=1&amp;activeTab=nonIncluded#nonIncluded" rel="next"><span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> page</span></span><svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path></svg></a></div></nav>
+    <nav class="govuk-pagination">
+        <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+                <a class="govuk-link govuk-pagination__link" href="#" aria-current="page">1</a>
+        </li>
+        <li class="govuk-pagination__item">
+                <a class="govuk-link govuk-pagination__link" href="#">2</a>
+        </li>
 
-            </div></div>
+</ul>
+<div class="govuk-pagination__next"><a class="govuk-link govuk-pagination__link" href="#" rel="next"><span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> page</span></span>
+        
+        <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+        </svg>
+        </a>
+</div>
+</nav>
 
-    <form method="post" action="request-amendment" novalidate="">
-        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8EQXv0juoFlGptDCuoEJ_9FkU8xMsu5CJAcNOOw01BizjL0N5VAiZSJ3Uz73PsWvh0GUGGzhbPY-G9Hzm_BoCv681mJV-LP4aGrHgP3fSGcnu5wFlz1gizLAT-e1doJIi9pkTPg96KKhCudovooR6X9lR5YA0KJeZqxn79x_GIgTcVokPiZqSV96Uovpyhso2A">
-        <div class="govuk-form-group"><fieldset class="govuk-fieldset" aria-describedby="SelectedNextStep-hint"><legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            </div>
+        </div>
+
+    <form method="post" action="" novalidate="" id="pupilSearchForm">
+        <input name="__RequestVerificationToken" type="hidden" value="">
+        <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="SelectedNextStep-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     What would you like to do?
-                </legend><div id="SelectedNextStep-hint" class="govuk-hint">
+                </legend>
+                <div id="SelectedNextStep-hint" class="govuk-hint">
                     Select one option.
-                </div><div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init=""><div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedNextStep" name="SelectedNextStep" type="radio" value="RequestChange"><label for="SelectedNextStep" class="govuk-label govuk-radios__label">Request an amendment to pupil data</label></div><div class="govuk-radios__divider">or</div><div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedNextStep-3" name="SelectedNextStep" type="radio" value="Confirm"><label for="SelectedNextStep-3" class="govuk-label govuk-radios__label">Confirm pupil data is correct</label></div></div></fieldset></div>
+                </div>
+                <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+                        <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="SelectedNextStep" name="SelectedNextStep" type="radio" value="RequestChange">
+                        <label for="SelectedNextStep" class="govuk-label govuk-radios__label">Request an amendment to pupil data</label>
+                        </div>
+
+                <div class="govuk-radios__divider">or</div>
+
+                        <div class="govuk-radios__item govuk-radios__item--locked">
+                                <input class="govuk-radios__input" id="SelectedNextStep-2" name="SelectedNextStep" type="radio" value="Confirm">
+                                <label for="SelectedNextStep-2" class="govuk-label govuk-radios__label">Confirm pupil data is correct</label>
+                        </div>
+        </div>
+        </fieldset></div>
 
         <button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Continue</button>
     </form>
 
-
+    <script>
+        (function () {
+        var form = document.getElementById('pupilSearchForm');
+        
+        var pageMap = {
+        RequestChange: 'request-amendment.html',
+        //Confirm: 'landing-page.html',
+          //Remove: 'remove-pupil.html'
+        };
+        
+        form.addEventListener('submit', function (e) {
+          var selected = form.querySelector('input[name="SelectedNextStep"]:checked');
+        
+          if (!selected) {
+            // No option chosen - let the normal form submission happen
+            // so any server-side / GOV.UK error summary validation kicks in.
+            return;
+          }
+        
+          var target = pageMap[selected.value];
+        
+          if (target) {
+            e.preventDefault();
+            window.location.href = target;
+          }
+        });
+        })();
+        </script>
 
 
 {% endblock %}
