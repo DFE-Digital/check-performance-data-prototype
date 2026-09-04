@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Summary of amendment request" %}
+{% set currentPage = "guidance" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Check details</span>
+      <h1 class="govuk-heading-xl">Summary of amendment request</h1>
+
+      <h2 class="govuk-heading-l">Check details for the inclusion of Billy B</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-top-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What pupil data would you like to change?</dt>
+          <dd class="govuk-summary-list__value">Include a pupil in data</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> what pupil data to change</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Pupil name</dt>
+          <dd class="govuk-summary-list__value">Billy B</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> pupil name</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How evidence supports pupil inclusion (Optional)</dt>
+          <dd class="govuk-summary-list__value">I confirm that this pupil was on roll during key stage 4 and should be included in our KS4 cohort. The pupil has been excluded due to a data error, and including them ensures our performance data accurately reflects their results and what happened at our school.</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> how evidence supports pupil inclusion</span></a></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-8">Summary of uploaded documents</h2>
+
+      <table class="govuk-table govuk-!-margin-bottom-7">
+        <caption class="govuk-table__caption govuk-visually-hidden">Summary of uploaded documents</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">File name</th>
+            <th class="govuk-table__header" scope="col">File size</th>
+            <th class="govuk-table__header" scope="col">Type</th>
+            <th class="govuk-table__header" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a class="govuk-link" href="#">Evidence.pdf</a></td>
+            <td class="govuk-table__cell">14.46kb</td>
+            <td class="govuk-table__cell">PDF</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Evidence.pdf</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form method="post" action="request-confirmation">
+        <button class="govuk-button" type="submit">Submit request</button>
+        <button class="govuk-button govuk-button--secondary govuk-!-margin-left-3" type="submit" formaction="#">Save and continue later</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
