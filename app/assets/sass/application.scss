@@ -116,6 +116,7 @@
     bottom: 0
 }
 
+/* Autocomplete for detailed guidance-ks4 page */
 
 .cypmd-search-container
 {
@@ -187,12 +188,6 @@
     margin-top: -20px;
 }
  
-
-/* .cypmd-guidance-layout .cypmd-guidance-section--active {
-    background: #e8f1f8;
-    border-left-color: #1d70b8;
-} */
-
 .cypmd-guidance-layout .cypmd-guidance-section + .cypmd-guidance-section {
     margin-top: 20px;
 }
@@ -244,8 +239,6 @@
 }
 
 
-
-
 .related-content-navigation {
     border-top: 2px solid #1d70b8;
     margin-bottom: 60px;
@@ -280,4 +273,62 @@
     display: flex;
     gap: 10px;
     align-items: flex-start;
+}
+
+
+/* Autocomplete for include-pupil, merge-pupil and remove-pupil pages */
+
+.autocomplete__wrapper {
+  position: relative;
+  max-width: 40.5em;
+}
+
+.autocomplete__menu {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: 2px solid #0b0c0c;
+  border-top: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.autocomplete__option {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  background: #fff;
+  color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.31579;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.autocomplete__option:hover,
+.autocomplete__option[aria-selected="true"] {
+  background-color: #f3f2f1;
+  outline: 3px solid #ffdd00;
+  outline-offset: -3px;
+}
+
+.autocomplete__option:focus {
+  outline: 3px solid #ffdd00;
+  outline-offset: -3px;
+}
+
+.autocomplete__option strong {
+  font-weight: 700;
+}
+
+.autocomplete__input:focus {
+  position: relative;
+  z-index: 101;
 }

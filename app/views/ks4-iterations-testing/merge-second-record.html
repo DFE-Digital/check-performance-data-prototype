@@ -15,8 +15,7 @@
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper" id="main-content" role="main">
  
-    
-
+  
 <form method="post" action="merge-provide-evidence" novalidate="">
 <input name="__RequestVerificationToken" type="hidden" value="CfDJ8EQXv0juoFlGptDCuoEJ_9HNOJCar9YsWLWU4sUTXJt3VTs54fu53ZBnUmRtPRaq_JSzse9ufdTnT4h32aw_fZ5rCNsvDmmMxnvq0DCSlZeMI3rqwuYOcBzesAktkk3UTnBRRocGrLLR-PcvSe_QaS89LmRjcBd1kr0bIvofp7VIYQYnmhK-kkoKGvnWsaY0IQ">
 <input type="hidden" name="selectedPupilId" id="selectedPupilId" value="e39289c9-e5f1-4960-949f-965a0783d74f">
@@ -26,17 +25,276 @@
   <label class="govuk-label govuk-label--l" for="pupil-search">What is the CYPMD ID of the second duplicate record to be merged?</label>
 </h1>
 <div class="govuk-hint" id="pupil-search-hint">Start typing ID to search records</div>
-<div id="pupil-search-container"><div class="autocomplete__wrapper"><div class="autocomplete__status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"><div id="pupil-search__status--A" role="status" aria-atomic="true" aria-live="polite"></div><div id="pupil-search__status--B" role="status" aria-atomic="true" aria-live="polite"></div></div><input aria-describedby="pupil-search__assistiveHint" aria-expanded="false" aria-owns="pupil-search__listbox" aria-autocomplete="list" autocomplete="off" class="autocomplete__input autocomplete__input--default govuk-input" id="pupil-search" name="selectedPupilLabel" placeholder="" type="text" role="combobox"><span id="pupil-search__assistiveHint" style="display: none;">Start typing ID to search records. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span></div></div>
+<div id="pupil-search-container">
+  <div class="autocomplete__wrapper">
+
+    <input
+      class="govuk-input"
+      id="pupil-search"
+      name="selectedPupilLabel"
+      type="text"
+      autocomplete="off"
+      role="combobox"
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-controls="pupil-search__listbox"
+      aria-describedby="pupil-search-hint"
+    >
+
+    <ul
+      id="pupil-search__listbox"
+      class="autocomplete__menu govuk-list"
+      role="listbox"
+      hidden
+    ></ul>
+
+  </div>
 </div>
 
-<button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+<button type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button" data-govuk-button-init="">Continue</button>
 </form>
-
-
-
-
-
   </main>
-  
 </div>
+
+<!-- // Dummy pupil records // -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  
+    // Dummy pupil records
+    const pupils = [
+      {
+        lastName: "B",
+        firstName: "Billy",
+        date: "09/09/2010"
+      },
+      {
+        lastName: "Davies",
+        firstName: "Emily",
+        date: "14/02/2011"
+      },
+      {
+        lastName: "Evans",
+        firstName: "Charlie",
+        date: "21/06/2010"
+      },
+      {
+        lastName: "Garcia",
+        firstName: "Sofia",
+        date: "03/11/2009"
+      },
+      {
+        lastName: "Harris",
+        firstName: "Jack",
+        date: "18/04/2011"
+      },
+      {
+        lastName: "Jones",
+        firstName: "Amelia",
+        date: "27/08/2010"
+      },
+      {
+        lastName: "Patel",
+        firstName: "Arjun",
+        date: "12/01/2010"
+      },
+      {
+        lastName: "Smith",
+        firstName: "Oliver",
+        date: "05/05/2011"
+      },
+      {
+        lastName: "Taylor",
+        firstName: "Isla",
+        date: "30/10/2009"
+      },
+      {
+        lastName: "Williams",
+        firstName: "George",
+        date: "16/03/2010"
+      }
+    ];
+  
+    const input = document.getElementById("pupil-search");
+    const listbox = document.getElementById("pupil-search__listbox");
+  
+    let selectedIndex = -1;
+    let currentResults = [];
+  
+    // Format pupil record
+    function formatPupil(pupil) {
+      return `${pupil.lastName}, ${pupil.firstName}, ${pupil.date}`;
+    }
+  
+    // Show autocomplete results
+    function showResults(results) {
+  
+      listbox.innerHTML = "";
+      selectedIndex = -1;
+      currentResults = results;
+  
+      if (results.length === 0) {
+        hideResults();
+        return;
+      }
+  
+      results.forEach(function (pupil, index) {
+  
+        const option = document.createElement("li");
+  
+        option.className = "autocomplete__option";
+        option.setAttribute("role", "option");
+        option.setAttribute("aria-selected", "false");
+        option.setAttribute("data-index", index);
+  
+        option.textContent = formatPupil(pupil);
+  
+        // Mouse selection
+        option.addEventListener("mousedown", function (event) {
+          event.preventDefault();
+          selectPupil(index);
+        });
+  
+        listbox.appendChild(option);
+      });
+  
+      listbox.hidden = false;
+      input.setAttribute("aria-expanded", "true");
+    }
+  
+    // Hide results
+    function hideResults() {
+      listbox.hidden = true;
+      input.setAttribute("aria-expanded", "false");
+      selectedIndex = -1;
+    }
+  
+    // Select a pupil
+    function selectPupil(index) {
+  
+      const pupil = currentResults[index];
+  
+      if (!pupil) {
+        return;
+      }
+  
+      input.value = formatPupil(pupil);
+  
+      hideResults();
+  
+      // If you want to store an ID for the selected pupil,
+      // you can set it here.
+      //
+      // document.getElementById("selectedPupilId").value = pupil.id;
+    }
+  
+    // Highlight an option
+    function highlightOption(index) {
+  
+      const options = listbox.querySelectorAll(".autocomplete__option");
+  
+      options.forEach(function (option) {
+        option.setAttribute("aria-selected", "false");
+      });
+  
+      if (index >= 0 && index < options.length) {
+  
+        options[index].setAttribute("aria-selected", "true");
+  
+        // Keep highlighted option visible
+        options[index].scrollIntoView({
+          block: "nearest"
+        });
+      }
+    }
+  
+    // User types
+    input.addEventListener("input", function () {
+  
+      const searchTerm = input.value.trim().toLowerCase();
+  
+      if (searchTerm.length === 0) {
+        hideResults();
+        return;
+      }
+  
+      const results = pupils.filter(function (pupil) {
+  
+        const fullName = formatPupil(pupil).toLowerCase();
+  
+        return (
+          pupil.lastName.toLowerCase().includes(searchTerm) ||
+          pupil.firstName.toLowerCase().includes(searchTerm) ||
+          pupil.date.includes(searchTerm) ||
+          fullName.includes(searchTerm)
+        );
+  
+      });
+  
+      showResults(results);
+    });
+  
+    // Keyboard navigation
+    input.addEventListener("keydown", function (event) {
+  
+      const options = listbox.querySelectorAll(".autocomplete__option");
+  
+      if (listbox.hidden || options.length === 0) {
+        return;
+      }
+  
+      // Down arrow
+      if (event.key === "ArrowDown") {
+  
+        event.preventDefault();
+  
+        selectedIndex++;
+  
+        if (selectedIndex >= options.length) {
+          selectedIndex = 0;
+        }
+  
+        highlightOption(selectedIndex);
+      }
+  
+      // Up arrow
+      else if (event.key === "ArrowUp") {
+  
+        event.preventDefault();
+  
+        selectedIndex--;
+  
+        if (selectedIndex < 0) {
+          selectedIndex = options.length - 1;
+        }
+  
+        highlightOption(selectedIndex);
+      }
+  
+      // Enter
+      else if (event.key === "Enter" && selectedIndex >= 0) {
+  
+        event.preventDefault();
+  
+        selectPupil(selectedIndex);
+      }
+  
+      // Escape
+      else if (event.key === "Escape") {
+  
+        hideResults();
+      }
+    });
+  
+    // Close results when clicking elsewhere
+    document.addEventListener("click", function (event) {
+  
+      if (!event.target.closest(".autocomplete__wrapper")) {
+        hideResults();
+      }
+  
+    });
+  
+  });
+</script>
+
 {% endblock %}
