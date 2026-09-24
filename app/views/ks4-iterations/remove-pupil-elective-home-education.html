@@ -1,0 +1,87 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<form method="post" action="remove-provide-elective-home-education" novalidate="" id="removalReasonDetailsForm">
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="school-start-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="school-start-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          When was Billy B removed from your school roll?
+        </h1>
+      </legend>
+      <div id="school-start-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="school-start-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-day" name="SchoolStartDate-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-month" name="SchoolStartDate-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="school-start-date-year" name="SchoolStartDate-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+
+{% endblock %}

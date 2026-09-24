@@ -1,0 +1,67 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="remove-provide-evidence-dual-registered" novalidate="" id="removalReasonDetailsForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+  <h1 class="govuk-heading-l">What is the DfE number of the school where Billy B's performance data should be published?</h1>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="DfeNumber">
+      For example, 5021353
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="DfeNumber" name="DfeNumber" type="text" inputmode="numeric">
+  </div>
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        How can I find a DfE number?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      To find the DfE number, search the school or college name on
+      <a class="govuk-link" href="https://get-information-schools.service.gov.uk/" target="_blank" rel="noopener noreferrer">Get Information about Schools (opens in new tab)</a>.
+    
+    </div>
+  </details>
+
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+<form method="post" action="" novalidate="" id="whatToChangeForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+    <fieldset class="govuk-fieldset" aria-describedby="SelectedWhatToChange-hint"><legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+           <h1 class="govuk-fieldset__heading">What pupil data would you like to change?</h1></legend>
+          <div id="SelectedWhatToChange-hint" class="govuk-hint">
+              Select one option
+          </div>
+          
+          <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange" name="SelectedWhatToChange" type="radio" value="Merge">
+              <label for="SelectedWhatToChange" class="govuk-label govuk-radios__label">Merge duplicate pupil records</label>
+            </div>
+            
+            <div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedWhatToChange-2" name="SelectedWhatToChange" type="radio" value="Include">
+            <label for="SelectedWhatToChange-2" class="govuk-label govuk-radios__label">Include a pupil in data</label>
+            </div>
+
+            <div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedWhatToChange-3" name="SelectedWhatToChange" type="radio" value="Remove">
+            <label for="SelectedWhatToChange-3" class="govuk-label govuk-radios__label">Remove a pupil from data</label>
+            </div>
+
+        </div>
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+      </fieldset>
+    </div>
+</form>
+
+<script>
+(function () {
+var form = document.getElementById('whatToChangeForm');
+
+var pageMap = {
+  Merge: 'merge-pupil.html',
+  Include: 'include-pupil.html',
+  Remove: 'remove-pupil.html'
+};
+
+form.addEventListener('submit', function (e) {
+  var selected = form.querySelector('input[name="SelectedWhatToChange"]:checked');
+
+  if (!selected) {
+    // No option chosen - let the normal form submission happen
+    // so any server-side / GOV.UK error summary validation kicks in.
+    return;
+  }
+
+  var target = pageMap[selected.value];
+
+  if (target) {
+    e.preventDefault();
+    window.location.href = target;
+  }
+});
+})();
+</script>
+
+     
+  
+{% endblock %}

@@ -7,7 +7,63 @@ window.GOVUKPrototypeKit.documentReady(() => {
   initCypmdTopicAutocomplete()
   initCypmdGuidanceSearch()
   initCypmdGuidanceNavigation()
+  initDfeCardHeights()
+  initBackToTop()
 })
+
+function initBackToTop () {
+  const backToTop = document.getElementById('app-back-to-top')
+
+  if (!backToTop) return
+
+  function updateVisibility () {
+    backToTop.hidden = window.scrollY < 1400
+  }
+
+  updateVisibility()
+  window.addEventListener('scroll', updateVisibility, { passive: true })
+}
+
+function initDfeCardHeights () {
+  const grids = document.querySelectorAll('.govuk-grid-row')
+
+  if (!grids.length) return
+
+  function equalizeCards () {
+    grids.forEach(function (grid) {
+      const cards = Array.from(grid.querySelectorAll('.dfe-card')).filter(function (card) {
+        return !card.hidden && card.offsetParent !== null
+      })
+
+      cards.forEach(function (card) {
+        card.style.height = 'auto'
+      })
+
+      const rows = []
+      cards.forEach(function (card) {
+        const row = rows.find(function (existingRow) {
+          return Math.abs(existingRow.top - card.offsetTop) < 2
+        })
+
+        if (row) row.cards.push(card)
+        else rows.push({ top: card.offsetTop, cards: [card] })
+      })
+
+      rows.forEach(function (row) {
+        const rowHeight = Math.max.apply(null, row.cards.map(function (card) {
+          return card.offsetHeight
+        }))
+
+        row.cards.forEach(function (card) {
+          card.style.height = rowHeight + 'px'
+        })
+      })
+    })
+  }
+
+  equalizeCards()
+  window.addEventListener('resize', equalizeCards)
+}
 
 function initCypmdGuidanceNavigation () {
   const nav = document.getElementById('cypmd-guidance-nav')

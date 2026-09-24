@@ -10,22 +10,6 @@
 
   {{ govukHeader() }}
 
-  {{ govukServiceNavigation({
-    serviceName: "",
-    serviceUrl: "/ks4-iterations-testing/start", 
-    navigation: [
-      {
-        href: "/ks4-iterations-testing/guidance",
-        text: "Guidance",
-        current: (currentPage == "guidance"),
-        target: "_blank"
-      },
-      {
-        href: "#",
-        text: "Sign in" 
-      }
-    ]
-  }) }}
 
 {% endblock %}
 

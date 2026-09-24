@@ -1,0 +1,70 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "Data amendment request submitted" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+  </div>
+  <!-- {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} -->
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation" style="background-color: #00703c; text-align: center;">
+        <h1 class="govuk-panel__title">Data amendment<br>request submitted</h1>
+        <div class="govuk-panel__body">
+          Your reference number<br>
+          <strong>CYPMD_KS4_8784120</strong>
+        </div>
+      </div>
+
+      <p class="govuk-body">We have sent you an email to confirm that you have successfully submitted a request.</p>
+
+      <div class="govuk-inset-text" style="background-color: #d2e2f1; border-left: 0; padding: 10px 15px;">
+        You still have until <strong>5pm on Friday 26 June 2026</strong> to request any further amendments if you need to.
+      </div>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="request-amendment">Request another amendment</a> or
+        <a class="govuk-link" href="remove-summary-social-care">edit an existing request</a>.
+      </p>
+
+      <h2 class="govuk-heading-l">What happens next</h2>
+
+      <p class="govuk-body">After you submit your changes:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the DfE will review any evidence you provide</li>
+        <li>you'll be able to track the status of your requests in the service</li>
+        <li>your school's performance data will be updated in the Autumn, if the request is approved</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

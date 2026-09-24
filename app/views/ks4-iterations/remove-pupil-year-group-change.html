@@ -1,0 +1,89 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+<form method="post" action="remove-provide-perm-left-england" novalidate="" id="removalReasonDetailsForm">
+ <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">Is Billy B being moved to a year group higher or lower than year 11?</h1>
+      </legend>
+      <div id="changedName-hint" class="govuk-hint">
+        Select one option
+      </div>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="higher">
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Higher
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="lower">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            Lower
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<script>
+  document.getElementById('removalReasonDetailsForm').addEventListener('submit', function (event) {
+    var selected = this.querySelector('input[name="changedName"]:checked');
+    var pageMap = {
+      higher: 'remove-pupil-year-group-change2.html',
+      lower: 'remove-pupil-year-group-change3.html'
+    };
+
+    if (!selected || !pageMap[selected.value]) {
+      event.preventDefault();
+      return;
+    }
+
+    event.preventDefault();
+    window.location.href = pageMap[selected.value];
+  });
+</script>
+
+{% endblock %}

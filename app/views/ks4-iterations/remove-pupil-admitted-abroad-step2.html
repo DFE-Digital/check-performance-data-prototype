@@ -1,0 +1,337 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<form method="post" action="remove-provide-evidence-admitted-abroad" novalidate="" id="removalReasonDetailsForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Which country is Billy B originally from?
+        </h2>
+      </legend>
+  <div class="govuk-form-group">
+    <div id="DfeNumber-hint" class="govuk-hint">Type to search for a country</div>
+    <div id="country-search-container">
+      <div class="autocomplete__wrapper">
+        <input
+          class="govuk-input govuk-!-width-one-thirds"
+          id="DfeNumber"
+          name="DfeNumber"
+          type="text"
+          autocomplete="off"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-controls="DfeNumber__listbox"
+          aria-describedby="DfeNumber-hint"
+        >
+
+        <ul
+          id="DfeNumber__listbox"
+          class="autocomplete__menu govuk-list"
+          role="listbox"
+          hidden
+        ></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="school-start-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="school-start-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          When did Billy B start at your school?
+        </h2>
+      </legend>
+      <div id="school-start-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="school-start-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-day" name="SchoolStartDate-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-month" name="SchoolStartDate-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="school-start-date-year" name="SchoolStartDate-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="first-school-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="first-school-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          When did Billy B first start at a school in England?
+        </h2>
+      </legend>
+      <div id="first-school-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="first-school-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="first-school-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-school-date-day" name="FirstSchoolDate-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="first-school-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-school-date-month" name="FirstSchoolDate-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="first-school-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-school-date-year" name="FirstSchoolDate-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="arrival-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="arrival-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          When did Billy B arrive in England? (optional)
+        </h2>
+      </legend>
+      <div id="arrival-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="arrival-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="arrival-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="arrival-date-day" name="ArrivalDate-day" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="arrival-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="arrival-date-month" name="ArrivalDate-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="arrival-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="arrival-date-year" name="ArrivalDate-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const countries = [
+      "England",
+      "Scotland",
+      "Wales",
+      "Northern Ireland",
+      "India",
+      "Pakistan",
+      "Romania",
+      "Poland",
+      "Iraq",
+      "Afghanistan"
+    ];
+
+    const input = document.getElementById("DfeNumber");
+    const listbox = document.getElementById("DfeNumber__listbox");
+
+    let selectedIndex = -1;
+    let currentResults = [];
+
+    function showResults(results) {
+      listbox.innerHTML = "";
+      selectedIndex = -1;
+      currentResults = results;
+
+      if (results.length === 0) {
+        hideResults();
+        return;
+      }
+
+      results.forEach(function (country, index) {
+        const option = document.createElement("li");
+
+        option.className = "autocomplete__option";
+        option.setAttribute("role", "option");
+        option.setAttribute("aria-selected", "false");
+        option.setAttribute("data-index", index);
+        option.textContent = country;
+
+        option.addEventListener("mousedown", function (event) {
+          event.preventDefault();
+          selectCountry(index);
+        });
+
+        listbox.appendChild(option);
+      });
+
+      listbox.hidden = false;
+      input.setAttribute("aria-expanded", "true");
+    }
+
+    function hideResults() {
+      listbox.hidden = true;
+      input.setAttribute("aria-expanded", "false");
+      selectedIndex = -1;
+    }
+
+    function selectCountry(index) {
+      const country = currentResults[index];
+
+      if (!country) {
+        return;
+      }
+
+      input.value = country;
+      hideResults();
+    }
+
+    function highlightOption(index) {
+      const options = listbox.querySelectorAll(".autocomplete__option");
+
+      options.forEach(function (option) {
+        option.setAttribute("aria-selected", "false");
+      });
+
+      if (index >= 0 && index < options.length) {
+        options[index].setAttribute("aria-selected", "true");
+        options[index].scrollIntoView({ block: "nearest" });
+      }
+    }
+
+    input.addEventListener("input", function () {
+      const searchTerm = input.value.trim().toLowerCase();
+
+      if (searchTerm.length === 0) {
+        hideResults();
+        return;
+      }
+
+      const results = countries.filter(function (country) {
+        return country.toLowerCase().includes(searchTerm);
+      });
+
+      showResults(results);
+    });
+
+    input.addEventListener("keydown", function (event) {
+      const options = listbox.querySelectorAll(".autocomplete__option");
+
+      if (listbox.hidden || options.length === 0) {
+        return;
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        selectedIndex++;
+
+        if (selectedIndex >= options.length) {
+          selectedIndex = 0;
+        }
+
+        highlightOption(selectedIndex);
+      }
+      else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        selectedIndex--;
+
+        if (selectedIndex < 0) {
+          selectedIndex = options.length - 1;
+        }
+
+        highlightOption(selectedIndex);
+      }
+      else if (event.key === "Enter" && selectedIndex >= 0) {
+        event.preventDefault();
+        selectCountry(selectedIndex);
+      }
+      else if (event.key === "Escape") {
+        hideResults();
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".autocomplete__wrapper")) {
+        hideResults();
+      }
+    });
+  });
+</script>
+
+{% endblock %}

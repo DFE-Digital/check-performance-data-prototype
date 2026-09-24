@@ -88,6 +88,11 @@
 .dfe-card:focus-within .govuk-heading-m,.dfe-card:focus-within a,.dfe-card:focus-within p,.dfe-card:hover .govuk-heading-m,.dfe-card:hover a,.dfe-card:hover p {
     color: #fff
 }
+.dfe-heading-xl, .govuk-heading-xl, h1 {
+    font-size: 48px;
+    font-size: 3;
+    line-height: 1.0416666667 !important;
+}
 
 .dfe-card:focus-within {
     outline: 3px solid #fd0
@@ -189,7 +194,7 @@
 }
  
 .cypmd-guidance-layout .cypmd-guidance-section + .cypmd-guidance-section {
-    margin-top: 20px;
+    //margin-top: 20px;
 }
 
 @media (min-width: 40.0625em) {
@@ -234,10 +239,19 @@
     margin: 30px 0 0 30px;
     z-index: 20;
     pointer-events: auto;
-    background-color: #fff;
+    //background-color: #fff;
     
 }
-
+.app-back-to-top__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 8px 15px;
+    border: 1px solid #b1b4b6;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(11, 12, 12, 0.15);
+}
 
 .related-content-navigation {
     border-top: 2px solid #1d70b8;
@@ -262,6 +276,10 @@
     line-height: 1.25;
 }
 
+.gem-c-single-page-notification-button__icon {
+    color: #0b0c0c;
+    vertical-align: top;
+}
 
 .pupil-search {
     background: #f3f2f1;
@@ -331,4 +349,15 @@
 .autocomplete__input:focus {
   position: relative;
   z-index: 101;
+}
+/* added from 14th september 2026 by praveen*/
+.signoutstyle {
+    max-width: 960px;
+    margin: auto;
+    padding-top: 8px;
+    float: right;
+}
+.backbuttonstyle {
+    display: block;
+    float: left;
 }

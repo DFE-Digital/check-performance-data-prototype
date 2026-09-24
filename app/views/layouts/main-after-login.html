@@ -12,17 +12,25 @@
 
   {{ govukServiceNavigation({
     serviceName: "",
-    serviceUrl: "/ks4-iterations-testing/start", 
+    serviceUrl: "/ks4-iterations/start", 
     navigation: [
       {
-        href: "/ks4-iterations-testing/guidance",
-        text: "Guidance",
-        current: (currentPage == "guidance"),
+        href: "/ks4-iterations/landing",
+        text: "Home",
+        current: (currentPage == "home"),
         target: "_blank"
       },
       {
-        href: "#",
-        text: "Sign in" 
+        href: "/ks4-iterations/guidance",
+        text: "Amendment requests",
+        current: (currentPage == "amendments"),
+        target: "_blank"
+      },
+      {
+        href: "/ks4-iterations/guidance",
+        text: "Guidance",
+        current: (currentPage == "guidance"),
+        target: "_blank"
       }
     ]
   }) }}

@@ -1,14 +1,26 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-after-login.html" %}
 
 {% set pageName = "CYPMD help and support" %}
-{% set currentPage = "guidance" %}
+{% set currentPage = "home" %}
 
 
 {% block beforeContent %}
- {{ govukBackLink({
+<!-- {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
-}) }} 
+}) }} -->
+  <div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+<div class="govuk-width-container govuk-grid-row">
+    <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+</div>
 {% endblock %}
 
 
@@ -22,12 +34,10 @@
                 <dt class="govuk-summary-list__key">Address</dt>
                 <dd class="govuk-summary-list__value">Kings Avenue, Hednesford, Cannock, Staffordshire, WS12 1DH</dd>
             </div>
-    
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">Establishment LAESTAB</dt>
                 <dd class="govuk-summary-list__value">860/4070</dd>
             </div>
-    
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">Establishment URN</dt>
                 <dd class="govuk-summary-list__value">142313</dd>
@@ -38,21 +48,14 @@
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
     <h2 class="govuk-heading-m">Check data</h2>
     <div class="dfe-grid-container">
-                <div class="dfe-card">
-                    <div class="dfe-card-container">
-                        <h3 class="govuk-heading-m">Key Stage 4 June</h3>
-    
-                        <p><strong>You have until 5pm on Monday 2 August 2027 to review your data.</strong></p>
-    
-                        <div>
-                            <a draggable="false" data-module="govuk-button" role="button" class="govuk-button" href="check-data" data-govuk-button-init="">
-                                Continue
-                            </a>
-                        </div>
-             
-      </main>
-</div>
-</div>
+        <div class="dfe-card">
+            <div class="dfe-card-container">
+                <h3 class="govuk-heading-m dfe-card-link--header">Key Stage 4</h3>
+                <p><strong>You have until 5pm on Friday 26 June 2026 to  review your pupil data and request amendments </strong></p>
+                <div>
+                    <a draggable="false" data-module="govuk-button" role="button" class="govuk-button" href="check-data" data-govuk-button-init="">Continue</a>
+                </div>
+            </div>
+        </div>
     </div>
-
 {% endblock %}

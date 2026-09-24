@@ -1,0 +1,622 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "Check your KS4 June performance measures data" %}
+{% set currentPage = "guidance" %}
+
+
+{% block beforeContent %}
+
+<!-- Breadcrumb nav -->
+<div class="govuk-width-container">
+  <div>
+    <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+      <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/ks4-iterations-testing/landing">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/ks4-iterations-testing/guidance">CYPMD help and support</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">Check your 16 to 19 performance measures data</li>
+      </ol>
+  </nav> 
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-!-padding-top-0" id="main-content" role="main">  
+      <p class="govuk-caption-l cpb-subtitle">Check your performance measures data</p>
+      <h1 class="govuk-heading-xl cpb-page-h1 govuk-!-margin-bottom-4">How to check your performance measures data: 16-19 2026</h1>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Published: 22 September 2026.</br>
+      Updated: 2 July 2026.</p>
+  </div>
+  <div class="govuk-grid-column-two-thirds govuk-!-text-align-right">
+    <a href="#check-KS4-jun-performance">Download 16 to 19 performance measures data 2026 guidance as a PDF</a>
+
+  </div>
+
+</div>
+    <div id="cypmd-guidance-intro">
+
+      <div class="govuk-body">   
+        <div class="cypmd-search-container govuk-grid-full govuk-!-margin-top-5">
+        <form class="cypmd-search" data-module="cypmd-topic-autocomplete" role="search" method="get" action="#cypmd-guidance-sections" novalidate>
+          <div class="govuk-form-group">
+            <label id="cypmd-search-label" class="govuk-label govuk-label--s" for="search">Search the 16 to 19 guidance</label>
+            <div id="cypmd-search-hint" class="govuk-hint">Enter 3 or more characters to see guidance topics.</div>
+            <div class="cypmd-search__row">
+              <div class="cypmd-autocomplete">
+                <input class="govuk-input cypmd-search__input" id="search" name="q" type="search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="cypmd-topic-suggestions" aria-describedby="cypmd-search-hint cypmd-search-results-status">
+                <ul id="cypmd-topic-suggestions" class="cypmd-autocomplete__suggestions" role="listbox" aria-labelledby="cypmd-search-label" hidden></ul>
+              </div>
+              <button class="govuk-visually-hidden govuk-button cypmd-search__button" data-module="govuk-button" type="submit">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      </div>
+    </div>
+
+    <div class="cypmd-guidance-layout govuk-!-margin-top-8 ">
+      <div class="govuk-grid-column-one-third ">
+        <nav class="cypmd-guidance-navigation" aria-label="Page contents">
+          <ul class="moj-side-navigation__list" id="cypmd-guidance-nav">
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#summary">Summary</a>
+            </li> 
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#action-your-school">Action your school or college needs to take</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#introduction">Introduction</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#Calculation-of-16-to-19-performance-measures-data">Calculation of 16 to 19 performance measures data</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#qualifications-reported">Qualifications reported</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#checking-your-school-or-colleges-pms">Checking your school or college’s performance measures data</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#results-enquiries">Results enquiries</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#student-amendment-requests">Student amendment requests</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#information-and-evidence">Information and evidence</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#college-closures-and-mergers">Consortia, college closures and mergers</a>
+            </li>
+            <li class="moj-side-navigation__item cypmd-guidance-nav-item">
+              <a href="#further-guidance-and-support">Further guidance and support</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="filterable" class="govuk-grid-column-two-thirds">
+        <p id="cypmd-search-results-status" class="govuk-visually-hidden" aria-live="polite" aria-atomic="true"></p>
+        <div id="cypmd-guidance-sections">
+
+          <!--<section id="check-KS4-jun-performance" class="cypmd-guidance-section" aria-labelledby="changes-since-2025">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="changes-since-2025" class="govuk-heading-l">Changes since 2025</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">We've made the following updates to the CYPMD service since last year:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>you can now <a class="govuk-link" href="#">request to add an unlisted pupil</a> in the service, instead of using an online form</li>
+                  <li>we've improved the <a class="govuk-link" href="#">merge duplicate pupil records option</a></li>
+                  <li>we've updated the <a class="govuk-link" href="#">child missing education option</a> to reflect current legislation</li>
+                  <li>we've enhanced the <a class="govuk-link" href="#">add back removal options</a></li>
+                  <li>the service now includes information to help you understand when and how to submit amendment requests</li>
+                  <li>CSV files are now sorted alphabetically by surname</li>
+                </ul>
+              </div>
+            </div>
+          </section> -->
+          <section class="cypmd-guidance-section" aria-labelledby="Summary">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="summary" class="govuk-heading-l">Summary</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">This guidance is from the Department for Education (DfE). It is not statutory.</p>
+                <p class="govuk-body">It explains the responsibilities of state-funded secondary schools with 16 to 19 provision, registered independent schools and further education (FE) providers during the school and college checking exercise.</p>
+                <p class="govuk-body">This guidance will be reviewed and updated, if needed, before the 2027 Autumn checking exercise.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="changes-since-2025">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="changes-since-2025" class="govuk-heading-l">Changes since 2025</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">We've made the following updates to the CYPMD service since last year:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>You can now submit individual student amendment requests at any time during the checking window.</li>
+                  <li>You can save amendment requests and submit them later, provided they are submitted before the checking window deadline.</a></li>
+                  <li>There is no longer a full return summary as in previous years.</li>
+                  <li>You can continue to submit results enquiries after the checking window deadline if you need to. Although you should[SH7.1][TR7.2] not submit an incorrect grade enquiry until you have received and checked your second late results CSV file in November.</li>
+               </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="key-dates">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="key-dates" class="govuk-heading-l">Key dates</h2>
+              <div class="govuk-body">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">5 October 2026</dt> 
+                    <dd class="govuk-summary-list__value">16 to 19 checking exercise opens in the CYPMD service.</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">16 October 2026</dt> 
+                    <dd class="govuk-summary-list__value">Checking exercise closes at 5pm. You must submit all requests and supporting evidence before this deadline.</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Late November 2026</dt> 
+                    <dd class="govuk-summary-list__value">The second late results file is available in the CYPMD service. Do not submit enquiries about incorrect grades until this file has been published.</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">February 2027</dt> 
+                    <dd class="govuk-summary-list__value">The revised performance measures are published </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">April 2027</dt> 
+                    <dd class="govuk-summary-list__value">The final performance measures are published</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="action-your-school">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="action-your-school" class="govuk-heading-l">Action your school or college needs to take</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">The 16 to 19 Autumn checking exercise will open on Monday 6 October 2025 on the CYPMD service.</p>
+                <p class="govuk-body">We will let schools and colleges know when the checking exercise is live and available to access.</p>
+                <p class="govuk-body">The checking exercise will close at 5pm on Friday 17 October 2025.</p>
+                <p class="govuk-body">What you school or college needs to do:</p>
+                <ol class="govuk-list govuk-list--number">
+                  <li>Check your school's or college's student CSV files to make sure the correct students have been identified as being at the end of their 16 to 19 study programme. Checking this information helps make sure your revised performance measures data, published in early 2026, is accurate.</li>
+                  <li>Check your school's or college's results CSV file to make sure the correct results have been matched to each student. This helps make sure your revised performance measures data, published in early 2026, is accurate. If you think a student's results are missing or incorrect, see the results enquiries guidance, which will be available on the CYPMD help and support service before the checking exercise opens. Any results enquiries you raise will not be reflected in the data currently available in the CYPMD service.</li>
+                  <li>View your school's or college's summary performance measures data. If you need to request amendments to your student data, complete all amendment requests. Information about the evidence you need to provide is included throughout this guidance.</li>
+                  <li>View your school or college summary performance measures data. If you need to request amendments to your student data, complete all amendment requests. Information about the evidence you need to provide is included throughout this guidance.</li>
+                  <li>You can continue to raise results enquiries after the window closes for making student amendment requests.</li>
+                </ol>
+
+                <h3 class="govuk-heading-s govuk-heading-m">Important</h3>
+                <p>Amendment requests and results enquiries raised during the checking exercise will not be included in the provisional data in the CYPMD service or the provisional official statistics publication.</p>
+                <h3 class="govuk-heading-s govuk-heading-m">Who is this guidance for?</h3>
+                <p>This guidance is for:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>school leaders, staff and governing bodies in all state funded secondary schools with 16 to 19 provision (maintained schools, academies, free schools, studio schools and university technical colleges) </li>
+                  <li>special schools (maintained schools, academies and free schools) </li>
+                  <li>registered independent schools </li>
+                  <li>further education colleges</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="introduction">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="introduction" class="govuk-heading-l">Introduction</h2>
+              <p class="govuk-body">The DfE publishes school and college performance measures every year. These measures help schools, colleges, parents and learners compare attainment and progress.</p>
+              <p class="govuk-body">The 2024 to 2025 performance measures will include students who completed their 16 to 19 studies during the 2024 to 2025 academic year. This may include qualifications achieved in earlier academic years, for example 2023 to 2024.</p>
+              <p class="govuk-body">As part of the Autumn checking exercise, schools and colleges can check that the correct students and qualification results are included in their data.</p>
+              <p class="govuk-body">If you identify any inaccuracies, you can request to amend them using the check your performance measures data (CYPMD) service. We will investigate and correct any errors where appropriate.</p>
+              <p class="govuk-body">We will share any approved changes through a revised data release on the CYPMD service in early 2026. We will provide more information about this nearer the time.</p>
+              <p class="govuk-body">Performance measures data that includes approved student removal requests from the Autumn checking exercise will be published in early 2026.</p>
+              <p>Read the 16 to 19 accountability headline measures: technical guide for information about how 16 to 19 performance measures are calculated.</p>
+            </div>
+          </section>
+          <section class="cypmd-guidance-section" aria-labelledby="Calculation-of-16-to-19-performance-measures-data">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="Calculation-of-16-to-19-performance-measures-data" class="govuk-heading-l">Calculation of 16 to 19 performance measures data</h2>
+              
+              <h3 class="govuk-heading-s govuk-heading-m">State funded schools and colleges</h3>
+              <div class="govuk-body">
+                <p class="govuk-body">State-funded schools and colleges must submit their Autumn school census or ILR R14 return in October. It is important that the learning aim reference and completion status for each student are accurate. We use this information to calculate retention measures.</p>
+                <p class="govuk-body">Check your autumn ILR and school census returns carefully before submitting them. Once we have used this information to calculate your school or college performance measures, you cannot correct any errors or missing information.</p>
+                <p class="govuk-body">Incorrect data may result in inaccurate retention measures being published for your institution. Read the <a class="govuk-link" href="https://www.gov.uk/guidance/complete-the-school-census" target="_blank" rel="noopener noreferrer">school census guidance</a> and <a class="govuk-link" href="https://www.gov.uk/government/collections/individualised-learner-record-ilr" target="_blank" rel="noopener noreferrer">ILR guidance</a> for help completing your return.</p>
+               </div>
+               <h3 class="govuk-heading-s govuk-heading-m">Special schools</h3>
+               <p class="govuk-body">Special schools with a sixth form are not included in published 16 to 19 performance measures unless they choose to be.</p>
+               <p class="govuk-body">If you want your 16 to 19 results to be published, contact the CYPMD helpline on 0300 131 2762 or <a class="govuk-link" href="https://check-your-performance-measures-data.education.gov.uk/hc/en-gb/requests/new?ticket_form_id=27044399276050" target="_blank" rel="noopener noreferrer">send us a message</a> by 5pm on Friday 17 October 2025.</p>
+               
+               <h3 class="govuk-heading-s govuk-heading-m">Students reported</h3>
+               <p>We report students who:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>were aged 16 or 17 on 31 August 2024 and completed their 16 to 19 studies in the 2024 to 2025 academic year</li>
+                  <li>were aged 18 on 31 August 2024</li>
+                </ul>
+                <p class="govuk-body">Each year, we assign students and their results to the school or college where they are enrolled and funded for their main study programme.</p>
+                <p class="govuk-body">This means a student may be included under different schools or colleges in different years if they move provider during their 16 to 19 studies.</p>
+                <p class="govuk-body">For more information about which students should be included, read the <a class="govuk-link" href="https://www.gov.uk/government/publications/16-to-19-accountability-headline-measures-technical-guide" target="_blank" rel="noopener noreferrer">16 to 19 accountability headline measures: technical guide</a>.</p>
+                <p class="govuk-body">Your school or college is accountable for a student and their results if the student was recorded on roll in the Spring school census or had a core learning aim recorded in the ILR. Students can be assigned to a provider for up to 3 academic years, including 2024 to 2025, 2023 to 2024, and 2022 to 2023</p>
+                <p class="govuk-body">Some students are assigned to a provider based on the volume of exam data received from awarding organisations (AOs). This is based on where the student sat their exams, not where they were on roll.</p>
+                <p class="govuk-body">This usually applies to providers that do not submit student-level data through the school census or the individualised learner record (ILR), such as independent schools.
+                <p class="govuk-body">We only include students who meet the eligibility and entry requirements in published performance measures data.</p>
+                <h3 class="govuk-heading-s govuk-heading-m">Student eligibility criteria</h3>
+                <p class="govuk-body">Students are eligible to be included in 16 to 19 performance measures if they:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>were aged 16, 17 or 18 on 31 August 2024</li>
+                  <li>were at the end of their 16 to 19 studies in the 2024 to 2025 academic year</li>
+                </ul>
+                <p class="govuk-body">We consider a student to be at the end of their 16 to 19 studies if they meet one of the following criteria:</p>
+                <ol class="govuk-list govuk-list--number">
+                  <li>they entered for at least 2 qualifications, each the size of an A level or larger, in the reporting year</li>
+                  <li>they entered for 1 qualification that is at least the size of 2 A levels in the reporting year</li>
+                  <li>they entered for both a T Level core component and a T Level occupational specialism during their 16 to 19 studies</li>
+                  <li>they were aged 18 and have not previously been included in published performance measures for their current allocated provider</li>
+                </ol>
+                <p class="govuk-body">You can defer students who meet points 1, 2 or 3 if they were aged 16 or 17 on 31 August 2024. Students who were aged 18 on 31 August 2024 cannot be deferred.</p>
+                <p class="govuk-body">A student eligible for reporting in 16 to 19 published performance measures data will also need to meet additional criteria for each performance measure to be included in that measure. For example, they must have entered for an AS-level qualification to be included in A level average point scores, or a technical certificate to be included in technical certificate average point scores.</p>
+                <p class="govuk-body">For more information about how performance measures are calculated and how students are assigned to providers, read the <a href="https://www.gov.uk/government/publications/16-to-19-accountability-headline-measures-technical-guide" class="govuk-link">16 to 19 accountability headline measures: technical guide</a>.</p>
+                
+                <h3 class="govuk-heading-s govuk-heading-m">Students studying part-time</h3>
+                <p class="govuk-body">Part-time students are included in 16 to 19 performance measures if they meet the eligibility criteria.</p>
+
+                <h3 class="govuk-heading-s govuk-heading-m">Students studying at more than one institution</h3>
+                <p class="govuk-body">If a student moves to a different school or college during the academic year, we include their results in the performance measures for the provider identified as their core provider.</p>
+                <p>We identify the core provider using enrolment data. If this is not available, we use the provider that entered the student for the largest number of qualifications.</p>
+                <p>If a student studies at more than one school or college at the same time during an academic year, we assign the student and their results to the core provider.</p>
+                <p>For more information about how students are assigned to schools and colleges, read the <a href="https://www.gov.uk/government/publications/16-to-19-accountability-headline-measures-technical-guide" class="govuk-link">16 to 19 accountability headline measures: technical guide</a>.</p>
+                <h3 class="govuk-heading-s govuk-heading-m">Students who left part way through their studies</h3>
+                <p class="govuk-body">If a student was on roll at your school or college but left before completing their studies, their achievements will be included when they reach the end of their studies or turn 18.</p>
+                <p class="govuk-body">You cannot remove these students or their results.</p>
+
+                <h3 class="govuk-heading-s govuk-heading-m">Students withdrawn from exams</h3>
+                <p class="govuk-body">If a student has been withdrawn from all exams included in performance measures, they may be removed from your school's or college's attainment measures.</p>
+                <p class="govuk-body">For state-funded schools and colleges, we calculate retention measures using data from the school census and the individualised learner record (ILR). If a student is withdrawn from exams after the funding qualifying period, they will still be included in these performance measures.</p>
+                <p class="govuk-body">Attainment data will show a fail grade for any exam entries that have not been withdrawn by the AO.</p>
+
+                <h3 class="govuk-heading-s govuk-heading-m">Apprenticeship students</h3>
+                <p class="govuk-body">Apprenticeship students may be included in your results if AO data shows they took exams at your school or college.</p>
+                <p class="govuk-body">If an apprenticeship student was not on roll in the 2024 to 2025, 2023 to 2024 or 2022 to 2023 academic years, and was not recorded in a school census or ILR return during those years, you should request that they are removed from your results.</p>
+                <p class="govuk-body">If an apprenticeship student was recorded in a school census or ILR return and has been included in the English and maths progress measure, you can request that they are removed from this measure.</p>
+                <p class="govuk-body">See the other student removal category for more information.</p>
+
+                <h3 class="govuk-heading-s govuk-heading-m">International students</h3>
+                <p class="govuk-body">An international student is someone who has come to England from another country to study. These students are not publicly funded and pay their own tuition fees.</p>
+                <p class="govuk-body">You can request that international students are removed from your school's or college's performance measures.</p>
+
+                <h3 class="govuk-heading-s govuk-heading-m">Private entries and external candidates</h3>
+                <p class="govuk-body">Private exam entries for approved qualifications are included in performance measures. You cannot remove students who were on roll at your school or college, or their results, even if they entered exams privately or took qualifications that were not taught by your school or college.
+                <p class="govuk-body">If a student was not on roll at your school or college but sat one or more exams at your centre, you can request that they are removed from your performance measures. These students are known as external candidates.</p>
+              </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="qualifications-reported">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="qualifications-reported" class="govuk-heading-l">Qualifications reported</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">You can find a list of <a class="govuk-link" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fassets.publishing.service.gov.uk%2Fmedia%2F6a555d82c3d64d94cacab90e%2F16_to_19_qualifications_and_discount_codes_2018_to_2028_performance_tables_2026v2.xlsx&wdOrigin=BROWSELINK" target="_blank">approved qualifications for 2025</a> on the approved qualifications page.</p>
+                <p class="govuk-body">For applied general, tech levels and technical certificates, only qualifications approved for performance measures in the 2024 to 2025 academic year are included.</p>
+                <p class="govuk-body">This also applies to results achieved before the 2024 to 2025 academic year which may be included in this year's data.</p>
+                <p class="govuk-body">If a student has taken 2 or more qualifications in the same subject area, only one qualification can count towards performance measures.</p>
+                <p class="govuk-body">The discounting rules are explained in <a class="govuk-link" href="https://www.gov.uk/government/publications/16-to-19-qualifications-discount-codes-and-point-scores" target="_blank">16 to 19 qualifications, discount codes and point scores</a>.</p>
+                
+                <h3 class="govuk-heading-s govuk-heading-m">Reporting fails</h3>
+                <p class="govuk-body">Only grades U, F and Q (pending) will be counted as a fail and attract zero points in performance measures data.</p>
+
+                <h3 class="govuk-heading-s govuk-heading-m">Grade X</h3>
+                <p class="govuk-body">Grade X (no result) does not count in performance measures data.</p>
+                <p class="govuk-body">In most cases, a Grade X is awarded when a student has not completed all the required units, or left the course and should have been withdrawn.</p>
+
+                <h3 class="govuk-heading-s govuk-heading-m">Resits</h3>
+                <p class="govuk-body">Students are only included in performance measures when they reach the end of their 16 to 19 study programme.</p>
+                <p class="govuk-body">Before including a student in the 2024 to 2025 data, make sure they have reached the end of their 16 to 19 studies.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="checking-your-school-or-colleges-pms">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="checking-your-school-or-colleges-pms" class="govuk-heading-l">Checking your school or college’s performance measures data</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">The 16 to 19 Autumn checking exercise opens on Monday 6[HS18.1] October 2026 in the CYPMD service.</p>
+                <p class="govuk-body">We recommend that you download and check your school's or college's CSV files as early as possible during the 2-week checking window.</p>
+                <p class="govuk-body">The checking exercise closes at 5pm on Friday 17 October 2026. This deadline cannot be extended.</p>
+                <p class="govuk-body">If you identify any issues with your student lists or have questions about your data, contact the CYPMD helpline as soon as possible. This will give you enough time to receive a response and, if necessary, submit amendment requests before the deadline.</p>
+                <p class="govuk-body">In 2024, some schools and colleges downloaded CSV files that contained no data, which caused confusion. For 2025, if there is no data available for your school or college, a CSV file link will not be displayed in the portal.</p>
+
+                <h3 class="govuk-heading-s">CSV file guidance</h3>
+                <p class="govuk-body">Guidance documents for the 16 to 19 Autumn CSV files will be available on the CYPMD help and support service before the checking exercise opens.</p>
+                <p class="govuk-body">These documents explain how to read and understand the student and results CSV files</p>
+
+                <h3 class="govuk-heading-s">Student CSV files</h3>
+                <p class="govuk-body">To check your school or college student data, you can download up to 3 student CSV files from the CYPMD service:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li><b>Students included:</b> contains students who are included in your school or college performance measures.</li>
+                  <li><b>Students not included:</b> contains students who are not included in your school or college performance measures. For example, a student who has not yet completed their 16 to 19 study programme but has been allocated to your school or college during the reporting year.</li>
+                  <li><b>Students previously published:</b> contains students who were included in your school or college performance measures in a previous year.</li>
+                </ul>
+
+                <h3 class="govuk-heading-s">Results CSV files</h3>
+                <p class="govuk-body">To check your students' results data, you can download up to 2 results CSV files from the CYPMD service:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li><b>Results: students included:</b> contains results for students who are included in your school or college performance measures.</li>
+                  <li><b>Results: students not included:</b> contains results for students who are not included in your school or college performance measures.</li>
+                </ul>
+                <p class="govuk-body">These CSV files contain AO data received up to and including 1 September 2025.</p>
+                <p class="govuk-body">AOs submit their data at different times during August, so the latest award date shown may vary between AOs. The official deadline for submitting data was 22 August 2025, but some AOs submitted data after this date. Any data received by 1 September 2025 has been included in these files.</p>
+                <p class="govuk-body">Any AO data received between 2 September and 31 October 2025 will be included in the revised performance measures data published in early 2026.</p>
+
+                <h3 class="govuk-heading-s">School or college summary CSV file</h3>
+                <p class="govuk-body">To check your school or college performance measures data, you can download the school or college summary data CSV file from the CYPMD service.</p>
+                <p class="govuk-body">This file contains summary performance measures data based on the results attributed to your students. The data includes results received from AOs up to and including 1 September 2025.</p>
+
+                <h3 class="govuk-heading-s">Late results CSV files</h3>
+                <p class="govuk-body">You can download 2 late results CSV files from the CYPMD service.</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li><b>First late results file:</b> available when the checking exercise opens. It contains data received from AOs between 2 September and 17 September 2025.</li>
+                </ul>
+                <p class="govuk-body">The deadline for AOs to submit data for this file is 17 September 2025, regardless of the award date.</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li><b>Second late results file:</b> we will email schools and colleges when it is available in late November. It contains data received from AOs between 2 September and 31 October 2025.</li>
+                </ul>
+                <p class="govuk-body">The deadline for AOs to submit data for this file is 31 October 2025, regardless of the award date.</p>
+                <p class="govuk-body">Any late results or review of marking outcomes included in either file will be reflected in the revised performance measures data published in early 2026.</p>
+
+                <h4 class="govuk-heading-s">When the DfE receives 16 to 19 data from awarding organisations</h4>
+                <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th class="govuk-table__header" scope="col">When data is received from AO by</th>
+                      <th class="govuk-table__header" scope="col">Which results CSV file includes this data</th>
+                      <th class="govuk-table__header" scope="col">When you can view this data in CYPMD service</th>
+                      <th class="govuk-table__header" scope="col">Which publication will these results be included in</th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">1 Sep</td>
+                      <td class="govuk-table__cell">Main results CSV</td>
+                      <td class="govuk-table__cell">6 Oct</td>
+                      <td class="govuk-table__cell">Provisional (KS4 only)</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">17 Sep</td>
+                      <td class="govuk-table__cell">First late results CSV</td>
+                      <td class="govuk-table__cell">6 Oct</td>
+                      <td class="govuk-table__cell">Revised</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">31 Oct</td>
+                      <td class="govuk-table__cell">Second late results CSV</td>
+                      <td class="govuk-table__cell">Late November</td>
+                      <td class="govuk-table__cell">Revised</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">4 Feb 2026</td>
+                      <td class="govuk-table__cell">-</td>
+                      <td class="govuk-table__cell">-</td>
+                      <td class="govuk-table__cell">Final</td>
+                    </tr>
+                  </tbody>
+                  </table>
+            </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="results-enquiries">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="results-enquiries" class="govuk-heading-l">Results enquiries</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">Here are the different types of results enquiries you can raise using the CYPMD service:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>missing qualification</li>
+                  <li>incorrect grade</li>
+                  <li>a result that does not belong to a student</li>
+                </ul>
+                <p class="govuk-body">Read the results enquiries guidance before raising an enquiry.</p>
+
+                <h3 class="govuk-heading-s">Important</h3>
+                <p class="govuk-body">Results enquiries raised during the checking exercise will not be included in the provisional data in the CYPMD service or the provisional official statistics publication.</p>
+
+            </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="student-amendment-requests">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="student-amendment-requests" class="govuk-heading-l">Student amendment requests</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">In most cases, a student is reported in the performance measures data if:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>they have reached the end of their studies</li>
+                  <li>they were on roll at any time in the last 3 years</li>
+                  <li>they have not been reported before</li>
+                  <li>your school or college is their main provider</li>
+                </ul>
+                <p class="govuk-body">Read our guidance on <a class="govuk-link" href="#">student amendment requests</a> before submitting a request. It summarises requests made during the 2024 16 to 19 Autumn checking exercise and explains why some requests were not accepted.</p>
+                <p class="govuk-body">All student amendment requests must be submitted before <b>5pm on Friday 17 October 2025.</b></p>
+
+                <h3 class="govuk-heading-s">Add a missing student</h3>
+                <p class="govuk-body">If you need to add a missing student, send a message to the CYPMD helpline and select 'Pupil/student enquiry' by 5pm on 16 October 2026.</p>
+                <p class="govuk-body">We can only add a student if they are not on roll at another school or college.</p>
+
+                <h3 class="govuk-heading-s">Request to remove a student</h3>
+                <p class="govuk-body">You can submit a request to remove a student from your school or college performance measures data for any of these reasons:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>student has died</li>
+                  <li>not at the end of 16 to 19 study</li>
+                  <li>not on roll</li>
+                  <li>merge student records</li>
+                  <li>other</li>
+                </ul>
+                
+
+                <div class="cypmd-guidance-section"  aria-labelledby="student-has-died">
+                  <div class="cypmd-guidance-section__meta">
+                    <h2 class="govuk-heading-m" id="student-has-died">Student has died</h2>
+                    <p class="govuk-body">If a student has died, select this reason to remove them from your school or college performance measures data.</p>
+                    <h4 class="govuk-heading-s">Evidence you must provide</h4>
+                    <p class="govuk-body">You must provide all the following information and evidence, or your request will be rejected:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>the date the student was removed from your school roll  </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="cypmd-guidance-section"  aria-labelledby="not-at-the-end-of-16-19-study">
+                  <div class="cypmd-guidance-section__meta">
+                    <h2 class="govuk-heading-m" id="not-at-the-end-of-16-19-study">Not at the end of 16 to 19 study</h2>
+                     <p class="govuk-body">Only defer a student if they were allocated to your school or college for the 2024 to 2025 academic year.</p>
+                      <p class="govuk-body">Do not defer students with an academic age of 18 (they reached this age by 31 August 2024)</p>
+                      <p class="govuk-body">Defer students with an academic age of 16 or 17 if they are continuing their studies (they reached this age by 31 August 2024). Their results will be reported next year, or when they reach age 18.</p>
+                      <p class="govuk-body">Defer students who have no results to report if they are continuing their studies. If you do not defer these students, they will be included in the retention measure.</p>
+                      <p class="govuk-body">Students with no level 3 results or level 2 technical certificate results may still be included in retention measures published in 2026. This is because retention measures use learning aims data from the school census and the Individualised Learner Record (ILR).</p>
+                      <p class="govuk-body">You should defer these students if they were aged 16 or 17 at the start of the 2024 to 2025 academic year and are continuing their studies.</p>
+
+                      <h4 class="govuk-heading-s">Evidence you must provide</h4>
+                      <p class="govuk-body">You do not need to provide evidence if the student has not reached the end of their 16 to 19 study. You can still upload evidence or add information if it will help us review your request.</p>
+                  </div>
+                </div>
+
+                <div class="cypmd-guidance-section" aria-labelledby="not-on-roll">
+                  <div class="cypmd-guidance-section__meta">
+                   <h2 class="govuk-heading-m" id="not-on-roll">Not on roll</h2>
+                    <p class="govuk-body">Select this category if you want to remove a student for one of the reasons below.</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>apprentice not recorded in the school census or ILR, with no ESFA-funded learning aim</li>
+                      <li>external candidate (not on roll at your school or college during the allocated attendance year)</li>
+                      <li>international student who pays overseas fees</li>
+                      <li>other</li>
+                    </ul>
+                    </ul>
+                    <h4 class="govuk-heading-s">Evidence you must provide</h4>
+                    <p class="govuk-body">You do not need to provide evidence for apprentices, external candidates or international students. You can still upload evidence or add information if it will help us review your request.</p>
+                    <p class="govuk-body">If you select ‘Other’, you must provide information or evidence to explain why the student should be removed.</p>
+                  </div>
+                </div>
+               
+                <div class="cypmd-guidance-section" aria-labelledby="merge-student-records">
+                  <div class="cypmd-guidance-section__meta">
+                    <h2 class="govuk-heading-s" id="merge-student-records">Merge student records</h2>
+                    <p class="govuk-body">If the same student has been listed twice, you can submit a request to merge the duplicate records.</p>
+                    <h4 class="govuk-heading-s">Evidence you must provide</h4>
+                    <p class="govuk-body">You must provide all the following information and evidence, or your request will be rejected:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>the CYPMD ID of the student record you want to delete and merge (this is in the student CSV file) </li>
+                      <li>further details explaining why the student records should be merged</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="cypmd-guidance-section" aria-labelledby="others">
+                  <div class="cypmd-guidance-section__meta">
+                    <h2 class="govuk-heading-s" id="others">Others</h2>
+                    <p class="govuk-body">Use this category for any other student removal request, including students allocated to your school or college through the school census or ILR return.</p>
+                    <p class="govuk-body">Select the attendance year or years the request applies to.</p>
+                    <p class="govuk-body">For most requests, you must upload a statement on school or college headed paper explaining why the student should be removed.</p>
+                    <p class="govuk-body">You can also provide supporting evidence if it will help us review your request.</p>
+                    
+                    <h4 class="govuk-heading-s">Apprenticeship students included in English and maths progress measure</h4>
+                    <p class="govuk-body">Use the ‘Other’ category if you want to remove an apprenticeship student who is on your school census or ILR return who you would like to remove from the English and maths progress measure.</p>
+                    <p class="govuk-body">Select at least one attendance year. Then enter the following text in the ‘Additional comments’ box: "I would like to remove this apprenticeship student from the English and maths progress measure."</p>
+                  </div>
+                </div>
+                
+            </div>
+            </div>
+          </section>
+
+          <section id="check-pupil-data" class="cypmd-guidance-section" aria-labelledby="information-and-evidence">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="information-and-evidence" class="govuk-heading-l">Information and evidence</h2>
+              <div class="govuk-body">
+                <p class="govuk-body">Supporting information and evidence for each student amendment request must be uploaded in a PDF format and can be no more than 6 pages, either as 1 or multiple files. Keep your evidence clear and concise. We only review the first 6 pages uploaded. Any additional pages will not be considered.</p>
+                <p class="govuk-body">You must provide enough information and evidence for us to make a decision. Requests with missing information cannot be accepted.</p>
+                <p class="govuk-body">The DfE's decision is final and we cannot provide individual feedback.</p>
+                <p class="govuk-body">The deadline for submitting requests and evidence is 5pm on Friday 16 October 2026.</p>
+                <p class="govuk-body">If you cannot upload your evidence, contact our support team.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="college-closures-and-mergers">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="college-closures-and-mergers" class="govuk-heading-l">Consortia, college closures and mergers</h2>
+              <div class="govuk-body">
+                <h3 class="govuk-heading-s">Sixth form centres and consortia</h3>
+                <p class="govuk-body">As well as results for individual schools and colleges, published data also includes aggregated results for registered sixth form consortia. Consortium results include all students enrolled at the schools and colleges that are part of the consortium.</p>
+                <p class="govuk-body">If your school or college is part of a registered consortium, you only need to check the results for students enrolled at your school or college.</p>
+                <p class="govuk-body">Whether a school is included in consortium results depends on whether it was a feeder school to the consortium during the 2024 to 2025 academic year. For example, if a school joined a consortium in 2024 to 2025, all students who attended that school in the previous 3 academic years will be included in the consortium's results.</p>
+                <p class="govuk-body">If a school left a consortium before the 2024 to 2025 academic year, neither the school nor its students will be included in the consortium's results.</p>
+
+                <h3 class="govuk-heading-s">Schools and sixth form colleges that become an academy</h3>
+                <p class="govuk-body">A school maintained by a local authority (LA), or sixth form college may become an academy during the 2024 to 2025 academic year. In some cases, a school may close and reopen on the same site, for example as a sponsored academy.</p>
+                <p class="govuk-body">We usually treat 'converter' academies as continuing institutions and sponsored academies as new institutions. This affects how we report their results.</p>
+                <p class="govuk-body">We report results against the institution that was open at the start of the reporting academic year. For example, if a school maintained by an LA, or sixth form college became an academy at the start of the academic year (before 12 September 2024), we will publish its results under the new academy name.</p>
+                <p class="govuk-body">If it became an academy part way through the academic year (on or after 12 September 2024), we will publish its results under the previous institution name for that academic year. We will also provide a link to the new academy page, which contains background information only.</p>
+                
+                <h3 class="govuk-heading-s">Recently merged colleges</h3>
+                <p class="govuk-body">If an FE college closed during the 2024 to 2025 academic year, we will not publish its data. This is the DfE's current policy.</p>
+                <p class="govuk-body">We will publish results for a college if it was open at the start of the 2024 to 2025 academic year.</p>
+                <p class="govuk-body">We use data from:</p>
+            
+                <ul class="govuk-list govuk-list--bullet">
+                  <li class="govuk-body">the 2024 to 2025 ILR R10 return</li>
+                  <li class="govuk-body">the 2023 to 2024 ILR R14 return</li>
+                  <li class="govuk-body">the 2022 to 2023 ILR R14 return</li>
+                </ul>
+                <p class="govuk-body">We use this data to identify the students attributed to the college.</p>
+            </div>
+            </div>
+          </section>
+
+          <section class="cypmd-guidance-section" aria-labelledby="further-guidance-and-support">
+            <div class="cypmd-guidance-section__meta">
+              <h2 id="further-guidance-and-support" class="govuk-heading-l">Further guidance and support</h2>
+              <p class="govuk-body">If you have a question about results data in the CYPMD service, read the results enquiries guidance. </p>
+              <p class="govuk-body">If you have a question about student data in the portal, <a href="https://check-your-performance-measures-data.education.gov.uk/hc/en-gb/requests/new?ticket_form_id=27044399276050" target="_blank" rel="noopener noreferrer">send a message to the CYPMD helpline</a> and select ‘Pupil/student enquiry’.</p>
+              <p class="govuk-body">If you can sign in to the portal but have a technical problem, such as an issue with your school or college CSV files, <a href="https://check-your-performance-measures-data.education.gov.uk/hc/en-gb/requests/new?ticket_form_id=27044399276050" target="_blank" rel="noopener noreferrer">send a message to the CYPMD helpline</a> and select ‘Technical issue’.</p>
+              <p class="govuk-body">If you have problems creating a DfE Sign-in account or cannot remember your sign-in details, <a href="https://help.signin.education.gov.uk/contact-us" target="_blank" rel="noopener noreferrer">use the DfE Sign-in contact form</a>.</p>
+              <p class="govuk-body">For more information about school and college performance measures and accountability arrangements, read the <a href="https://www.gov.uk/government/publications/16-to-19-accountability-headline-measures-technical-guide" target="_blank" rel="noopener noreferrer">16 to 19 accountability headline measures: technical guide</a>.</p>
+
+            </div>
+          </section>
+          
+          
+
+        </div>
+
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+
+    </div>
+  </div>
+
+  <div class="app-back-to-top" id="app-back-to-top">
+    <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+      <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+        <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+      </svg>Back to top
+    </a>
+  </div>
+
+
+
+    </main>
+</div>
+
+{% endblock %}

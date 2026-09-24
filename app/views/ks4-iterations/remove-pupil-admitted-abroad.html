@@ -1,0 +1,97 @@
+{% extends "layouts/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Style to make the locked radios visually identical to a normal radio, but not interactive -->
+<style>
+  /* Visually identical to a normal radio, but not interactive */
+  .govuk-radios__item--locked {
+    pointer-events: none;
+  }
+</style>
+
+<form method="post" action="remove-pupil-admitted-abroad-step2" novalidate="" id="whatToChangeForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+    <fieldset class="govuk-fieldset" aria-describedby="SelectedWhatToChange-hint"><legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+           <h1 class="govuk-fieldset__heading">What is Billy B's first language?</h1></legend>
+          <div id="SelectedWhatToChange-hint" class="govuk-hint">
+              Select one option
+          </div>
+          
+          <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-English" name="SelectedWhatToChange" type="radio" value="English">
+              <label for="SelectedWhatToChange-English" class="govuk-label govuk-radios__label">English</label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-NotKnownButBelievedEnglish" name="SelectedWhatToChange" type="radio" value="NotKnownButBelievedEnglish">
+              <label for="SelectedWhatToChange-NotKnownButBelievedEnglish" class="govuk-label govuk-radios__label">Not known but believed English</label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-OtherThanEnglish" name="SelectedWhatToChange" type="radio" value="OtherThanEnglish">
+              <label for="SelectedWhatToChange-OtherThanEnglish" class="govuk-label govuk-radios__label">Other than English</label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-NotKnownButBelievedOtherThanEnglish" name="SelectedWhatToChange" type="radio" value="NotKnownButBelievedOtherThanEnglish">
+              <label for="SelectedWhatToChange-NotKnownButBelievedOtherThanEnglish" class="govuk-label govuk-radios__label">Not known but believed other than English</label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-Refused" name="SelectedWhatToChange" type="radio" value="Refused">
+              <label for="SelectedWhatToChange-Refused" class="govuk-label govuk-radios__label">Refused</label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SelectedWhatToChange-NotKnown" name="SelectedWhatToChange" type="radio" value="NotKnown">
+              <label for="SelectedWhatToChange-NotKnown" class="govuk-label govuk-radios__label">Not known</label>
+            </div>
+
+        </div>
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+      </fieldset>
+    </div>
+</form>
+
+
+{% endblock %}
