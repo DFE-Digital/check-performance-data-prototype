@@ -1,0 +1,267 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "Amendment request summary" %}
+{% set currentPage = "amendments" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+    <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+  </p>
+</div>
+<div class="govuk-width-container govuk-grid-row">
+  <div class="signoutstyle">
+    <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
+  </div>
+</div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <span class="govuk-caption-l">Amendment requests</span>
+  <h1 class="govuk-heading-xl">Amendment request summary</h1>
+
+  <div class="govuk-inset-text" style="background-color: #d2e2f1; border-left: 0; padding: 10px 15px; margin-bottom: 24px;">
+    Submit all requests by <strong>5pm on Friday 26 June 2026</strong>
+  </div>
+
+  <form id="submit-requests-form" action="request-confirmation" method="get">
+    <div id="select-request-error" class="govuk-error-message" hidden>Select at least one pupil request to continue.</div>
+    <div class="govuk-grid-row" role="region" aria-label="Requests ready to submit">
+      <div class="govuk-grid-column-full" style="overflow-x: auto;">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-visually-hidden">Pupil requests ready to submit</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Select pupil</th>
+              <th class="govuk-table__header" scope="col">Request type</th>
+              <th class="govuk-table__header" scope="col">Status</th>
+              <th class="govuk-table__header" scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes govuk-checkboxes--small">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="request-billy" name="selectedRequests" type="checkbox" value="billy">
+                    <label class="govuk-label govuk-checkboxes__label" for="request-billy"><strong>Billy B</strong></label>
+                  </div>
+                </div>
+              </td>
+              <td class="govuk-table__cell">Social care involvement - including police or prison (social evidence)</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Ready to submit</strong></td>
+              <td class="govuk-table__cell"><a class="govuk-link govuk-!-margin-right-2" href="remove-pupil-social-care">Edit</a><button class="govuk-link app-link-button" type="button" data-delete-row>Delete</button></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes govuk-checkboxes--small">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="request-noor" name="selectedRequests" type="checkbox" value="noor">
+                    <label class="govuk-label govuk-checkboxes__label" for="request-noor"><strong>Noor F</strong></label>
+                  </div>
+                </div>
+              </td>
+              <td class="govuk-table__cell">Permanently left England</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Ready to submit</strong></td>
+              <td class="govuk-table__cell"><a class="govuk-link govuk-!-margin-right-2" href="remove-pupil-perm-left-england">Edit</a><button class="govuk-link app-link-button" type="button" data-delete-row>Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="govuk-body govuk-!-margin-top-3">Select the pupils you would like to submit changes for.</p>
+    <button class="govuk-button" type="submit">Continue</button>
+    <a class="govuk-button govuk-button--secondary govuk-!-margin-left-2" href="request-amendment">Raise a new request</a>
+  </form>
+
+  <details class="govuk-details govuk-!-margin-top-2">
+    <summary class="govuk-details__summary"><span class="govuk-details__summary-text">What happens after I submit a request?</span></summary>
+    <div class="govuk-details__text">
+      <p class="govuk-body">The DfE will review your request and any evidence you provide. You can track the status of requests below. If a request is approved, your school's performance data will be updated in the Autumn.</p>
+    </div>
+  </details>
+
+  <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+
+  <h2 class="govuk-heading-l">Summary of recent requests, decisions and issues</h2>
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h3 class="govuk-tabs__title">Request history</h3>
+    <ul class="govuk-tabs__list" role="tablist">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+        <a class="govuk-tabs__tab" href="#requests" id="tab-requests" role="tab" aria-controls="requests" aria-selected="true" tabindex="0">Requests</a>
+      </li>
+      <li class="govuk-tabs__list-item" role="presentation">
+        <a class="govuk-tabs__tab" href="#decisions" id="tab-decisions" role="tab" aria-controls="decisions" aria-selected="false" tabindex="-1">Decisions</a>
+      </li>
+      <li class="govuk-tabs__list-item" role="presentation">
+        <a class="govuk-tabs__tab" href="#issues" id="tab-issues" role="tab" aria-controls="issues" aria-selected="false" tabindex="-1">Issues</a>
+      </li>
+    </ul>
+
+    <section class="govuk-tabs__panel" id="requests" role="tabpanel" aria-labelledby="tab-requests">
+      <h3 class="govuk-heading-m">Requests</h3>
+      <p class="govuk-body">View or edit recently submitted requests. Your school's performance data will be updated in the Autumn, if the request is approved.</p>
+      <div class="govuk-inset-text" style="background-color: #d2e2f1; border-left: 0; padding: 10px 15px;">
+        You can edit your requests any time before <strong>5pm on 26 June 2026.</strong>
+      </div>
+
+      <form id="request-search-form" role="search">
+        <div style="background: #f3f2f1; padding: 16px; margin-bottom: 20px;">
+          <div class="govuk-form-group govuk-!-margin-bottom-0">
+            <label class="govuk-label" for="request-search">Search for a pupil</label>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-two-thirds">
+                <input class="govuk-input" id="request-search" name="q" type="search">
+              </div>
+              <div class="govuk-grid-column-one-third">
+                <button class="govuk-button govuk-!-margin-bottom-0" type="submit">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="govuk-grid-row" role="region" aria-label="Recent amendment requests">
+        <div class="govuk-grid-column-full" style="overflow-x: auto;">
+          <table class="govuk-table" id="recent-requests-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col">Pupil name</th>
+                <th class="govuk-table__header" scope="col">Reference number</th>
+                <th class="govuk-table__header" scope="col">Request type</th>
+                <th class="govuk-table__header" scope="col">Status</th>
+                <th class="govuk-table__header" scope="col">Date</th>
+                <th class="govuk-table__header" scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row" data-pupil="Billy B">
+                <td class="govuk-table__cell">Billy B</td>
+                <td class="govuk-table__cell">CYPMD_KS4_8784113</td>
+                <td class="govuk-table__cell">Social care involvement - including police or prison (Social care situation)</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Submitted</strong></td>
+                <td class="govuk-table__cell">06/06/2026</td>
+                <td class="govuk-table__cell"><a class="govuk-link govuk-!-margin-right-2" href="remove-summary-social-care">View</a><button class="govuk-link app-link-button" type="button" data-delete-row>Delete</button></td>
+              </tr>
+              <tr class="govuk-table__row" data-pupil="Noor F">
+                <td class="govuk-table__cell">Noor F</td>
+                <td class="govuk-table__cell">CYPMD_KS4_8784114</td>
+                <td class="govuk-table__cell">Permanently left England</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Submitted</strong></td>
+                <td class="govuk-table__cell">06/06/2026</td>
+                <td class="govuk-table__cell"><a class="govuk-link govuk-!-margin-right-2" href="remove-summary-perm-left-england">View</a><button class="govuk-link app-link-button" type="button" data-delete-row>Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="govuk-body" id="no-search-results" hidden>No requests match that pupil name.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="decisions" role="tabpanel" aria-labelledby="tab-decisions">
+      <h3 class="govuk-heading-m">Decisions</h3>
+      <p class="govuk-body">There are no decisions to show.</p>
+    </section>
+
+    <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="issues" role="tabpanel" aria-labelledby="tab-issues">
+      <h3 class="govuk-heading-m">Issues</h3>
+      <p class="govuk-body">There are no issues to show.</p>
+    </section>
+  </div>
+</div>
+
+<style>
+  #select-request-error[hidden] {
+    display: none;
+  }
+
+  .app-link-button {
+    appearance: none;
+    background: none;
+    border: 0;
+    color: #1d70b8;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  .app-link-button:hover {
+    color: #003078;
+  }
+
+  .app-link-button:focus {
+    background: #ffdd00;
+    box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+    color: #0b0c0c;
+    outline: 0;
+    text-decoration: none;
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-delete-row]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        const row = button.closest('tr, .govuk-grid-row');
+        if (row) row.remove();
+      });
+    });
+
+    const searchForm = document.getElementById('request-search-form');
+    const searchInput = document.getElementById('request-search');
+    const recentRows = Array.from(document.querySelectorAll('#recent-requests-table tbody tr'));
+    const noResults = document.getElementById('no-search-results');
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const term = searchInput.value.trim().toLowerCase();
+      let visibleRows = 0;
+
+      recentRows.forEach(function (row) {
+        const matches = row.dataset.pupil.toLowerCase().includes(term);
+        row.hidden = !matches;
+        if (matches) visibleRows += 1;
+      });
+
+      noResults.hidden = visibleRows > 0;
+    });
+
+    searchInput.addEventListener('input', function () {
+      if (!searchInput.value.trim()) {
+        recentRows.forEach(function (row) { row.hidden = false; });
+        noResults.hidden = true;
+      }
+    });
+
+    document.getElementById('submit-requests-form').addEventListener('submit', function (event) {
+      const selected = this.querySelectorAll('input[name="selectedRequests"]:checked');
+      if (selected.length === 0) {
+        event.preventDefault();
+        const error = document.getElementById('select-request-error');
+        error.hidden = false;
+        this.querySelector('input[name="selectedRequests"]').focus();
+      } else {
+        window.location.href = 'request-confirmation';
+      }
+    });
+
+    document.querySelectorAll('input[name="selectedRequests"]').forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        if (document.querySelector('input[name="selectedRequests"]:checked')) {
+          document.getElementById('select-request-error').hidden = true;
+        }
+      });
+    });
+  });
+</script>
+{% endblock %}

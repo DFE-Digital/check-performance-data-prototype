@@ -1,0 +1,221 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="remove-provide-evidence-perm-exclusion" novalidate="" id="removalReasonDetailsForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          What is the DfE number of the school which permanently excluded Billy B?
+        </h2>
+      </legend>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="DfeNumber">
+      For example, 5021353
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="DfeNumber" name="DfeNumber" type="text" inputmode="numeric" required>
+  </div>
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        How can I find a DfE number?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      To find the DfE number, search the school or college name on
+      <a class="govuk-link" href="https://get-information-schools.service.gov.uk/" target="_blank" rel="noopener noreferrer">Get Information about Schools (opens in new tab)</a>.
+    
+    </div>
+  </details>
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="excluded-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="excluded-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          When was Billy B was excluded?
+        </h2>
+      </legend>
+      <div id="excluded-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="excluded-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="excluded-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="excluded-date-day" name="ExcludedDate-day" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="excluded-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="excluded-date-month" name="ExcludedDate-month" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="excluded-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="excluded-date-year" name="ExcludedDate-year" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('removalReasonDetailsForm');
+    const dfeNumber = document.getElementById('DfeNumber');
+    const dfeGroup = dfeNumber.closest('.govuk-form-group');
+    const dateGroup = document.getElementById('excluded-date-group');
+    const dateFields = [
+      document.getElementById('excluded-date-day'),
+      document.getElementById('excluded-date-month'),
+      document.getElementById('excluded-date-year')
+    ];
+    const errorSummary = document.createElement('div');
+    let hasSubmitted = false;
+
+    errorSummary.className = 'govuk-error-summary';
+    errorSummary.setAttribute('data-module', 'govuk-error-summary');
+    errorSummary.setAttribute('tabindex', '-1');
+    errorSummary.setAttribute('role', 'alert');
+    errorSummary.hidden = true;
+    errorSummary.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"></ul></div>';
+    form.before(errorSummary);
+
+    function validateForm() {
+      const day = Number(dateFields[0].value);
+      const month = Number(dateFields[1].value);
+      const year = Number(dateFields[2].value);
+      const date = new Date(year, month - 1, day);
+      const hasDateParts = dateFields.every(function (field) {
+        return /^\d+$/.test(field.value.trim());
+      });
+      const hasValidDate = hasDateParts && year >= 1000 && date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+      const errors = [];
+
+      if (!/^\d{7}$/.test(dfeNumber.value.trim())) {
+        errors.push({
+          target: dfeNumber,
+          group: dfeGroup,
+          id: 'dfe-number-error',
+          message: dfeNumber.value.trim() ? 'Enter a valid 7-digit DfE number.' : 'Enter the 7 digit DfE number of the school which permanently excluded the pupil'
+        });
+      }
+
+      if (!hasValidDate) {
+        errors.push({
+          target: dateFields[0],
+          group: dateGroup,
+          id: 'excluded-date-error',
+          message: hasDateParts ? 'Enter a date in the format DD MM YYYY, for example, 27 03 2026' : 'Enter the date the pupil was excluded, for example, DD MM YYYY'
+        });
+      }
+
+      [dfeGroup, dateGroup].forEach(function (group) {
+        group.classList.remove('govuk-form-group--error');
+        group.querySelectorAll('.govuk-error-message').forEach(function (message) {
+          message.remove();
+        });
+      });
+      dfeNumber.removeAttribute('aria-describedby');
+      dateGroup.querySelector('fieldset').setAttribute('aria-describedby', 'excluded-date-hint');
+
+      const summaryList = errorSummary.querySelector('.govuk-error-summary__list');
+      summaryList.innerHTML = '';
+
+      errors.forEach(function (error) {
+        error.group.classList.add('govuk-form-group--error');
+
+        const message = document.createElement('p');
+        message.id = error.id;
+        message.className = 'govuk-error-message';
+        message.textContent = error.message;
+        const insertionPoint = error.group === dfeGroup
+          ? dfeGroup.querySelector('label')
+          : dateGroup.querySelector('#excluded-date-hint');
+        insertionPoint.insertAdjacentElement('afterend', message);
+
+        if (error.group === dateGroup) {
+          dateGroup.querySelector('fieldset').setAttribute('aria-describedby', 'excluded-date-hint ' + error.id);
+        } else {
+          dfeNumber.setAttribute('aria-describedby', error.id);
+        }
+
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = '#' + error.target.id;
+        link.textContent = error.message;
+        listItem.appendChild(link);
+        summaryList.appendChild(listItem);
+      });
+
+      errorSummary.hidden = errors.length === 0;
+      return errors.length === 0;
+    }
+
+    form.addEventListener('submit', function (event) {
+      hasSubmitted = true;
+      if (!validateForm()) {
+        event.preventDefault();
+        errorSummary.focus();
+      }
+    });
+
+    [dfeNumber].concat(dateFields).forEach(function (field) {
+      field.addEventListener('input', function () {
+        if (hasSubmitted) {
+          validateForm();
+        }
+      });
+    });
+  });
+</script>
+
+{% endblock %}

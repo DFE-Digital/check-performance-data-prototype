@@ -1,0 +1,140 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="remove-provide-not-on-roll" novalidate="" id="removalReasonDetailsForm">
+  <div class="govuk-form-group" id="school-roll-status-group">
+    <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">Was Billy B on your school roll in the 2025 to 2026 academic year?</h1>
+      </legend>
+      <div id="changedName-hint" class="govuk-hint">
+        Select one option
+      </div>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes" required>
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<style>
+  #radio-error-summary[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('removalReasonDetailsForm');
+    const group = document.getElementById('school-roll-status-group');
+    const fieldset = group.querySelector('fieldset');
+    const errorSummary = document.createElement('div');
+    let hasSubmitted = false;
+
+    errorSummary.id = 'radio-error-summary';
+    errorSummary.className = 'govuk-error-summary';
+    errorSummary.setAttribute('data-module', 'govuk-error-summary');
+    errorSummary.setAttribute('tabindex', '-1');
+    errorSummary.setAttribute('role', 'alert');
+    errorSummary.hidden = true;
+    errorSummary.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#changedName" id="school-roll-error-link"></a></li></ul></div>';
+    form.before(errorSummary);
+
+    function validateSelection() {
+      const selected = form.querySelector('input[name="changedName"]:checked');
+      const errorId = 'school-roll-error';
+      const messageText = 'Select whether Billy B was on your school roll in the 2025 to 2026 academic year';
+      const existingMessage = document.getElementById(errorId);
+
+      if (!selected) {
+        group.classList.add('govuk-form-group--error');
+        fieldset.setAttribute('aria-describedby', 'changedName-hint ' + errorId);
+
+        if (!existingMessage) {
+          const message = document.createElement('p');
+          message.id = errorId;
+          message.className = 'govuk-error-message';
+          message.textContent = messageText;
+          document.getElementById('changedName-hint').insertAdjacentElement('afterend', message);
+        }
+
+        document.getElementById('school-roll-error-link').textContent = messageText;
+        errorSummary.hidden = false;
+        return false;
+      }
+
+      group.classList.remove('govuk-form-group--error');
+      fieldset.setAttribute('aria-describedby', 'changedName-hint');
+      if (existingMessage) existingMessage.remove();
+      errorSummary.hidden = true;
+      return true;
+    }
+
+    form.addEventListener('submit', function (event) {
+      hasSubmitted = true;
+      if (!validateSelection()) {
+        event.preventDefault();
+        errorSummary.focus();
+      }
+    });
+
+    form.querySelectorAll('input[name="changedName"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        if (hasSubmitted) validateSelection();
+      });
+    });
+  });
+</script>
+
+{% endblock %}

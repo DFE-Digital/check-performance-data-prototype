@@ -1,0 +1,239 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<form method="post" action="remove-provide-evidence-missing-education" novalidate="" id="removalReasonDetailsForm">
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="removed-reason-group">
+    <fieldset class="govuk-fieldset" aria-describedby="removed-reason-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Why has Billy B been removed from your school roll?
+        </h2>
+      </legend>
+      <div id="removed-reason-hint" class="govuk-hint">
+        Select one option
+      </div>
+
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="removed-reason-1" name="RemovedReason" type="radio" value="notComeBackAfterLeave" required>
+          <label class="govuk-label govuk-radios__label" for="removed-reason-1">
+            Did not return within 10 school days of approved leave
+          </label>
+          <div id="removed-reason-1-hint" class="govuk-hint govuk-radios__hint">
+            <a href="https://www.legislation.gov.uk/uksi/2024/208/made" target="_blank">Ground H (regulation 9(1)(h) of the School Attendance Regulations 2024</a>
+          </div>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="removed-reason-2" name="RemovedReason" type="radio" value="absentLongTimeNoLeaveNoReason">
+          <label class="govuk-label govuk-radios__label" for="removed-reason-2">
+            Been absent for 20 continuous school days
+          </label>
+          <div id="removed-reason-3-hint" class="govuk-hint govuk-radios__hint">
+            <a href="https://www.legislation.gov.uk/uksi/2024/208/made" target="_blank">Ground I (regulation 9(1)(i) of the School Attendance Regulations 2024</a>
+          </div>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="removed-reason-3" name="RemovedReason" type="radio" value="other">
+          <label class="govuk-label govuk-radios__label" for="removed-reason-3">
+            Other
+          </label>
+          <div id="removed-reason-2-hint" class="govuk-hint govuk-radios__hint">
+            Other than Ground H or I
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="govuk-form-group govuk-!-margin-top-6" id="school-start-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="school-start-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          When was Billy B removed from your school roll?
+        </h2>
+      </legend>
+      <div id="school-start-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="school-start-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-day" name="SchoolStartDate-day" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-month" name="SchoolStartDate-month" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="school-start-date-year" name="SchoolStartDate-year" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('removalReasonDetailsForm');
+    const reasonGroup = document.getElementById('removed-reason-group');
+    const dateGroup = document.getElementById('school-start-date-group');
+    const dateFields = [
+      document.getElementById('school-start-date-day'),
+      document.getElementById('school-start-date-month'),
+      document.getElementById('school-start-date-year')
+    ];
+    const errorSummary = document.createElement('div');
+    let hasSubmitted = false;
+
+    errorSummary.className = 'govuk-error-summary';
+    errorSummary.setAttribute('data-module', 'govuk-error-summary');
+    errorSummary.setAttribute('tabindex', '-1');
+    errorSummary.setAttribute('role', 'alert');
+    errorSummary.hidden = true;
+    errorSummary.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"></ul></div>';
+    form.before(errorSummary);
+
+    function validateForm() {
+      const day = Number(dateFields[0].value);
+      const month = Number(dateFields[1].value);
+      const year = Number(dateFields[2].value);
+      const date = new Date(year, month - 1, day);
+      const hasDateParts = dateFields.every(function (field) {
+        return /^\d+$/.test(field.value.trim());
+      });
+      const hasValidDate = hasDateParts && year >= 1000 && date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+      const errors = [];
+
+      if (!form.querySelector('input[name="RemovedReason"]:checked')) {
+        errors.push({
+          target: document.getElementById('removed-reason-1'),
+          group: reasonGroup,
+          id: 'removed-reason-error',
+          message: 'Select why Billy B has been removed from your school roll.'
+        });
+      }
+
+      if (!hasValidDate) {
+        errors.push({
+          target: dateFields[0],
+          group: dateGroup,
+          id: 'school-start-date-error',
+          message: hasDateParts ? 'Enter a date in the format DD MM YYYY, for example, 27 03 2026' : 'Enter the date when Billy B was removed from your school roll, for example, DD MM YYYY'
+        });
+      }
+
+      [reasonGroup, dateGroup].forEach(function (group) {
+        group.classList.remove('govuk-form-group--error');
+        group.querySelectorAll('.govuk-error-message').forEach(function (message) {
+          message.remove();
+        });
+      });
+      reasonGroup.querySelector('fieldset').setAttribute('aria-describedby', 'removed-reason-hint');
+      dateGroup.querySelector('fieldset').setAttribute('aria-describedby', 'school-start-date-hint');
+
+      const summaryList = errorSummary.querySelector('.govuk-error-summary__list');
+      summaryList.innerHTML = '';
+
+      errors.forEach(function (error) {
+        error.group.classList.add('govuk-form-group--error');
+
+        const message = document.createElement('p');
+        message.id = error.id;
+        message.className = 'govuk-error-message';
+        message.textContent = error.message;
+        const hintId = error.group === reasonGroup ? 'removed-reason-hint' : 'school-start-date-hint';
+        error.group.querySelector('#' + hintId).insertAdjacentElement('afterend', message);
+        error.group.querySelector('fieldset').setAttribute('aria-describedby', hintId + ' ' + error.id);
+
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = '#' + error.target.id;
+        link.textContent = error.message;
+        listItem.appendChild(link);
+        summaryList.appendChild(listItem);
+      });
+
+      errorSummary.hidden = errors.length === 0;
+      return errors.length === 0;
+    }
+
+    form.addEventListener('submit', function (event) {
+      hasSubmitted = true;
+      if (!validateForm()) {
+        event.preventDefault();
+        errorSummary.focus();
+      }
+    });
+
+    form.querySelectorAll('input[name="RemovedReason"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        if (hasSubmitted) validateForm();
+      });
+    });
+
+    dateFields.forEach(function (field) {
+      field.addEventListener('input', function () {
+        if (hasSubmitted) validateForm();
+      });
+    });
+  });
+</script>
+
+{% endblock %}
