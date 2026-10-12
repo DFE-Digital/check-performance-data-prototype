@@ -1,0 +1,201 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/tactical/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<form method="post" action="remove-provide-perm-excluded-current-school" novalidate="" id="removalReasonDetailsForm">
+
+  
+  <div class="govuk-form-group govuk-!-margin-top-6" id="school-start-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="school-start-date-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">When was Billy B permanently excluded from your school?</h2>
+      </legend>
+      <div id="school-start-date-hint" class="govuk-hint">
+        For example, 27 3 2026
+      </div>
+      <div class="govuk-date-input" id="school-start-date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-day" name="SchoolStartDate-day" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="school-start-date-month" name="SchoolStartDate-month" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="school-start-date-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="school-start-date-year" name="SchoolStartDate-year" type="text" inputmode="numeric" required>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <input name="__RequestVerificationToken" type="hidden" value="">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          What is the DfE number of the school Billy B went to? (optional)
+        </h2>
+      </legend>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="DfeNumber">
+      For example, 5021353
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="DfeNumber" name="DfeNumber" type="text" inputmode="numeric">
+  </div>
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        How can I find a DfE number?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      To find the DfE number, search the school or college name on
+      <a class="govuk-link" href="https://get-information-schools.service.gov.uk/" target="_blank" rel="noopener noreferrer">Get Information about Schools (opens in new tab)</a>.
+    
+    </div>
+  </details>
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<style>
+  #exclusion-date-error-summary[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('removalReasonDetailsForm');
+    const dateGroup = document.getElementById('school-start-date-group');
+    const fieldset = dateGroup.querySelector('fieldset');
+    const dateFields = [
+      document.getElementById('school-start-date-day'),
+      document.getElementById('school-start-date-month'),
+      document.getElementById('school-start-date-year')
+    ];
+    const errorSummary = document.createElement('div');
+    let hasSubmitted = false;
+
+    errorSummary.id = 'exclusion-date-error-summary';
+    errorSummary.className = 'govuk-error-summary';
+    errorSummary.setAttribute('data-module', 'govuk-error-summary');
+    errorSummary.setAttribute('tabindex', '-1');
+    errorSummary.setAttribute('role', 'alert');
+    errorSummary.hidden = true;
+    errorSummary.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"></ul></div>';
+    form.before(errorSummary);
+
+    function validateDate() {
+      const day = Number(dateFields[0].value);
+      const month = Number(dateFields[1].value);
+      const year = Number(dateFields[2].value);
+      const date = new Date(year, month - 1, day);
+      const hasDateParts = dateFields.every(function (field) {
+        return /^\d+$/.test(field.value.trim());
+      });
+      const isValidDate = hasDateParts && year >= 1000 && date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+      const errorId = 'exclusion-date-error';
+
+      dateGroup.classList.remove('govuk-form-group--error');
+      dateGroup.querySelectorAll('.govuk-error-message').forEach(function (message) {
+        message.remove();
+      });
+      fieldset.setAttribute('aria-describedby', 'school-start-date-hint');
+
+      const summaryList = errorSummary.querySelector('.govuk-error-summary__list');
+      summaryList.innerHTML = '';
+
+      if (!isValidDate) {
+        const messageText = hasDateParts
+          ? 'Enter a date in the format DD MM YYYY, for example, 27 3 2026'
+          : 'Enter the date Billy B was permanently excluded from your school, for example, DD MM YYYY';
+        dateGroup.classList.add('govuk-form-group--error');
+
+        const message = document.createElement('p');
+        message.id = errorId;
+        message.className = 'govuk-error-message';
+        message.textContent = messageText;
+        document.getElementById('school-start-date-hint').insertAdjacentElement('afterend', message);
+        fieldset.setAttribute('aria-describedby', 'school-start-date-hint ' + errorId);
+
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = '#school-start-date-day';
+        link.textContent = messageText;
+        listItem.appendChild(link);
+        summaryList.appendChild(listItem);
+      }
+
+      errorSummary.hidden = isValidDate;
+      return isValidDate;
+    }
+
+    form.addEventListener('submit', function (event) {
+      hasSubmitted = true;
+      if (!validateDate()) {
+        event.preventDefault();
+        errorSummary.focus();
+      }
+    });
+
+    dateFields.forEach(function (field) {
+      field.addEventListener('input', function () {
+        if (hasSubmitted) validateDate();
+      });
+    });
+  });
+</script>
+
+{% endblock %}

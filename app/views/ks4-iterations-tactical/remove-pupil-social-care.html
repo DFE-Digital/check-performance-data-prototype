@@ -1,0 +1,214 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+<form method="post" action="remove-provide-evidence-social-care" novalidate="" id="removalReasonDetailsForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+<div class="govuk-form-group" id="evidence-types-group">
+  <fieldset class="govuk-fieldset" aria-describedby="SelectedWhatToChange-hint">
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+         What evidence do you have that demonstrates a profound effect on Billy B's ability to go to school or sit exams?
+        </h2>
+      </legend>
+  <div id="SelectedWhatToChange-hint" class="govuk-hint">
+    Select all that apply.
+</div>
+
+
+  <div class="govuk-form-group govuk-!-margin-top-6">
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="typeEvidence-social" name="evidenceTypes" type="checkbox" value="social" required>
+          <label class="govuk-label govuk-checkboxes__label" for="typeEvidence-social">
+            Social care evidence
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="typeEvidence-police" name="evidenceTypes" type="checkbox" value="police">
+          <label class="govuk-label govuk-checkboxes__label" for="typeEvidence-police">
+            Police evidence
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="typeEvidence-prison" name="evidenceTypes" type="checkbox" value="prison">
+          <label class="govuk-label govuk-checkboxes__label" for="typeEvidence-prison">
+            Prison, remand or secure unit evidence
+          </label>
+        </div>
+      </div>
+  </div>
+  </fieldset>
+</div>
+
+  <div class="govuk-form-group" id="exam-status-group">
+    <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Has Billy B sat any exams as a year 11 pupil? 
+        </h2>
+      </legend>
+      <div id="changedName-hint" class="govuk-hint">Select one option</div>
+    
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes" required>
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<style>
+  #social-care-error-summary[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('removalReasonDetailsForm');
+    const evidenceGroup = document.getElementById('evidence-types-group');
+    const examGroup = document.getElementById('exam-status-group');
+    const errorSummary = document.createElement('div');
+    let hasSubmitted = false;
+
+    errorSummary.id = 'social-care-error-summary';
+    errorSummary.className = 'govuk-error-summary';
+    errorSummary.setAttribute('data-module', 'govuk-error-summary');
+    errorSummary.setAttribute('tabindex', '-1');
+    errorSummary.setAttribute('role', 'alert');
+    errorSummary.hidden = true;
+    errorSummary.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"></ul></div>';
+    form.before(errorSummary);
+
+    function validateForm() {
+      const errors = [];
+
+      if (!form.querySelector('input[name="evidenceTypes"]:checked')) {
+        errors.push({
+          group: evidenceGroup,
+          fieldset: evidenceGroup.querySelector('fieldset'),
+          target: document.getElementById('typeEvidence-social'),
+          hintId: 'SelectedWhatToChange-hint',
+          id: 'evidence-types-error',
+          message: 'Select at least one type of evidence.'
+        });
+      }
+
+      if (!form.querySelector('input[name="changedName"]:checked')) {
+        errors.push({
+          group: examGroup,
+          fieldset: examGroup.querySelector('fieldset'),
+          target: document.getElementById('changedName'),
+          hintId: 'changedName-hint',
+          id: 'exam-status-error',
+          message: 'Select whether Billy B sat any exams as a year 11 pupil, for example, yes or no.'
+        });
+      }
+
+      [evidenceGroup, examGroup].forEach(function (group) {
+        group.classList.remove('govuk-form-group--error');
+        group.querySelectorAll('.govuk-error-message').forEach(function (message) {
+          message.remove();
+        });
+      });
+
+      const summaryList = errorSummary.querySelector('.govuk-error-summary__list');
+      summaryList.innerHTML = '';
+
+      errors.forEach(function (error) {
+        error.group.classList.add('govuk-form-group--error');
+
+        const message = document.createElement('p');
+        message.id = error.id;
+        message.className = 'govuk-error-message';
+        message.textContent = error.message;
+        document.getElementById(error.hintId).insertAdjacentElement('afterend', message);
+        error.fieldset.setAttribute('aria-describedby', error.hintId + ' ' + error.id);
+
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = '#' + error.target.id;
+        link.textContent = error.message;
+        item.appendChild(link);
+        summaryList.appendChild(item);
+      });
+
+      if (errors.length === 0) {
+        evidenceGroup.querySelector('fieldset').setAttribute('aria-describedby', 'SelectedWhatToChange-hint');
+        examGroup.querySelector('fieldset').setAttribute('aria-describedby', 'changedName-hint');
+      }
+
+      errorSummary.hidden = errors.length === 0;
+      return errors.length === 0;
+    }
+
+    form.addEventListener('submit', function (event) {
+      hasSubmitted = true;
+      if (!validateForm()) {
+        event.preventDefault();
+        errorSummary.focus();
+      }
+    });
+
+    form.querySelectorAll('input[name="evidenceTypes"], input[name="changedName"]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        if (hasSubmitted) validateForm();
+      });
+    });
+  });
+</script>
+
+{% endblock %}

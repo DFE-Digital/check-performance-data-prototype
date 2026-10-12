@@ -1,0 +1,141 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations/tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations/tactical/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="remove-provide-evidence-dual-registered" novalidate="" id="removalReasonDetailsForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+  <h1 class="govuk-heading-l">What is the DfE number of the school where Billy B's performance data should be published?</h1>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="DfeNumber">
+      For example, 5021353
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="DfeNumber" name="DfeNumber" type="text" inputmode="numeric" required>
+  </div>
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        How can I find a DfE number?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      To find the DfE number, search the school or college name on
+      <a class="govuk-link" href="https://get-information-schools.service.gov.uk/" target="_blank" rel="noopener noreferrer">Get Information about Schools (opens in new tab)</a>.
+    
+    </div>
+  </details>
+
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<style>
+  #dfe-number-error-summary[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('removalReasonDetailsForm');
+    const dfeNumber = document.getElementById('DfeNumber');
+    const formGroup = dfeNumber.closest('.govuk-form-group');
+    const errorSummary = document.createElement('div');
+    let hasSubmitted = false;
+
+    errorSummary.id = 'dfe-number-error-summary';
+    errorSummary.className = 'govuk-error-summary';
+    errorSummary.setAttribute('data-module', 'govuk-error-summary');
+    errorSummary.setAttribute('tabindex', '-1');
+    errorSummary.setAttribute('role', 'alert');
+    errorSummary.hidden = true;
+    errorSummary.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#DfeNumber" id="dfe-number-error-link"></a></li></ul></div>';
+    form.before(errorSummary);
+
+    function validateDfeNumber() {
+      const isValid = /^\d{7}$/.test(dfeNumber.value.trim());
+      const errorId = 'dfe-number-error';
+      const messageText = dfeNumber.value.trim()
+        ? 'Enter a valid 7-digit DfE number'
+        : 'Enter the 7 digit DfE number of the school where pupils exam results should be transferred to';
+      const existingMessage = document.getElementById(errorId);
+
+      if (!isValid) {
+        formGroup.classList.add('govuk-form-group--error');
+        dfeNumber.setAttribute('aria-invalid', 'true');
+        dfeNumber.setAttribute('aria-describedby', errorId);
+
+        if (!existingMessage) {
+          const message = document.createElement('p');
+          message.id = errorId;
+          message.className = 'govuk-error-message';
+          message.textContent = messageText;
+          dfeNumber.insertAdjacentElement('beforebegin', message);
+        } else {
+          existingMessage.textContent = messageText;
+        }
+
+        const errorLink = document.getElementById('dfe-number-error-link');
+        errorLink.textContent = messageText;
+        errorSummary.hidden = false;
+      } else {
+        formGroup.classList.remove('govuk-form-group--error');
+        dfeNumber.removeAttribute('aria-invalid');
+        dfeNumber.removeAttribute('aria-describedby');
+        if (existingMessage) existingMessage.remove();
+        errorSummary.hidden = true;
+      }
+
+      return isValid;
+    }
+
+    form.addEventListener('submit', function (event) {
+      hasSubmitted = true;
+      if (!validateDfeNumber()) {
+        event.preventDefault();
+        errorSummary.focus();
+      }
+    });
+
+    dfeNumber.addEventListener('input', function () {
+      if (hasSubmitted) validateDfeNumber();
+    });
+  });
+</script>
+
+{% endblock %}

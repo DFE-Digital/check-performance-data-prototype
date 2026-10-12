@@ -1,0 +1,51 @@
+{#
+  For guidance on how to use layouts see:
+  https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{% block header %}
+
+  {{ govukHeader() }}
+
+  {{ govukServiceNavigation({
+    serviceName: "",
+    serviceUrl: "/ks4-iterations-tactical/start", 
+    navigation: [
+      {
+        href: "/ks4-iterations-tactical/landing",
+        text: "Home",
+        current: (currentPage == "home"),
+        target: "_blank"
+      },
+      {
+        href: "/ks4-iterations-tactical/amendment-request",
+        text: "Amendment requests",
+        current: (currentPage == "amendments"),
+        target: "_blank"
+      },
+      {
+        href: "/ks4-iterations-tactical/guidance",
+        text: "Guidance (opens in new tab)",
+        current: (currentPage == "guidance"),
+        target: "_blank"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<!-- {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} -->
+{% endblock %}
+
+<!-- 
+{% block scripts %}
+    {{ super() }}
+    <script src="/assets/js/dfefrontend.min.js"></script>
+{% endblock %} -->

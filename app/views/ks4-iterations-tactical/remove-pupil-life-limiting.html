@@ -1,0 +1,197 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "home" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ <div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start.html">Sign out</a>
+    </div>
+  </div>
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+
+<form method="post" action="remove-provide-evidence-life-limiting" novalidate="" id="removalReasonDetailsForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Which severe health issue has had a profound effect on Billy B and their ability to access education?
+        </h2>
+      </legend>
+  <div id="SelectedWhatToChange-hint" class="govuk-hint">
+    Select one option.
+</div>
+
+
+  <div class="govuk-form-group govuk-!-margin-top-6" id="excluded-date-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="excluded-date-hint">
+      <div class="govuk-radios" data-module="govuk-radios">
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="typeEvidence-2" name="waste" type="radio" value="terminal" required>
+          <label class="govuk-label govuk-radios__label" for="typeEvidence-2">
+            Terminal illness diagnosis, including some life-limiting conditions
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="typeEvidence-3" name="waste" type="radio" value="injury">
+          <label class="govuk-label govuk-radios__label" for="typeEvidence-3">
+            Recent and life changing illness or injury
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="typeEvidence-4" name="waste" type="radio" value="critical">
+          <label class="govuk-label govuk-radios__label" for="typeEvidence-4">
+            Critical illness, injury or condition, diagnosed or under investigation for 12 months or more
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Has Billy B sat any exams as a year 11 pupil? 
+        </h2>
+      </legend>
+    
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes" required>
+          <label class="govuk-label govuk-radios__label" for="changedName">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="changedName-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('removalReasonDetailsForm');
+    const evidenceGroup = document.getElementById('excluded-date-group');
+    const examGroup = form.querySelector('.govuk-form-group:not(#excluded-date-group)');
+    const errorSummary = document.createElement('div');
+
+    errorSummary.className = 'govuk-error-summary';
+    errorSummary.setAttribute('data-module', 'govuk-error-summary');
+    errorSummary.setAttribute('tabindex', '-1');
+    errorSummary.setAttribute('role', 'alert');
+    errorSummary.hidden = true;
+    errorSummary.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"></ul></div>';
+    form.prepend(errorSummary);
+
+    const groups = [
+      {
+        name: 'waste',
+        container: evidenceGroup,
+        firstInputId: 'typeEvidence-2',
+        errorId: 'evidence-type-error',
+        message: 'Choose which health issue applies'
+      },
+      {
+        name: 'changedName',
+        container: examGroup,
+        firstInputId: 'changedName',
+        errorId: 'exam-status-error',
+        message: 'Select yes if Billy B has sat any exams as a year 11 pupil'
+      }
+    ];
+    groups.forEach(function (group) {
+      group.originalDescription = group.container.querySelector('fieldset').getAttribute('aria-describedby');
+    });
+
+    form.addEventListener('submit', function (event) {
+      const unanswered = groups.filter(function (group) {
+        return !form.querySelector('input[name="' + group.name + '"]:checked');
+      });
+
+      groups.forEach(function (group) {
+        group.container.classList.remove('govuk-form-group--error');
+        group.container.querySelectorAll('.govuk-error-message').forEach(function (message) {
+          message.remove();
+        });
+        const fieldset = group.container.querySelector('fieldset');
+        if (group.originalDescription) {
+          fieldset.setAttribute('aria-describedby', group.originalDescription);
+        } else {
+          fieldset.removeAttribute('aria-describedby');
+        }
+      });
+
+      if (unanswered.length === 0) {
+        errorSummary.hidden = true;
+        return;
+      }
+
+      event.preventDefault();
+      const summaryList = errorSummary.querySelector('.govuk-error-summary__list');
+      summaryList.innerHTML = '';
+
+      unanswered.forEach(function (group) {
+        group.container.classList.add('govuk-form-group--error');
+
+        const message = document.createElement('p');
+        message.id = group.errorId;
+        message.className = 'govuk-error-message';
+        message.textContent = group.message;
+        group.container.querySelector('fieldset').prepend(message);
+        const description = [group.originalDescription, group.errorId].filter(Boolean).join(' ');
+        group.container.querySelector('fieldset').setAttribute('aria-describedby', description);
+
+        const summaryItem = document.createElement('li');
+        const summaryLink = document.createElement('a');
+        summaryLink.href = '#' + group.firstInputId;
+        summaryLink.textContent = group.message;
+        summaryItem.appendChild(summaryLink);
+        summaryList.appendChild(summaryItem);
+      });
+
+      errorSummary.hidden = false;
+      errorSummary.focus();
+    });
+  });
+</script>
+
+{% endblock %}
