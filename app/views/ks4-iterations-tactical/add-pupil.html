@@ -1,0 +1,107 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "Add a pupil" %}
+{% set currentPage = "pupils" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+    <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+  </p>
+</div>
+<div class="govuk-width-container govuk-grid-row">
+    <div class="backbuttonstyle">
+    <!--<div class="govuk-grid-row">-->
+      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
+          </li>
+        </ol>
+        </nav> 
+      </div>
+      <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
+    </div>
+  </div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="post" action="add-pupil-details" novalidate>
+        <span class="govuk-caption-l">Add a pupil</span>
+        <h1 class="govuk-heading-l">Provide details of the pupil to be added</h1>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="first-name">First name</label>
+          <input class="govuk-input" id="first-name" name="firstName" type="text" autocomplete="given-name">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="last-name">Last name</label>
+          <input class="govuk-input" id="last-name" name="lastName" type="text" autocomplete="family-name">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Date of birth</legend>
+            <div id="date-of-birth-hint" class="govuk-hint">For example, 27 3 2026</div>
+            <div class="govuk-date-input" id="date-of-birth">
+              <div class="govuk-date-input__item">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-day">Day</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-of-birth-day" name="dateOfBirthDay" type="text" inputmode="numeric" autocomplete="bday-day">
+              </div>
+              <div class="govuk-date-input__item">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-month">Month</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-of-birth-month" name="dateOfBirthMonth" type="text" inputmode="numeric" autocomplete="bday-month">
+              </div>
+              <div class="govuk-date-input__item">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-year">Year</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-of-birth-year" name="dateOfBirthYear" type="text" inputmode="numeric" autocomplete="bday-year">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="sex-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Sex</legend>
+            <div id="sex-hint" class="govuk-hint">Select one option</div>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sex-male" name="sex" type="radio" value="Male">
+                <label class="govuk-label govuk-radios__label" for="sex-male">Male</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sex-female" name="sex" type="radio" value="Female">
+                <label class="govuk-label govuk-radios__label" for="sex-female">Female</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sex-unknown" name="sex" type="radio" value="Unknown">
+                <label class="govuk-label govuk-radios__label" for="sex-unknown">Unknown</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="upn">Unique pupil number (Optional)</label>
+          <input class="govuk-input" id="upn" name="upn" type="text">
+        </div>
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -56,8 +56,12 @@
             <label for="SelectedWhatToChange-2" class="govuk-label govuk-radios__label">Include a pupil in data</label>
             </div>
 
-            <div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedWhatToChange-3" name="SelectedWhatToChange" type="radio" value="Remove">
-            <label for="SelectedWhatToChange-3" class="govuk-label govuk-radios__label">Remove a pupil from data</label>
+            <div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedWhatToChange-4" name="SelectedWhatToChange" type="radio" value="Remove">
+            <label for="SelectedWhatToChange-4" class="govuk-label govuk-radios__label">Remove a pupil from data</label>
+            </div>
+
+            <div class="govuk-radios__item"><input class="govuk-radios__input" id="SelectedWhatToChange-3" name="SelectedWhatToChange" type="radio" value="Add">
+            <label for="SelectedWhatToChange-3" class="govuk-label govuk-radios__label">Add new pupil</label>
             </div>
 
         </div>
@@ -75,6 +79,7 @@ var form = document.getElementById('whatToChangeForm');
 var pageMap = {
   Merge: 'merge-pupil.html',
   Include: 'include-pupil.html',
+  Add: 'add-pupil.html',
   Remove: 'remove-pupil.html'
 };
 
