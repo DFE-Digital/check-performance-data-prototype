@@ -1,0 +1,126 @@
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
+
+{% set pageName = "Add pupil details" %}
+{% set currentPage = "pupils" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+    <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+  </p>
+</div>
+<div class="govuk-width-container govuk-grid-row">
+  <div class="backbuttonstyle">
+    <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">
+          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div class="signoutstyle">
+    <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
+  </div>
+</div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Add a pupil</span>
+      <h1 class="govuk-heading-l">Provide details of the pupil to be added</h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">First name</dt>
+          <dd class="govuk-summary-list__value">{{ data.firstName or "Billy" }}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Last name</dt>
+          <dd class="govuk-summary-list__value">{{ data.lastName or "B" }}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Date of birth</dt>
+          <dd class="govuk-summary-list__value">{{ data.dateOfBirthDay or "27" }}/{{ data.dateOfBirthMonth or "07" }}/{{ data.dateOfBirthYear or "2018" }}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Sex</dt>
+          <dd class="govuk-summary-list__value">{{ data.sex or "Male" }}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Unique pupil number</dt>
+          <dd class="govuk-summary-list__value">{{ data.upn or "S2024" }}</dd>
+        </div>
+      </dl>
+
+      <form method="post" action="remove-provide-evidence-add-pupil" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="admission-date-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Admission date</legend>
+            <div id="admission-date-hint" class="govuk-hint">For example, 27 3 2026</div>
+            <div class="govuk-date-input" id="admission-date">
+              <div class="govuk-date-input__item">
+                <label class="govuk-label govuk-date-input__label" for="admission-date-day">Day</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="admission-date-day" name="admissionDateDay" type="text" inputmode="numeric">
+              </div>
+              <div class="govuk-date-input__item">
+                <label class="govuk-label govuk-date-input__label" for="admission-date-month">Month</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="admission-date-month" name="admissionDateMonth" type="text" inputmode="numeric">
+              </div>
+              <div class="govuk-date-input__item">
+                <label class="govuk-label govuk-date-input__label" for="admission-date-year">Year</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="admission-date-year" name="admissionDateYear" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="year-group">Year group</label>
+          <select class="govuk-select" id="year-group" name="yearGroup">
+            <option value=""></option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11" selected>11</option>
+          </select>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="sen-status-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Special educational needs (SEN) status</legend>
+            <div id="sen-status-hint" class="govuk-hint">Select one option</div>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sen-support" name="senStatus" type="radio" value="SEN support">
+                <label class="govuk-label govuk-radios__label" for="sen-support">SEN support</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="ehc-plan" name="senStatus" type="radio" value="Education, Health and Care (EHC) plan">
+                <label class="govuk-label govuk-radios__label" for="ehc-plan">Education, Health and Care (EHC) plan</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no-identified-sen" name="senStatus" type="radio" value="No identified SEN">
+                <label class="govuk-label govuk-radios__label" for="no-identified-sen">No identified SEN</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -351,6 +351,36 @@
   z-index: 101;
 }
 /* added from 14th september 2026 by praveen*/
+.app-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-header__container .govuk-header__logo {
+    float: none;
+    width: auto;
+    padding-right: 0;
+}
+a.white {
+    color: #fff;
+    text-decoration: none;
+}
+a.white:focus {
+    color: #0b0c0c;
+    text-decoration: none;
+}
+.app-header__account-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app-header__account-link {
+    display: inline-block;
+    color: #fff;
+}
+
 .signoutstyle {
     max-width: 960px;
     margin: auto;
