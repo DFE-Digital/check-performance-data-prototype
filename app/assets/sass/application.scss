@@ -362,6 +362,9 @@
     width: auto;
     padding-right: 0;
 }
+.govuk-header__logotype:last-child {
+    height: 30px;
+}
 a.white {
     color: #fff;
     text-decoration: none;
