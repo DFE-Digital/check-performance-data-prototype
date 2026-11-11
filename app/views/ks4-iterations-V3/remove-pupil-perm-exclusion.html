@@ -1,7 +1,7 @@
 {% extends "ks4-iterations-v3/main-after-login.html" %}
 
 {% set pageName = "CYPMD help and support" %}
-{% set currentPage = "pupil" %}
+{% set currentPage = "pupils" %}
 
 {% block beforeContent %}
 <div class="govuk-phase-banner govuk-width-container">
@@ -20,6 +20,7 @@
 {% block content %}
 
 <form method="post" action="remove-provide-evidence-perm-exclusion" novalidate="" id="removalReasonDetailsForm">
+  <h1 class="govuk-heading-xl">Tell us about the permanent exclusion</h1></br>
   <input name="__RequestVerificationToken" type="hidden" value="">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h2 class="govuk-fieldset__heading">
