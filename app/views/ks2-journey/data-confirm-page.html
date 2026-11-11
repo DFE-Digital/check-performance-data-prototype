@@ -1,0 +1,67 @@
+{% extends "ks2-journey/main-after-login.html" %}
+
+{% set pageName = "CYPMD help and support" %}
+{% set currentPage = "pupils" %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+ {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }} 
+{% endblock %}
+
+{% block content %}
+
+
+<form method="post" action="data-check-confirmation" novalidate="" id="whatToChangeForm">
+  <input name="__RequestVerificationToken" type="hidden" value="">
+    <fieldset class="govuk-fieldset" aria-describedby="SelectedWhatToChange-hint"><legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+           <h1 class="govuk-fieldset__heading">You can still request further amendments until 5pm on Friday 25 September</h1></legend>
+         <p></p>
+
+        <button type="submit" class="govuk-button govuk-!-margin-top-5" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+
+      </fieldset>
+    </div>
+</form>
+
+<script>
+(function () {
+var form = document.getElementById('whatToChangeForm');
+
+var pageMap = {
+  Merge: 'merge-pupil.html',
+  Include: 'include-pupil.html',
+  Add: 'add-pupil.html',
+  Remove: 'remove-pupil.html'
+};
+
+form.addEventListener('submit', function (e) {
+  var selected = form.querySelector('input[name="SelectedWhatToChange"]:checked');
+
+  if (!selected) {
+    // No option chosen - let the normal form submission happen
+    // so any server-side / GOV.UK error summary validation kicks in.
+    return;
+  }
+
+  var target = pageMap[selected.value];
+
+  if (target) {
+    e.preventDefault();
+    window.location.href = target;
+  }
+});
+})();
+</script>
+
+     
+  
+{% endblock %}

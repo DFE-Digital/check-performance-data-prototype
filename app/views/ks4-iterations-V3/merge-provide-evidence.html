@@ -1,4 +1,4 @@
-{% extends "ks4-iterations-tactical/main-after-login.html" %}
+{% extends "ks4-iterations-v3/main-after-login.html" %}
 
 {% set pageName = "CYPMD help and support" %}
 {% set currentPage = "pupil" %}
@@ -10,25 +10,7 @@
         <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
     </p>
     </div>
-<!-- Breadcrumb nav -->
- <div class="govuk-width-container govuk-grid-row">
-    <div class="backbuttonstyle">
-    <!--<div class="govuk-grid-row">-->
-      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
-        <ol class="govuk-breadcrumbs__list">
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item" aria-current="page">
-          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
-          </li>
-        </ol>
-        </nav> 
-      </div>
-      <div class="signoutstyle">
-        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
-    </div>
-  </div>
+
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -42,7 +24,7 @@
   <main class="govuk-main-wrapper govuk-!-padding-top-0" id="main-content" role="main">
           
     <p class="govuk-caption-l cpb-subtitle">Merge duplicate pupil records</p> 
-    <h1 class="govuk-heading-xl">Provide evidence for merging duplicate records for Billy B (optional)</h1>
+    <h1 class="govuk-heading-xl">Provide evidence for merging duplicate records for Billy B</h1>
 
 <details class="govuk-details" open>
 <summary class="govuk-details__summary">
@@ -68,7 +50,7 @@
 
 <h2 class="govuk-heading-m">Upload files (optional)</h2>
 
-<p class="govuk-body" id="fileUpload-hint">Evidence must be in a PDF format and no more than 6 pages (either as 1 or multiple files).</p>
+<p class="govuk-body" id="fileUpload-hint">Evidence must be provided in a PDF format (either as 1 or multiple files). We will only review the first 6 pages.</p>
 
 <table class="govuk-table govuk-!-margin-bottom-6">
 <thead class="govuk-table__head">
@@ -98,7 +80,7 @@
 
 
 <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="1000" data-govuk-character-count-init="">
-<label class="govuk-label govuk-label--m" for="q_how_evidence_supports">If the records are not similar, please provide supporting explanation (Optional)</label>
+<label class="govuk-label govuk-label--m" for="q_how_evidence_supports">If the records are not similar, please provide supporting explanation (optional)</label>
 <textarea class="govuk-textarea govuk-js-character-count" id="q_how_evidence_supports" name="q_how_evidence_supports" rows="5" aria-describedby="q_how_evidence_supports-info"></textarea><div id="q_how_evidence_supports-info" class="govuk-hint govuk-character-count__message govuk-visually-hidden">
   You can enter up to 500 characters
 </div><div class="govuk-hint govuk-character-count__message govuk-character-count__status" aria-hidden="true">You have 500 characters remaining</div><div class="govuk-character-count__sr-status govuk-visually-hidden" aria-live="polite">You have 1,000 characters remaining</div>

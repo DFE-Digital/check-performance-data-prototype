@@ -17,36 +17,36 @@
       <nav class="app-header__account" aria-label="Account">
         <ul class="app-header__account-list">
           <li class="app-header__account-item">
-            <a class="govuk-header__link app-header__account-link white" href="/Account/DfeSignOut">Sign out</a>
+            <a class="govuk-header__link app-header__account-link white" href="/ks4-iterations-tactical/start">Sign out</a>
           </li>
         </ul>
       </nav>
   </div>
 </header>
   {{ govukServiceNavigation({
-    serviceName: "",
-    serviceUrl: "/ks4-iterations-tactical/start", 
+    serviceName: "Check your performance measures data",
+    serviceUrl: "/ks4-iterations-V3/start", 
     navigation: [
       {
-        href: "/ks4-iterations-tactical/landing",
+        href: "/ks4-iterations-V3/landing",
         text: "Home",
         current: (currentPage == "home"),
         target: "_blank"
       },
       {
-        href: "/ks4-iterations-tactical/check-data",
+        href: "/ks4-iterations-V3/check-data",
         text: "Pupils",
         current: (currentPage == "pupils"),
         target: "_blank"
       },
       {
-        href: "/ks4-iterations-tactical/amendment-request",
+        href: "/ks4-iterations-V3/amendment-request",
         text: "Amendment requests",
         current: (currentPage == "amendments"),
         target: "_blank"
       },
       {
-        href: "/ks4-iterations-tactical/guidance",
+        href: "/ks4-iterations-V3/guidance",
         text: "Guidance (opens in new tab)",
         current: (currentPage == "guidance"),
         target: "_blank"

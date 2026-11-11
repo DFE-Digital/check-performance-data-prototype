@@ -1,0 +1,390 @@
+{% extends "ks2-journey/main-after-login.html" %}
+
+{% set pageName = "Check your pupil data" %}
+{% set currentPage = "pupils" %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service - your <a href="feedback">feedback</a> will help us improve it.</span>
+    </p>
+    </div>
+<!-- Breadcrumb nav -->
+
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Style to make the locked radios visually identical to a normal radio, but not interactive -->
+<style>
+        /* Visually identical to a normal radio, but not interactive */
+        .govuk-radios__item--locked {
+                pointer-events: none;
+        }
+</style>
+
+<h1 class="govuk-heading-xl">Check your pupil data</h1>
+
+<p class="govuk-body">
+        Review your pupil data by checking the table below. You can also download the data as a CSV file. You must request any amendments to pupil data before 5pm on Friday 25 September 2026.
+</p>
+<p class="govuk-body"><a href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a/download/all">Download all CSV files as a ZIP file</a></p>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+<form method="post" action="" novalidate="" id="pupilSearchForm">
+        <input name="__RequestVerificationToken" type="hidden" value="">
+        <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="SelectedNextStep-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                What would you like to do?
+                        </legend>
+                        <div id="SelectedNextStep-hint" class="govuk-hint">
+                                Select one option
+                        </div>
+                        <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+                                <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="SelectedNextStep" name="SelectedNextStep"
+                                                type="radio" value="RequestChange">
+                                        <label for="SelectedNextStep" class="govuk-label govuk-radios__label">Request an
+                                                amendment to pupil data</label>
+                                </div>
+                                <div class="govuk-radios__divider">or</div>
+                                <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="SelectedNextStep-2"
+                                                name="SelectedNextStep" type="radio" value="Confirm">
+                                        <label for="SelectedNextStep-2" class="govuk-label govuk-radios__label">Confirm
+                                                pupil data is correct</label>
+                                </div>
+                        </div>
+                </fieldset>
+        </div>
+        <button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Continue</button>
+</form>
+<div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">Contents</h2>
+        <ul class="govuk-tabs__list" role="tablist">
+                <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                        <a class="govuk-tabs__tab" href="#summary" id="tab_summary" role="tab"
+                                aria-controls="summary" aria-selected="true" tabindex="0">School summary</a>
+                </li>
+                <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#tab_nonIncluded" id="tab_nonIncluded" role="tab"
+                                aria-controls="nonIncluded" aria-selected="false" tabindex="-1">Pupils</a>
+                </li>
+        </ul>
+
+        <div class="govuk-tabs__panel" id="summary" role="tabpanel" aria-labelledby="tab_summary">
+                <h2 class="govuk-heading-l">School summary</h2>
+                <p class="govuk-body">Download <a href="#">school summary</a> as a CSV file.</p>
+                <div class="pupil-search">
+                        <form method="get" action="" novalidate="" id="">
+                                <input type="hidden" name="nonIncludedPage" value="0">
+                                <input type="hidden" name="nonIncludedSearch">
+                                <input type="hidden" name="activeTab" value="included">
+                                <div class="govuk-form-group">
+                                        <label class="govuk-label" for="includedSearch">
+                                                Search
+                                        </label>
+                                        <div class="pupil-search__row">
+                                                <input class="govuk-input" id="includedSearch" name="includedSearch"
+                                                        type="text">
+                                                <button class="govuk-button" data-module="govuk-button"
+                                                        data-govuk-button-init="">Search</button>
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+
+                <div class="moj-scrollable-pane" role="region" tabindex="0" aria-label="Pupil included">
+                        <table class="govuk-table">
+                                <tbody class="govuk-table__body">
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">DfE establishment number</th>
+                                                <td class="govuk-table__cell">8412009</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">URN</th>
+                                                <td class="govuk-table__cell">1000000</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TELIG</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">BELIG</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">PBELIG</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">PGELIG</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TKS1AVERAGE</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TKS1GROUP</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">_M PTKS1GROUP_M</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TKS1GROUP_H</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">PTKS1GROUP_H</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TMOBN</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">PTMOBN</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TEALGRP2</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">PTEALGRP2</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TSENELE</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">TSENELE</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <th scope="row" class="govuk-table__header">PSENELE</th>
+                                                <td class="govuk-table__cell">0</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                </div>
+
+                <nav class="govuk-pagination">
+                <ul class="govuk-pagination__list">
+                <li class="govuk-pagination__item govuk-pagination__item--current"><a
+                                class="govuk-link govuk-pagination__link"
+                                href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=0&amp;nonIncludedPage=0&amp;activeTab=included#included"
+                                aria-current="page">1</a></li>
+                <li class="govuk-pagination__item"><a class="govuk-link govuk-pagination__link"
+                                href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=1&amp;nonIncludedPage=0&amp;activeTab=included#included">2</a>
+                </li>
+                </ul>
+                <div class="govuk-pagination__next"><a class="govuk-link govuk-pagination__link"
+                href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a?includedPage=1&amp;nonIncludedPage=0&amp;activeTab=included#included"
+                rel="next"><span class="govuk-pagination__link-title">Next<span
+                                class="govuk-visually-hidden"> page</span></span><svg
+                        class="govuk-pagination__icon govuk-pagination__icon--next"
+                        xmlns="http://www.w3.org/2000/svg" height="13" width="15"
+                        aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                        <path
+                                d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+                        </path>
+                </svg></a></div>
+                </nav>
+        </div>     
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab_nonIncluded" role="tabpanel"
+                aria-labelledby="tab_nonIncluded">
+
+                <h2 class="govuk-heading-l">Pupils</h2>
+                <p class="govuk-body">Download <a href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a/download/non-included">pupils</a> data as a CSV file.</p>
+                <div class="pupil-search">
+                        <form method="get" action="" novalidate="" id="">
+                                <input type="hidden" name="nonIncludedPage" value="0">
+                                <input type="hidden" name="nonIncludedSearch">
+                                <input type="hidden" name="activeTab" value="included">
+                                <div class="govuk-form-group">
+                                        <label class="govuk-label" for="includedSearch">
+                                                Search for a pupil
+                                        </label>
+                                        <div class="pupil-search__row">
+                                                <input class="govuk-input" id="includedSearch" name="includedSearch"
+                                                        type="text">
+                                                <button class="govuk-button" data-module="govuk-button"
+                                                        data-govuk-button-init="">Search</button>
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+                <div class="moj-scrollable-pane" role="region" tabindex="0" aria-label="Pupil non-included">
+                        <table class="govuk-table">
+                                <thead class="govuk-table__head">
+                                        <tr class="govuk-table__row">
+                                                <th class="govuk-table__header" scope="col">Last name</th>
+                                                <th class="govuk-table__header" scope="col">First name</th>
+                                                <th class="govuk-table__header" scope="col">Sex</th>
+                                                <th class="govuk-table__header" scope="col">Date of birth</th>
+                                                <th class="govuk-table__header" scope="col">Age</th>
+                                                <th class="govuk-table__header" scope="col">UPN</th>
+                                        </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Davies</td>
+                                                <td class="govuk-table__cell">Kevin</td>
+                                                <td class="govuk-table__cell">M</td>
+                                                <td class="govuk-table__cell">1 January 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">W1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Evans</td>
+                                                <td class="govuk-table__cell">Laura</td>
+                                                <td class="govuk-table__cell">F</td>
+                                                <td class="govuk-table__cell">2 February 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">T1091301</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Harris</td>
+                                                <td class="govuk-table__cell">Edward</td>
+                                                <td class="govuk-table__cell">M</td>
+                                                <td class="govuk-table__cell">15 March 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">F1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Jackson</td>
+                                                <td class="govuk-table__cell">Diana</td>
+                                                <td class="govuk-table__cell">F</td>
+                                                <td class="govuk-table__cell">14 February 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">I1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Johnson</td>
+                                                <td class="govuk-table__cell">Paula</td>
+                                                <td class="govuk-table__cell">F</td>
+                                                <td class="govuk-table__cell">6 June 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">O1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Lewis</td>
+                                                <td class="govuk-table__cell">Quinn</td>
+                                                <td class="govuk-table__cell">M</td>
+                                                <td class="govuk-table__cell">7 July 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">A1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Roberts</td>
+                                                <td class="govuk-table__cell">Oscar</td>
+                                                <td class="govuk-table__cell">M</td>
+                                                <td class="govuk-table__cell">5 May 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">B1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Robinson</td>
+                                                <td class="govuk-table__cell">Steven</td>
+                                                <td class="govuk-table__cell">M</td>
+                                                <td class="govuk-table__cell">9 September 2010</td>
+                                                <td class="govuk-table__cell">15</td>
+                                                <td class="govuk-table__cell">C1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Thomas</td>
+                                                <td class="govuk-table__cell">Nina</td>
+                                                <td class="govuk-table__cell">F</td>
+                                                <td class="govuk-table__cell">4 April 2010</td>
+                                                <td class="govuk-table__cell">16</td>
+                                                <td class="govuk-table__cell">D1091302</td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell">Thompson</td>
+                                                <td class="govuk-table__cell">Alice</td>
+                                                <td class="govuk-table__cell">M</td>
+                                                <td class="govuk-table__cell">11 November 2010</td>
+                                                <td class="govuk-table__cell">15</td>
+                                                <td class="govuk-table__cell">E1091302</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+
+                </div>
+
+
+                <nav class="govuk-pagination">
+                        <ul class="govuk-pagination__list">
+                                <li class="govuk-pagination__item govuk-pagination__item--current">
+                                        <a class="govuk-link govuk-pagination__link" href="#" aria-current="page">1</a>
+                                </li>
+                                <li class="govuk-pagination__item">
+                                        <a class="govuk-link govuk-pagination__link" href="#">2</a>
+                                </li>
+
+                        </ul>
+                        <div class="govuk-pagination__next"><a class="govuk-link govuk-pagination__link" href="#"
+                                        rel="next"><span class="govuk-pagination__link-title">Next<span
+                                                        class="govuk-visually-hidden"> page</span></span>
+
+                                        <svg class="govuk-pagination__icon govuk-pagination__icon--next"
+                                                xmlns="http://www.w3.org/2000/svg" height="13" width="15"
+                                                aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                                                <path
+                                                        d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+                                                </path>
+                                        </svg>
+                                </a>
+                        </div>
+                </nav>
+
+        </div>
+</div>
+
+
+
+<script>
+        (function () {
+                var form = document.getElementById('pupilSearchForm');
+
+                var pageMap = {
+                        RequestChange: 'remove-pupil.html',
+                        Confirm: 'data-confirm-page.html',
+                        //Remove: 'remove-pupil.html'
+                };
+
+                form.addEventListener('submit', function (e) {
+                        var selected = form.querySelector('input[name="SelectedNextStep"]:checked');
+
+                        if (!selected) {
+                                // No option chosen - let the normal form submission happen
+                                // so any server-side / GOV.UK error summary validation kicks in.
+                                return;
+                        }
+
+                        var target = pageMap[selected.value];
+
+                        if (target) {
+                                e.preventDefault();
+                                window.location.href = target;
+                        }
+                });
+        })();
+</script>
+
+
+{% endblock %}

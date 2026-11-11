@@ -1,4 +1,4 @@
-{% extends "ks4-iterations-tactical/main-after-login.html" %}
+{% extends "ks4-iterations-v3/main-after-login.html" %}
 
 {% set pageName = "CYPMD help and support" %}
 {% set currentPage = "pupil" %}
@@ -11,24 +11,6 @@
     </p>
     </div>
 <!-- Breadcrumb nav -->
- <div class="govuk-width-container govuk-grid-row">
-    <div class="backbuttonstyle">
-    <!--<div class="govuk-grid-row">-->
-      <nav class="govuk-breadcrumbs cpb-breadcrumbs" aria-label="Breadcrumb">
-        <ol class="govuk-breadcrumbs__list">
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/landing">Home</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item" aria-current="page">
-          <a class="govuk-breadcrumbs__link" href="/ks4-iterations-tactical/check-data">Check your pupil data</a>
-          </li>
-        </ol>
-        </nav> 
-      </div>
-      <div class="signoutstyle">
-        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
-    </div>
-  </div>
  {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
