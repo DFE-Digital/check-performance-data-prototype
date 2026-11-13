@@ -1,5 +1,5 @@
 {
-  "serviceName": "CYPMD Private Beta",
+  "serviceName": "Check your performance measures data",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {

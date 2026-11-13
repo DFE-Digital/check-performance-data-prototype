@@ -14,7 +14,17 @@
   }) }}
   {{ govukServiceNavigation({
     serviceName: serviceName,
-    serviceUrl: "#"
+    serviceUrl: "#",
+    
+navigation: [
+      {
+        href: "/ks4-iterations-V3/guidance",
+        text: "Guidance (opens in new tab)",
+        current: (currentPage == "guidance"),
+        target: "_blank"
+      }
+      ]
+
   }) }}
 {% endblock %}
 
