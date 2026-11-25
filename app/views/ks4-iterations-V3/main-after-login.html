@@ -1,7 +1,7 @@
 {#
   For guidance on how to use layouts see:
   https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
-#} 
+#}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
@@ -25,28 +25,28 @@
 </header>
   {{ govukServiceNavigation({
     serviceName: "Check your performance measures data",
-    serviceUrl: "/ks4-iterations-V3/start", 
+    serviceUrl: "/ks2-journey/start", 
     navigation: [
       {
-        href: "/ks4-iterations-V3/landing",
+        href: "/ks2-journey/landing",
         text: "Home",
         current: (currentPage == "home"),
         target: "_blank"
       },
       {
-        href: "/ks4-iterations-V3/check-data",
+        href: "/ks2-journey/check-data",
         text: "Pupils",
         current: (currentPage == "pupils"),
         target: "_blank"
       },
       {
-        href: "/ks4-iterations-V3/amendment-request",
+        href: "/ks2-journey/amendment-request",
         text: "Amendment requests",
         current: (currentPage == "amendments"),
         target: "_blank"
       },
       {
-        href: "/ks4-iterations-V3/guidance",
+        href: "/ks2-journey/guidance",
         text: "Guidance (opens in new tab)",
         current: (currentPage == "guidance"),
         target: "_blank"
