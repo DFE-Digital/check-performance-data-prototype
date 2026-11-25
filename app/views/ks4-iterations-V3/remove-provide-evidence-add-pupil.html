@@ -1,4 +1,4 @@
-{% extends "layouts/main-after-login.html" %}
+{% extends "ks4-iterations-v3/main-after-login.html" %}
 
 {% set pageName = "CYPMD help and support" %}
 {% set currentPage = "pupils" %}
@@ -22,7 +22,7 @@
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper govuk-!-padding-top-0" id="main-content" role="main">
           
-  <p class="govuk-caption-l cpb-subtitle">Add new pupil</p> 
+  <p class="govuk-caption-l cpb-subtitle">Add a pupil to data</p> 
   <h1 class="govuk-heading-xl">Provide evidence for the removal of Billy B</h1>
 
 <details class="govuk-details" open>
@@ -35,10 +35,38 @@
 
 <div class="content-block content-block--content" id="block-journey-f34d285b-8660-4d12-9c30-787328deaa0a-merge-evidence">
 <div class="govuk-body">
-  <p class="govuk-body">
-    Evidence content place holder</p>
-     <a class="govuk-link" href="guidance-ks4#child-missing-education" target="_blank">
-            Read full guidance on removing a pupil (opens in new tab)</a>
+  <p class="govuk-body">We can only add a pupil to your school if you provide all of the following information in your evidence:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>First name</li>
+      <li>Last name</li>
+      <li>Date of birth</li>
+      <li>Sex</li>
+      <li>Unique Pupil Number (optional)</li>
+      <li>Admission date</li>
+      <li>Special educational needs (SEN) status</li>
+      <li>Year group</li>
+      <li>An explanation of why the pupil should be included in your school’s performance measures data</li>
+    </ul>
+    <p class="govuk-body"><b>Additional evidence</b></p>
+    
+    <p class="govuk-body">You can also include any other supporting information that you think could be useful.</p>
+     <p class="govuk-body">This might be information like:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>education history before arriving in England</li>
+      <li>education history since arriving (names and dates of schools)</li>
+      <li>immigration or resettlement documents (for example, Afghan Citizens Resettlement Scheme)</li>
+    </ul> 
+    <p class="govuk-body"><b>When to request an addition  </b></p>
+    <p class="govuk-body">Only request to add a pupil if they:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>are not already listed</li>
+      <li>are at the end of KS4 (year 11)</li>
+      <li>sat exams this year</li>
+      <li>are a pupil you want your school to be accountable for in this year’s published performance measures</li>
+    </ul>
+    <p>All evidence must meet the criteria set out in our guidance.</p>
+     <a class="govuk-link" href="guidance-ks4#add-unlisted-pupil-heading" target="_blank">
+            Read full guidance on adding a pupil to data (opens in new tab)</a>
 </div>
 </details>
 
@@ -47,7 +75,7 @@
 <input type="hidden" name="fromSummary" value="false">
 
 
-<h2 class="govuk-heading-m">Upload files</h2>
+<h2 class="govuk-heading-m">Upload files (optional)</h2>
 
 <p class="govuk-body" id="fileUpload-hint">Evidence must be provided in a PDF format (either as 1 or multiple files). We will only review the first 6 pages.</p>
 
@@ -67,7 +95,7 @@
 
 
 <div class="govuk-form-group ">
-<label class="govuk-label" for="fileUpload">Upload a file (optional)</label>
+<label class="govuk-label" for="fileUpload">Upload a file </label>
 <input class="govuk-file-upload " id="fileUpload" name="fileUpload" type="file" accept=".pdf,application/pdf" aria-describedby="fileUpload-hint" data-existing-file-names="[]">
 </div>
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/Journey/f34d285b-8660-4d12-9c30-787328deaa0a/page/evidence/question/evidence/upload?fromSummary=False" formnovalidate="formnovalidate" data-govuk-button-init="">Upload file</button>
