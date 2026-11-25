@@ -8,48 +8,27 @@
 
 {% block header %}
 
+  {{ govukHeader({
+    homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+  }) }}
   {{ govukServiceNavigation({
-    serviceName: "Check your performance measures data",
-    serviceUrl: "/ks4-iterations-V3/start", 
-    navigation: [
-      {
-        href: "/ks4-iterations-V3/landing",
-        text: "Home",
-        current: (currentPage == "home"),
-        target: "_blank"
-      },
-      {
-        href: "/ks4-iterations-V3/check-data",
-        text: "Pupils",
-        current: (currentPage == "pupils"),
-        target: "_blank"
-      },
-      {
-        href: "/ks4-iterations-V3/amendment-request",
-        text: "Amendment requests",
-        current: (currentPage == "amendments"),
-        target: "_blank"
-      },
+    serviceName: serviceName,
+    serviceUrl: "#",
+    
+navigation: [
       {
         href: "/ks4-iterations-V3/guidance",
         text: "Guidance (opens in new tab)",
         current: (currentPage == "guidance"),
         target: "_blank"
       }
-    ]
+      ]
+
   }) }}
-
 {% endblock %}
 
-{% block beforeContent %}
-<!-- {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }} -->
-{% endblock %}
-
-<!-- 
 {% block scripts %}
     {{ super() }}
     <script src="/assets/js/dfefrontend.min.js"></script>
-{% endblock %} -->
+{% endblock %} 
