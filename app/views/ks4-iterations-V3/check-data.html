@@ -1,4 +1,4 @@
-{% extends "ks4-iterations-tactical/main-after-login.html" %}
+{% extends "ks4-iterations-v3/main-after-login.html" %}
 
 {% set pageName = "Check your pupil data" %}
 {% set currentPage = "pupils" %}
@@ -39,10 +39,43 @@ href: "javascript:window.history.back()"
 <h1 class="govuk-heading-xl">Check your pupil data</h1>
 
 <p class="govuk-body">
-        Review your pupil data by checking the tables below. You can also download the data as a CSV file.
-        You must request any amendments to pupil data before 5pm on Monday 2 August 2027
+        Review your pupil data by checking the table below. You can also download the data as a CSV file. You must request any amendments to pupil data before 5pm on Friday 26 June 2026.
 </p>
 <p class="govuk-body"><a href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a/download/all">Download all CSV files as a ZIP file</a></p>
+<hr>
+<form method="post" action="" novalidate="" id="pupilSearchForm">
+        <input name="__RequestVerificationToken" type="hidden" value="">
+        <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="SelectedNextStep-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                What would you like to do?
+                        </legend>
+                        <div id="SelectedNextStep-hint" class="govuk-hint">
+                                Select one option
+                        </div>
+                        <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+                                <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="SelectedNextStep" name="SelectedNextStep"
+                                                type="radio" value="RequestChange">
+                                        <label for="SelectedNextStep" class="govuk-label govuk-radios__label">Request an
+                                                amendment to pupil data</label>
+                                </div>
+
+                                <div class="govuk-radios__divider">or</div>
+
+                                <div class="govuk-radios__item govuk-radios__item--locked">
+                                        <input class="govuk-radios__input" id="SelectedNextStep-2"
+                                                name="SelectedNextStep" type="radio" value="Confirm">
+                                        <label for="SelectedNextStep-2" class="govuk-label govuk-radios__label">Confirm
+                                                pupil data is correct</label>
+                                </div>
+                        </div>
+                </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button"
+                data-govuk-button-init="">Continue</button>
+</form>
 <div class="govuk-tabs" data-module="govuk-tabs">
         <h2 class="govuk-tabs__title">Contents</h2>
         <ul class="govuk-tabs__list" role="tablist">
@@ -335,39 +368,7 @@ href: "javascript:window.history.back()"
         </div>
 </div>
 
-<form method="post" action="" novalidate="" id="pupilSearchForm">
-        <input name="__RequestVerificationToken" type="hidden" value="">
-        <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="SelectedNextStep-hint">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                                What would you like to do?
-                        </legend>
-                        <div id="SelectedNextStep-hint" class="govuk-hint">
-                                Select one option
-                        </div>
-                        <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
-                                <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="SelectedNextStep" name="SelectedNextStep"
-                                                type="radio" value="RequestChange">
-                                        <label for="SelectedNextStep" class="govuk-label govuk-radios__label">Request an
-                                                amendment to pupil data</label>
-                                </div>
 
-                                <div class="govuk-radios__divider">or</div>
-
-                                <div class="govuk-radios__item govuk-radios__item--locked">
-                                        <input class="govuk-radios__input" id="SelectedNextStep-2"
-                                                name="SelectedNextStep" type="radio" value="Confirm">
-                                        <label for="SelectedNextStep-2" class="govuk-label govuk-radios__label">Confirm
-                                                pupil data is correct</label>
-                                </div>
-                        </div>
-                </fieldset>
-        </div>
-
-        <button type="submit" class="govuk-button" data-module="govuk-button"
-                data-govuk-button-init="">Continue</button>
-</form>
 
 <script>
         (function () {
