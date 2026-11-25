@@ -1,4 +1,4 @@
-{% extends "ks4-iterations-v3/main-after-login.html" %}
+{% extends "ks4-iterations-tactical/main-after-login.html" %}
 
 {% set pageName = "Check your pupil data" %}
 {% set currentPage = "pupils" %}
@@ -12,6 +12,11 @@
     </p>
     </div>
 <!-- Breadcrumb nav -->
+<div class="govuk-width-container govuk-grid-row">
+    <div class="signoutstyle">
+        <a id="signout" class="govuk-link" href="/ks4-iterations-tactical/start">Sign out</a>
+    </div>
+</div>
 
 {{ govukBackLink({
 text: "Back",
@@ -38,41 +43,12 @@ href: "javascript:window.history.back()"
         You must request any amendments to pupil data before 5pm on Monday 2 August 2027
 </p>
 <p class="govuk-body"><a href="/CheckYourPupilData/f34d285b-8660-4d12-9c30-787328deaa0a/download/all">Download all CSV files as a ZIP file</a></p>
-<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-<form method="post" action="" novalidate="" id="pupilSearchForm">
-        <input name="__RequestVerificationToken" type="hidden" value="">
-        <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="SelectedNextStep-hint">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                                What would you like to do?
-                        </legend>
-                        <div id="SelectedNextStep-hint" class="govuk-hint">
-                                Select one option
-                        </div>
-                        <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
-                                <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="SelectedNextStep" name="SelectedNextStep"
-                                                type="radio" value="RequestChange">
-                                        <label for="SelectedNextStep" class="govuk-label govuk-radios__label">Request an
-                                                amendment to pupil data</label>
-                                </div>
-                                <div class="govuk-radios__divider">or</div>
-                                <div class="govuk-radios__item govuk-radios__item--locked">
-                                        <input class="govuk-radios__input" id="SelectedNextStep-2"
-                                                name="SelectedNextStep" type="radio" value="Confirm">
-                                        <label for="SelectedNextStep-2" class="govuk-label govuk-radios__label">Confirm pupil data is correct</label>
-                                </div>
-                        </div>
-                </fieldset>
-        </div>
-        <button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">Continue</button>
-</form>
 <div class="govuk-tabs" data-module="govuk-tabs">
         <h2 class="govuk-tabs__title">Contents</h2>
         <ul class="govuk-tabs__list" role="tablist">
                 <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
                         <a class="govuk-tabs__tab" href="#included" id="tab_included" role="tab"
-                                aria-controls="included" aria-selected="true" tabindex="0">Pupils included </a>
+                                aria-controls="included" aria-selected="true" tabindex="0">pupils Included</a>
                 </li>
                 <li class="govuk-tabs__list-item" role="presentation">
                         <a class="govuk-tabs__tab" href="#tab_nonIncluded" id="tab_nonIncluded" role="tab"
@@ -121,7 +97,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Davies</td>
                                                 <td class="govuk-table__cell">Kevin</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">1 January 2010</td>
+                                                <td class="govuk-table__cell">01/01/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">H826490123451</td>
                                         </tr>
@@ -129,7 +105,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Evans</td>
                                                 <td class="govuk-table__cell">Laura</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">2 February 2010</td>
+                                                <td class="govuk-table__cell">02/02/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -137,7 +113,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Harris</td>
                                                 <td class="govuk-table__cell">Edward</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">15 March 2010</td>
+                                                <td class="govuk-table__cell">15/03/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">H826490123451</td>
                                         </tr>
@@ -145,7 +121,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Jackson</td>
                                                 <td class="govuk-table__cell">Diana</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">14 February 2010</td>
+                                                <td class="govuk-table__cell">14/02/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -153,7 +129,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Johnson</td>
                                                 <td class="govuk-table__cell">Paula</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">6 June 2010</td>
+                                                <td class="govuk-table__cell">06/06/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">F722490124451</td>
                                         </tr>
@@ -161,7 +137,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Lewis</td>
                                                 <td class="govuk-table__cell">Quinn</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">7 July 2010</td>
+                                                <td class="govuk-table__cell">07/07/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -169,7 +145,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Roberts</td>
                                                 <td class="govuk-table__cell">Oscar</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">5 May 2010</td>
+                                                <td class="govuk-table__cell">05/05/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">X622490124451</td>
                                         </tr>
@@ -177,7 +153,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Robinson</td>
                                                 <td class="govuk-table__cell">Steven</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">9 September 2010</td>
+                                                <td class="govuk-table__cell">09/09/2010</td>
                                                 <td class="govuk-table__cell">15</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -185,7 +161,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Thomas</td>
                                                 <td class="govuk-table__cell">Nina</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">4 April 2010</td>
+                                                <td class="govuk-table__cell">04/04/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">B987456789012</td>
                                         </tr>
@@ -193,7 +169,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Thompson</td>
                                                 <td class="govuk-table__cell">Alice</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">11 November 2010</td>
+                                                <td class="govuk-table__cell">11/11/2010</td>
                                                 <td class="govuk-table__cell">15</td>
                                                 <td class="govuk-table__cell">X622490124451</td>
                                         </tr>
@@ -249,7 +225,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Davies</td>
                                                 <td class="govuk-table__cell">Kevin</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">1 January 2010</td>
+                                                <td class="govuk-table__cell">01/01/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">H826490123451</td>
                                         </tr>
@@ -257,7 +233,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Evans</td>
                                                 <td class="govuk-table__cell">Laura</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">2 February 2010</td>
+                                                <td class="govuk-table__cell">02/02/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -265,7 +241,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Harris</td>
                                                 <td class="govuk-table__cell">Edward</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">15 March 2010</td>
+                                                <td class="govuk-table__cell">15/03/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">H826490123451</td>
                                         </tr>
@@ -273,7 +249,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Jackson</td>
                                                 <td class="govuk-table__cell">Diana</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">14 February 2010</td>
+                                                <td class="govuk-table__cell">14/02/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -281,7 +257,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Johnson</td>
                                                 <td class="govuk-table__cell">Paula</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">6 June 2010</td>
+                                                <td class="govuk-table__cell">06/06/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">F722490124451</td>
                                         </tr>
@@ -289,7 +265,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Lewis</td>
                                                 <td class="govuk-table__cell">Quinn</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">7 July 2010</td>
+                                                <td class="govuk-table__cell">07/07/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -297,7 +273,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Roberts</td>
                                                 <td class="govuk-table__cell">Oscar</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">5 May 2010</td>
+                                                <td class="govuk-table__cell">05/05/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">X622490124451</td>
                                         </tr>
@@ -305,7 +281,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Robinson</td>
                                                 <td class="govuk-table__cell">Steven</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">9 September 2010</td>
+                                                <td class="govuk-table__cell">09/09/2010</td>
                                                 <td class="govuk-table__cell">15</td>
                                                 <td class="govuk-table__cell">A123456789012</td>
                                         </tr>
@@ -313,7 +289,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Thomas</td>
                                                 <td class="govuk-table__cell">Nina</td>
                                                 <td class="govuk-table__cell">F</td>
-                                                <td class="govuk-table__cell">4 April 2010</td>
+                                                <td class="govuk-table__cell">04/04/2010</td>
                                                 <td class="govuk-table__cell">16</td>
                                                 <td class="govuk-table__cell">B987456789012</td>
                                         </tr>
@@ -321,7 +297,7 @@ href: "javascript:window.history.back()"
                                                 <td class="govuk-table__cell">Thompson</td>
                                                 <td class="govuk-table__cell">Alice</td>
                                                 <td class="govuk-table__cell">M</td>
-                                                <td class="govuk-table__cell">11 November 2010</td>
+                                                <td class="govuk-table__cell">11/11/2010</td>
                                                 <td class="govuk-table__cell">15</td>
                                                 <td class="govuk-table__cell">X622490124451</td>
                                         </tr>
@@ -359,7 +335,39 @@ href: "javascript:window.history.back()"
         </div>
 </div>
 
+<form method="post" action="" novalidate="" id="pupilSearchForm">
+        <input name="__RequestVerificationToken" type="hidden" value="">
+        <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="SelectedNextStep-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                What would you like to do?
+                        </legend>
+                        <div id="SelectedNextStep-hint" class="govuk-hint">
+                                Select one option
+                        </div>
+                        <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+                                <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="SelectedNextStep" name="SelectedNextStep"
+                                                type="radio" value="RequestChange">
+                                        <label for="SelectedNextStep" class="govuk-label govuk-radios__label">Request an
+                                                amendment to pupil data</label>
+                                </div>
 
+                                <div class="govuk-radios__divider">or</div>
+
+                                <div class="govuk-radios__item govuk-radios__item--locked">
+                                        <input class="govuk-radios__input" id="SelectedNextStep-2"
+                                                name="SelectedNextStep" type="radio" value="Confirm">
+                                        <label for="SelectedNextStep-2" class="govuk-label govuk-radios__label">Confirm
+                                                pupil data is correct</label>
+                                </div>
+                        </div>
+                </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button"
+                data-govuk-button-init="">Continue</button>
+</form>
 
 <script>
         (function () {
